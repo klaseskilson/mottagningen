@@ -1,0 +1,67 @@
+/*****************************************************************************************
+ * legionen.nu
+ *
+ * Är nollan eller faddern nyfiken? Ojoj!
+ */
+
+
+/*
+	RESET
+*/
+@import "reset";
+@import "mixins";
+
+// VARIABLER
+$darkred: #800000;
+
+/*
+	Typsnitt
+*/
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Vollkorn Regular'), local('Vollkorn-Regular'), url(http://themes.googleusercontent.com/static/fonts/vollkorn/v3/BCFBp4rt5gxxFrX6F12DKvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+}
+
+body {
+	background: darken($darkred, 15%);
+	font-family: 'Vollkorn', 'Georgia', serif;
+	color: #fff;
+	width: 100%;
+
+	a {
+		text-decoration: none;
+		color: darken(#fff, 10%);
+		border-bottom: 1px dotted #fff;
+
+		&:hover {
+			color: #fff;
+			border-style: solid;
+		}
+	}
+
+	h1 {
+		font-size: 300%;
+	}
+	p {
+		margin: 0 0 20px;
+		line-height: 1.5;
+	}
+	#container {
+		width: 50%;
+		margin: 10% auto;
+		padding: 30px;
+	}
+}
+
+/***************************************
+ OM NÅGON HAR EN LITEN KLEN SKÄRM
+ ***************************************/
+@media only screen and (max-width: 480px) {
+	#container {
+		width: 80% !important;
+		margin: 10% auto;
+		padding: 30px;
+	}
+}

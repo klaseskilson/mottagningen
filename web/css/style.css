@@ -1,0 +1,114 @@
+@charset "CP850";
+/*****************************************************************************************
+ * legionen.nu
+ *
+ * Är nollan eller faddern nyfiken? Ojoj!
+ */
+/*
+	RESET
+*/
+/* © reset5  2011 opensource.736cs.com MIT */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, audio, canvas, details, figcaption, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, summary, time, video {
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  margin: 0;
+  padding: 0; }
+
+body {
+  line-height: 1; }
+
+article, aside, dialog, figure, footer, header, hgroup, nav, section, blockquote {
+  display: block; }
+
+nav ul {
+  list-style: none; }
+
+ol {
+  list-style: decimal; }
+
+ul {
+  list-style: disc; }
+
+ul ul {
+  list-style: circle; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: none; }
+
+ins {
+  text-decoration: underline; }
+
+del {
+  text-decoration: line-through; }
+
+mark {
+  background: none; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted black;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input[type=submit], input[type=button], button {
+  margin: 0;
+  padding: 0; }
+
+input, select, a img {
+  vertical-align: middle; }
+
+/*
+	Typsnitt
+*/
+@font-face {
+  font-family: 'Vollkorn';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Vollkorn Regular"), local("Vollkorn-Regular"), url(http://themes.googleusercontent.com/static/fonts/vollkorn/v3/BCFBp4rt5gxxFrX6F12DKvesZW2xOQ-xsNqO47m55DA.woff) format("woff"); }
+
+body {
+  background: #340000;
+  font-family: "Vollkorn", "Georgia", serif;
+  color: #fff;
+  width: 100%; }
+  body a {
+    text-decoration: none;
+    color: #e6e6e6;
+    border-bottom: 1px dotted white; }
+    body a:hover {
+      color: #fff;
+      border-style: solid; }
+  body h1 {
+    font-size: 300%; }
+  body p {
+    margin: 0 0 20px;
+    line-height: 1.5; }
+  body #container {
+    width: 50%;
+    margin: 10% auto;
+    padding: 30px; }
+
+/***************************************
+ OM NÅGON HAR EN LITEN KLEN SKÄRM
+ ***************************************/
+@media only screen and (max-width: 480px) {
+  #container {
+    width: 80% !important;
+    margin: 10% auto;
+    padding: 30px; } }
