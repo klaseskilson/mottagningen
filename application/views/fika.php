@@ -3,7 +3,12 @@
 $names = array("Atre", "Tim", "Kristina", "Åsa", "Klas",
 		 "Linn", "Tekko", "Tenni", "Sebastian", "Johan");
 
-$week = ltrim(date("W"), '0') - 6;
+$week = ltrim(date("W"), '0');
+
+if(date("N") == 1)
+	$week -= 6;
+else
+	$week -= 5;
 
 ?>
 
