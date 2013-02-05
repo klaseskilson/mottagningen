@@ -6,7 +6,7 @@
 
 	<title>Legionen</title>
 
-	<link rel="stylesheet" href="web/css/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/web/css/style.css" type="text/css" media="screen" />
 
 </head>
 

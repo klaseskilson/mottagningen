@@ -6,14 +6,27 @@ class Sida extends CI_Controller {
 	 * Controller handeling pages
 	 */
 
-	public function index()
+	public function index($view = 'hem')
 	{
-		$this->visa();
+		$this->visa($view);
 	}
 
-	public function visa($view = 'home')
+	public function visa($view = 'hmm')
 	{
-		$this->load->view('welcome_message');
+		$data = array();
+
+		$this->load->view('templates/header', $data);
+
+		if($view == 'fika')
+		{
+			$this->load->view('fika');
+		}
+		else
+		{
+			$this->load->view('start');
+		}
+
+		$this->load->view('templates/footer', $data);
 	}
 
 }
