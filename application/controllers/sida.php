@@ -6,9 +6,9 @@ class Sida extends CI_Controller {
 	 * Controller handeling pages
 	 */
 
-	public function index($view = 'hem')
+	public function index()
 	{
-		$this->visa($view);
+		$this->visa('hem');
 	}
 
 	public function visa($view = 'hmm')
@@ -29,6 +29,19 @@ class Sida extends CI_Controller {
 		$this->load->view('templates/footer', $data);
 	}
 
+	public function cool($new = 'new')
+	{
+		$data = array();
+
+		$this->load->view('templates/new_header', $data);
+		$this->load->view($new, $data);
+		$this->load->view('templates/new_footer', $data);
+	}
+
+	public function weather($action = '')
+	{
+		$this->load->model('weather_model');
+	}
 }
 
 
