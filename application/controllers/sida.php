@@ -40,7 +40,20 @@ class Sida extends CI_Controller {
 
 	public function weather($action = '')
 	{
-		$this->load->model('weather_model');
+		$this->config->load('leg_weather');
+		$this->load->model('Weather_model');
+
+		if(!$this->Weather_model->check())
+		{
+			$collect = $this->Weather_model->collect();
+			var_dump($collect);
+			echo date('Y-m-d H:i:s');
+			$run = $this->Weather_model->update($collect['weather'], $collect['temp']);
+			echo $run;
+			echo ($run ? 'game' : 'no game' );
+
+		}
+		$this->load->view('loadtime');
 	}
 }
 
