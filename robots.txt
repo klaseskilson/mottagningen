@@ -1,4 +1,4 @@
 User-agent: *
-Dissallow: /fadder*
-Dissallow: /2011*
-Dissallow: /2012*
+Disallow: /fadder*
+Disallow: /2011*
+Disallow: /2012*
