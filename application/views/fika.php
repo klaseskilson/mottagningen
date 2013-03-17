@@ -14,7 +14,7 @@ else
 
 <div id="container">
 	<h1>Fika kanskeee.</h1>
-	<p>Vem i Legionen ska fixa fika?</p>
+	<p>Vem i Legionen ska fixa fika?</p>b
 	<p>
 		<?php echo $names[$week]; ?>, ååååååååååååååååååååååååååh <?php echo $names[$week]; ?>!
 	</p>
