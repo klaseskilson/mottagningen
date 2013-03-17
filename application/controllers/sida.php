@@ -33,6 +33,13 @@ class Sida extends CI_Controller {
 	{
 		$data = array();
 
+		// load config for weather and weather model
+		$this->config->load("leg_weather");
+		$this->load->model("Weather_model");
+
+		// skicka
+		$data['weather'] = $this->Weather_model->magic();
+
 		$this->load->view('templates/new_header', $data);
 		$this->load->view($new, $data);
 		$this->load->view('templates/new_footer', $data);
@@ -52,6 +59,11 @@ class Sida extends CI_Controller {
 			echo $run;
 			echo ($run ? 'game' : 'no game' );
 
+		}
+		else
+		{
+			$kalas = $this->Weather_model->magic();
+			var_dump($kalas);
 		}
 		$this->load->view('loadtime');
 	}
