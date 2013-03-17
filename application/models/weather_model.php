@@ -32,7 +32,7 @@ class Weather_model extends CI_Model
 			return $this->db->insert('weather', $data);
 		}
 		else
-			return 'NO';
+			return false;
 	}
 
 	function collect($area = 'Sweden/Östergötland/Norrköping')
@@ -49,5 +49,31 @@ class Weather_model extends CI_Model
 		}
 		else
 			return false;
+	}
+
+	function collectcache()
+	{
+		$this->db->select("temp, weather");
+		$this->db->order_by("weatherid", "desc");
+		$this->db->limit(1);
+
+		$query = $this->db->get("weather");
+		$result = $query->result_array();
+
+		return $result[0];
+	}
+
+	function magic()
+	{
+		if(!$this->check())
+		{
+			$magic = $this->collect();
+			$this->update($magic['weather'], $magic['temp']);
+		}
+		else
+		{
+			$magic = $this->collectcache();
+		}
+		return $magic;
 	}
 }
