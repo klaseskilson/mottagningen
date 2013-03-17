@@ -1,4 +1,8 @@
-// _mixins.scss
+// _mixins.scss - Useful SASS mixins
+//
+// Created by Klas Eskilson (http://klaseskilson.se)
+//
+// Use, modify, do what the fuck you want with it. Released under the WTFPL license. (http://www.wtfpl.net/)
 
 @mixin rounded($vert, $horz, $radius: 10px) {
   border-#{$vert}-#{$horz}-radius: $radius;
@@ -20,12 +24,6 @@
 	height: 0;
 	clear: both;
 	visibility: hidden;
-}
-
-@mixin oratorfont {
-	font-family: OratorStdMedium, "Orator Std", "Trebuchet MS", "Lucida Grande", sans-serif;
-	text-transform: uppercase;
-	font-weight: normal;
 }
 
 @mixin radius($radius: 5px) {
