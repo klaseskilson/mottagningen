@@ -24,7 +24,7 @@ class Weather_model extends CI_Model
 	function update($weather, $temp)
 	{
 		$data = array(
-					'weather' 	=> trim($weather),
+					'weather' 	=> strreplace(" ", "", trim($weather)),
 					'temp' 		=> trim($temp)
 				);
 		if(!empty($data['weather']))
@@ -53,7 +53,7 @@ class Weather_model extends CI_Model
 
 	function collectcache()
 	{
-		$this->db->select("temp, weather");
+		$this->db->select("temp, weather, cachedate");
 		$this->db->order_by("weatherid", "desc");
 		$this->db->limit(1);
 
