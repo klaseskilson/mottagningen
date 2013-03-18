@@ -24,7 +24,7 @@ class Weather_model extends CI_Model
 	function update($weather, $temp)
 	{
 		$data = array(
-					'weather' 	=> strreplace(" ", "", trim($weather)),
+					'weather' 	=> str_replace(" ", "", trim($weather)),
 					'temp' 		=> trim($temp)
 				);
 		if(!empty($data['weather']))
