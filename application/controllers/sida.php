@@ -44,29 +44,6 @@ class Sida extends CI_Controller {
 		$this->load->view($new, $data);
 		$this->load->view('templates/new_footer', $data);
 	}
-
-	public function weather($action = '')
-	{
-		$this->config->load('leg_weather');
-		$this->load->model('Weather_model');
-
-		if(!$this->Weather_model->check())
-		{
-			$collect = $this->Weather_model->collect();
-			var_dump($collect);
-			echo date('Y-m-d H:i:s');
-			$run = $this->Weather_model->update($collect['weather'], $collect['temp']);
-			echo $run;
-			echo ($run ? 'game' : 'no game' );
-
-		}
-		else
-		{
-			$kalas = $this->Weather_model->magic();
-			var_dump($kalas);
-		}
-		$this->load->view('loadtime');
-	}
 }
 
 

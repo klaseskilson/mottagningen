@@ -33,5 +33,7 @@ class Ctrl extends CI_Controller
 		else{
 			show_404();
 		}
+
+		$this->load->view("loadtime");
 	}
 }
