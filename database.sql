@@ -20,7 +20,6 @@ CREATE TABLE IF NOT EXISTS `13_users` (
 	`password` CHAR(130) NOT NULL,
 	`active` BOOL default 0,
 	`hash` CHAR(100) NOT NULL,
-	`udate` DATE,
 	PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
