@@ -8,6 +8,7 @@ class Admin extends CI_controller
 		// Call the controller constructor
 		parent::__construct();
 
+		// logged in?
 		if(!$this->login->is_admin() && $this->uri->segment(2) != "login")
 		{
 			redirect('/admin/login/ad', 'refresh');

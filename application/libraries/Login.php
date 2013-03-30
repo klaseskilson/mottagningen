@@ -26,11 +26,11 @@ class Login
 
 	function is_admin() {
 		if($this->is_logged_in()) {
-			$privil = $this->CI->session->userdata('privil');
+			/*$privil = $this->CI->session->userdata('privil');
 			if(!isset($privil) || $privil < 4)
 			{
 				return false;
-			}
+			}*/
 			return true;
 		}
 		return false;
