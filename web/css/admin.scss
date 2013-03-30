@@ -1,0 +1,17 @@
+/*****************************************************************************************
+ * legionen.nu
+ *
+ * Är nollan eller faddern nyfiken? Ojoj!
+ */
+
+@import "mixins";
+
+#container
+{
+	margin: 0 auto;
+
+	&.tinysite{
+		width: 500px;
+		margin: 40px auto;
+	}
+}
