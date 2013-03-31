@@ -6,4 +6,5 @@
 		Om man inte vill bör man fundera lite mera kanske, eftersom man inte ska försätta sig i en situation man inte
 		vill vara i. Det vore ju dumt, eller hur? Ja. Mycket. Nu kan du sluta läsa.
 	</p>
+	<div id="ads"></div>
 </div>

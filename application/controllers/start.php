@@ -22,7 +22,7 @@ class Start extends CI_Controller {
 		$data = array();
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('start');
+		$this->load->view('teaser');
 		$this->load->view('templates/footer', $data);
 	}
 }

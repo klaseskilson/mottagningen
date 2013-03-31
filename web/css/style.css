@@ -1,4 +1,3 @@
-@charset "CP850";
 /*****************************************************************************************
  * legionen.nu
  *
@@ -77,16 +76,18 @@ input, select, a img {
 	Typsnitt
 */
 @font-face {
-  font-family: 'Vollkorn';
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Vollkorn Regular"), local("Vollkorn-Regular"), url(http://themes.googleusercontent.com/static/fonts/vollkorn/v3/BCFBp4rt5gxxFrX6F12DKvesZW2xOQ-xsNqO47m55DA.woff) format("woff"); }
+  src: local("Open Sans"), local("OpenSans"), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format("woff"); }
 
 body {
   background: #340000;
-  font-family: "Vollkorn", "Georgia", serif;
+  font-family: "Open Sans", sans-serif;
   color: #fff;
-  width: 100%; }
+  width: 100%;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8); }
   body a {
     text-decoration: none;
     color: #e6e6e6;
@@ -96,7 +97,8 @@ body {
       border-style: solid;
       text-decoration: none; }
   body h1 {
-    font-size: 300%; }
+    font-size: 500%;
+    line-height: 1; }
   body h2 {
     font-size: 200%; }
   body h3 {
@@ -106,12 +108,9 @@ body {
     margin: 0 0 20px;
     line-height: 1.5; }
   body #container {
-    width: 50%;
+    width: 80%;
     margin: 10% auto;
-    padding: 30px; }
-    body #container iframe#formular {
-      width: 760px;
-      height: 2200px; }
+    text-align: center; }
 
 /***************************************
  OM NÅGON HAR EN LITEN KLEN SKÄRM
@@ -120,7 +119,4 @@ body {
   #container {
     width: 80% !important;
     margin: 10% auto;
-    padding: 30px; }
-    #container iframe#formular {
-      width: 100% !important;
-      height: 3000px !important; } }
+    padding: 30px; } }

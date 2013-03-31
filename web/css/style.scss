@@ -18,17 +18,19 @@ $darkred: #800000;
 	Typsnitt
 */
 @font-face {
-  font-family: 'Vollkorn';
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Vollkorn Regular'), local('Vollkorn-Regular'), url(http://themes.googleusercontent.com/static/fonts/vollkorn/v3/BCFBp4rt5gxxFrX6F12DKvesZW2xOQ-xsNqO47m55DA.woff) format('woff');
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
 }
 
 body {
 	background: darken($darkred, 15%);
-	font-family: 'Vollkorn', 'Georgia', serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #fff;
 	width: 100%;
+	text-transform: uppercase;
+	text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 
 	a {
 		text-decoration: none;
@@ -43,7 +45,8 @@ body {
 	}
 
 	h1 {
-		font-size: 300%;
+		font-size: 500%;
+		line-height: 1;
 	}
 	h2 {
 		font-size: 200%;
@@ -57,14 +60,9 @@ body {
 		line-height: 1.5;
 	}
 	#container {
-		width: 50%;
+		width: 80%;
 		margin: 10% auto;
-		padding: 30px;
-
-		iframe#formular{
-			width: 760px;
-			height: 2200px;
-		}
+		text-align: center;
 	}
 }
 
@@ -76,10 +74,5 @@ body {
 		width: 80% !important;
 		margin: 10% auto;
 		padding: 30px;
-
-		iframe#formular{
-			width: 100% !important;
-			height: 3000px !important;
-		}
 	}
 }
