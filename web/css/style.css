@@ -82,7 +82,9 @@ input, select, a img {
   src: local("Open Sans"), local("OpenSans"), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format("woff"); }
 
 body {
-  background: #340000;
+  background: url("/web/img/teaser.jpg") #14000b;
+  background-repeat: no-repeat;
+  background-size: 100%;
   font-family: "Open Sans", sans-serif;
   color: #fff;
   width: 100%;
@@ -108,7 +110,8 @@ body {
     margin: 0 0 20px;
     line-height: 1.5; }
   body #container {
-    width: 80%;
+    width: 60%;
+    padding: 0 0 0 20%;
     margin: 10% auto;
     text-align: center; }
 
@@ -118,5 +121,7 @@ body {
 @media only screen and (max-width: 480px) {
   #container {
     width: 80% !important;
-    margin: 10% auto;
-    padding: 30px; } }
+    margin: 200px auto !important;
+    padding: 0 !important; }
+    #container h1 {
+      font-size: 300%; } }

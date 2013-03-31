@@ -25,7 +25,9 @@ $darkred: #800000;
 }
 
 body {
-	background: darken($darkred, 15%);
+	background: url('/web/img/teaser.jpg') #14000b;
+	background-repeat: no-repeat;
+	background-size: 100%;
 	font-family: 'Open Sans', sans-serif;
 	color: #fff;
 	width: 100%;
@@ -60,7 +62,8 @@ body {
 		line-height: 1.5;
 	}
 	#container {
-		width: 80%;
+		width: 60%;
+		padding: 0 0 0 20%;
 		margin: 10% auto;
 		text-align: center;
 	}
@@ -72,7 +75,11 @@ body {
 @media only screen and (max-width: 480px) {
 	#container {
 		width: 80% !important;
-		margin: 10% auto;
-		padding: 30px;
+		margin: 200px auto !important;
+		padding: 0 !important;
+
+		h1 {
+			font-size: 300%
+		}
 	}
 }
