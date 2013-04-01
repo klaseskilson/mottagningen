@@ -114,6 +114,9 @@ body {
     padding: 0 0 0 20%;
     margin: 10% auto;
     text-align: center; }
+    body #container iframe {
+      width: 600px;
+      height: 337px; }
 
 /***************************************
  OM NÅGON HAR EN LITEN KLEN SKÄRM
@@ -124,4 +127,7 @@ body {
     margin: 200px auto !important;
     padding: 0 !important; }
     #container h1 {
-      font-size: 300%; } }
+      font-size: 300%; }
+    #container iframe {
+      width: 100% !important;
+      height: 200px !important; } }

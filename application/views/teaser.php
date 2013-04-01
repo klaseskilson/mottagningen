@@ -5,12 +5,12 @@
 
 <div id="container">
 	<?php
-	if(time() < strtotime("2013-03-31 23:59"))
+	if(time() < strtotime("2013-03-31 23:19"))
 	{
 	?>
 <script type="text/javascript" language="javascript">
 <!--
-dateFuture = new Date(2013,02,31,23,59,00);
+dateFuture = new Date(2013,02,31,23,19,00);
 
 function GetCount(){
 	dateNow = new Date();                                             //grab current date
@@ -57,7 +57,7 @@ window.onload=function(){GetCount();}//call when everything has loaded
 	<?php
 	}
 	else
-		echo '<p>Legionen presenterar...</p><iframe width="500" height="281" src="http://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>';
+		echo '<p>Legionen presenterar...</p><iframe src="http://player.vimeo.com/video/63047254?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
 	?>
 
 </div>
