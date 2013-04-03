@@ -22,7 +22,22 @@ class Admin extends CI_controller
 
 	function overview()
 	{
-		echo 'hej';
+		$data = array();
+
+		$this->load->view('admin/templates/header', $data);
+		$this->load->view('admin/templates/menu');
+		$this->load->view('admin/overview', $data);
+		$this->load->view('admin/templates/footer', $data);
+	}
+
+	function fadder()
+	{
+		$data = array();
+
+		$this->load->view('admin/templates/header', $data);
+		$this->load->view('admin/templates/menu');
+		$this->load->view('admin/fadder', $data);
+		$this->load->view('admin/templates/footer', $data);
 	}
 
 	function login($dowhat = '')
@@ -38,6 +53,8 @@ class Admin extends CI_controller
 		{
 			$liuid = $this->input->post('liuid');
 			$password = $this->input->post('password');
+
+			echo '<!--'.encrypt_password($password).'-->';
 
 			if($this->login->validate($liuid, $password))
 			{

@@ -8,7 +8,7 @@
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<head id="ctl00_ctl00_Head1">
+<head>
 	<meta name="HandheldFriendly" content="True" />
 	<meta name="MobileOptimized" content="320" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,6 +22,10 @@
 	<link rel="stylesheet" href="/web/css/admin.css" type="text/css" media="screen" />
 
 	<title>Legionen admin</title>
+
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
+<div id="content">
