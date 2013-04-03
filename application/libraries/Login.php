@@ -59,10 +59,10 @@ class Login
 			$result = $result[0];
 
 			$data = array(
-				'id' => $result->id,
+				'id' => $result->uid,
 				'liuid' => $result->liuid,
 				'is_logged_in' => true,
-				'privil' => $this->CI->User_model->get_privil($result->id),
+				'privil' => $this->CI->User_model->get_privil($result->uid),
 			);
 			$this->CI->session->set_userdata($data);
 			return true;
@@ -77,7 +77,7 @@ class Login
 		return $this->CI->session->userdata('id');
 	}
 
-	public function get_lukasid() {
+	public function get_liuid() {
 		return $this->CI->session->userdata('liuid');
 	}
 

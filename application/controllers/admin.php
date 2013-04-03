@@ -30,13 +30,32 @@ class Admin extends CI_controller
 		$this->load->view('admin/templates/footer', $data);
 	}
 
-	function fadder()
+	function fadder($action = 'all', $id = '')
 	{
 		$data = array();
+		$this->load->model("Fadder_model");
+		$view = '';
+
+		echo $this->login->get_id();
+
+		if($action == "open")
+		{
+			if(!empty($id))
+				$data['fadder'] = $this->Fadder_model->get_fadder($id);
+			else
+				show_404();
+
+			$view = "fadder_single";
+		}
+		elseif($action == "all")
+		{
+			$data['faddrar'] = $this->Fadder_model->get_all();
+			$view = "fadder_all";
+		}
 
 		$this->load->view('admin/templates/header', $data);
 		$this->load->view('admin/templates/menu');
-		$this->load->view('admin/fadder', $data);
+		$this->load->view('admin/'.$view, $data);
 		$this->load->view('admin/templates/footer', $data);
 	}
 
