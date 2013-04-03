@@ -5,15 +5,11 @@
 * Är nollan eller faddern nyfiken? Ojoj!
 */
 #content {
-	max-width: 1280px;
-	margin: 20px auto;
-}
+  max-width: 1280px;
+  margin: 20px auto; }
 
 #container {
-	padding: 20px 0;
-	&.tinysite
-	{
-		width: 500px;
-		margin: 40px auto;
-	}
-}
+  padding: 20px 0; }
+  #container.tinysite {
+    width: 500px;
+    margin: 40px auto; }
