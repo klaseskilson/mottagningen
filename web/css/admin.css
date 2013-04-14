@@ -6,6 +6,7 @@
 */
 #content {
   max-width: 1280px;
+  padding: 0 20px;
   margin: 20px auto; }
 
 #container {
@@ -13,3 +14,7 @@
   #container.tinysite {
     width: 500px;
     margin: 40px auto; }
+
+@media (max-width: 767px) {
+  #content {
+    padding: 0 !important; } }

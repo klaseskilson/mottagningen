@@ -20,9 +20,36 @@
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li><a href="/admin">Hem</a></li> <!-- class="active" -->
-					<li><a href="/admin/fadder">Faddrar</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Användare
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/admin/user/all">Se alla</a></li>
+							<li class="divider"></li>
+							<li class="nav-header">Skapa ny!</li>
+							<li><a href="/admin/user/new">Skapa ny användare</a></li>
+						</ul>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Nyheter
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/admin/news/new">Skapa nytt inlägg</a></li>
+							<li class="divider"></li>
+							<li><a href="/admin/news/all">Se alla</a></li>
+						</ul>
+					</li>
 				</ul>
 				<ul class="nav pull-right">
+					<li>
+						<a href="/admin/user/me" title="Redigera konto">
+							Inloggad som <?php echo $this->login->get_info("fname"); ?>
+						</a>
+					</li>
 					<li><a href="/">Gå till sidan</a></li>
 					<li><a href="/admin/login/logout">Logga ut</a></li>
 				</ul>

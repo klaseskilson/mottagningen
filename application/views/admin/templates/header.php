@@ -25,6 +25,11 @@
 
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/wysihtml5/0.3.0/wysihtml5.min.js"></script>
+	<script src="/web/js/vendor/bootstrap-wysihtml5.sv-SE.js"></script>
+	<script type="text/javascript" src="/web/js/vendor/bootstrap-wysihtml5.js"></script>
+	<link rel="stylesheet" href="/web/css/bootstrap-wysihtml5.css" type="text/css" media="screen" />
 </head>
 
 <body>

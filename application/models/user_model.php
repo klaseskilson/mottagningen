@@ -53,4 +53,48 @@ class User_model extends CI_model
 
 		return false;
 	}
+
+	/**
+	 * get certain user info, such as name or other
+	 */
+	function get_info($uid, $what)
+	{
+		$this->db->select($what);
+		$this->db->where('uid', $uid);
+		$query = $this->db->get('users');
+
+		if($query->num_rows == 1)
+		{
+			return $query->result()[0]->$what;
+		}
+
+		return false;
+	}
+
+	function create_user($liuid, $fname, $sname, $password)
+	{
+		if(strlen($liuid) !== 8 && !empty($fname) && !empty($fname) && strlen($password) < 6)
+		{
+			$data = array(
+						'fname'		=> $fname,
+						'sname'		=> $sname,
+						'password'	=> encrypt_password($password),
+						'liuid'		=> $liuid
+					);
+
+			return $this->db->insert('users', $data);
+		}
+		return false;
+	}
+
+	function update_password($uid, $password, $confirm)
+	{
+		if(($password == $confirm) && strlen($password) > 6)
+		{
+			$password = array('password' => encrypt_password($password));
+
+			return $this->db->update('users', $password, array('uid' => $uid));
+		}
+		return false;
+	}
 }

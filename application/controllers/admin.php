@@ -22,7 +22,7 @@ class Admin extends CI_controller
 
 	function overview()
 	{
-		$data = array();
+		$data['name'] = $this->login->get_info("fname");
 
 		$this->load->view('admin/templates/header', $data);
 		$this->load->view('admin/templates/menu');
@@ -35,8 +35,6 @@ class Admin extends CI_controller
 		$data = array();
 		$this->load->model("Fadder_model");
 		$view = '';
-
-		echo $this->login->get_id();
 
 		if($action == "open")
 		{
@@ -87,6 +85,73 @@ class Admin extends CI_controller
 		// load views
 		$this->load->view('admin/templates/header', $data);
 		$this->load->view('admin/login', $data);
+		$this->load->view('admin/templates/footer', $data);
+	}
+
+	function user($action = '')
+	{
+		$data = array();
+		$this->load->model("User_model");
+
+		switch($action)
+		{
+			case 'new':
+				$view = 'user_new';
+			break;
+
+			case 'new_run':
+
+				$view = 'user_new';
+			break;
+
+			case 'all':
+				$view = 'user_all';
+			break;
+
+			case 'me':
+				$view = 'user_account';
+			break;
+
+			case 'pwd':
+				$pwd = trim($this->input->post('passw'));
+				$confirm = trim($this->input->post('confirm'));
+
+				$data['message'] = $this->User_model->update_password($this->login->get_id(), $pwd, $confirm);
+
+				$view = 'user_account';
+			break;
+
+			default:
+				$view = 'user_account';
+			break;
+		}
+
+		$this->load->view('admin/templates/header', $data);
+		$this->load->view('admin/templates/menu');
+		$this->load->view('admin/'.$view, $data);
+		$this->load->view('admin/templates/footer', $data);
+	}
+
+	function news($action = '', $id = '')
+	{
+		$data = array();
+
+		switch($action)
+		{
+			case 'new':
+				$view = 'news_post';
+			break;
+			case 'all':
+				$view = 'news_all';
+			break;
+			default:
+				$view = 'news_all';
+			break;
+		}
+
+		$this->load->view('admin/templates/header', $data);
+		$this->load->view('admin/templates/menu');
+		$this->load->view('admin/'.$view, $data);
 		$this->load->view('admin/templates/footer', $data);
 	}
 }
