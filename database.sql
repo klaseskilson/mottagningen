@@ -19,8 +19,6 @@ CREATE TABLE IF NOT EXISTS `13_users` (
 	`fname` CHAR(60) NOT NULL,
 	`sname` CHAR(100) NOT NULL,
 	`password` CHAR(130) NOT NULL,
-	`active` BOOL default 0,
-	`hash` CHAR(100) NOT NULL,
 	PRIMARY KEY (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
@@ -85,8 +83,8 @@ CREATE TABLE IF NOT EXISTS `13_ad_views` (
 ALTER TABLE `13_ad_views`
 	ADD CONSTRAINT `13_ad_views_ibfk_1` FOREIGN KEY (`ad_id`) REFERENCES `13_ads` (`id`);
 
-INSERT INTO `13_users` (`uid`, `liuid`, `fname`, `sname`, `password`, `active`, `hash`) VALUES
-(1, 'klaes950', 'Klas', 'Eskilson', 'maHyULoI1f/jxSouiC7JvZb/U6ot.gA6WYPvLbzZ.XJMT9lYOxN7.haAwWTRR2eLlrKF32clzwVqkV2pkzJ0', 1, 'UzvTu27Jod');
+INSERT INTO `13_users` (`uid`, `liuid`, `fname`, `sname`, `password`) VALUES
+(1, 'klaes950', 'Klas', 'Eskilson', 'maHyULoI1f/jxSouiC7JvZb/U6ot.gA6WYPvLbzZ.XJMT9lYOxN7.haAwWTRR2eLlrKF32clzwVqkV2pkzJ0');
 
 INSERT INTO `13_admin` (`uid`, `privil`) VALUES
 (1, 1);
