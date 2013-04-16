@@ -20,6 +20,10 @@
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li><a href="/admin">Hem</a></li> <!-- class="active" -->
+					<?php
+					if($this->login->has_privilege('2'))
+					{
+					?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							Användare
@@ -32,15 +36,18 @@
 							<li><a href="/admin/user/new">Skapa ny användare</a></li>
 						</ul>
 					</li>
+					<?php
+					}
+					?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Nyheter
+							Sidor
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="/admin/news/new">Skapa nytt inlägg</a></li>
+							<li><a href="/admin/page/new">Skapa ny sida</a></li>
 							<li class="divider"></li>
-							<li><a href="/admin/news/all">Se alla</a></li>
+							<li><a href="/admin/page/all">Se alla</a></li>
 						</ul>
 					</li>
 				</ul>

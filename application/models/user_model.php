@@ -27,10 +27,11 @@ class User_model extends CI_model
 	 */
 	function has_privilege($id, $what)
 	{
-		$this->db->where('id', $id);
-		$this->db->where('privil >= "$what"');
+		$this->db->where('uid', $id);
+		$this->db->where('privil <=', $what);
 		$query = $this->db->get('admin');
-		if($query->num_rows == 1)
+
+		if($query->num_rows > 0)
 		{
 			return $query;
 		}
@@ -71,9 +72,13 @@ class User_model extends CI_model
 		return false;
 	}
 
+	/**
+	 * create a new user
+	 */
 	function create_user($liuid, $fname, $sname, $password)
 	{
-		if(strlen($liuid) !== 8 && !empty($fname) && !empty($fname) && strlen($password) < 6)
+		if(strlen($liuid) == 8 && !empty($fname) && !empty($fname) && strlen($password) > 6
+			&& !$this->liuid_exists($liuid))
 		{
 			$data = array(
 						'fname'		=> $fname,
@@ -87,6 +92,21 @@ class User_model extends CI_model
 		return false;
 	}
 
+	/**
+	 * ¨check if a liuid exist in the database
+	 */
+	function liuid_exists($liuid)
+	{
+		$this->db->where('liuid', $liuid);
+		$this->db->limit('1');
+		$query = $this->db->get('users');
+
+		return $query->num_rows();
+	}
+
+	/**
+	 * update password, given uid and new password
+	 */
 	function update_password($uid, $password, $confirm)
 	{
 		if(($password == $confirm) && strlen($password) > 6)
@@ -95,6 +115,22 @@ class User_model extends CI_model
 
 			return $this->db->update('users', $password, array('uid' => $uid));
 		}
+		return false;
+	}
+
+	function get_all()
+	{
+		$this->db->select("users.*, admin.privil");
+		$this->db->from("users");
+		$this->db->join("admin", "users.uid = admin.uid", "left");
+		$this->db->group_by("users.uid");
+		$this->db->order_by("users.uid");
+
+		$result = $this->db->get();
+
+		if($result->num_rows() > 0)
+			return $result->result_array();
+
 		return false;
 	}
 }

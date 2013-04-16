@@ -96,15 +96,34 @@ class Admin extends CI_controller
 		switch($action)
 		{
 			case 'new':
+				// make sure user is allowed here
+				if(!$this->login->has_privilege(2))
+					show_404();
+
 				$view = 'user_new';
 			break;
 
 			case 'new_run':
+				// make sure user is allowed here
+				if(!$this->login->has_privilege(2))
+					show_404();
+
+				$liuid = $this->input->post("liuid");
+				$fname = $this->input->post("fname");
+				$sname = $this->input->post("sname");
+				$passw = $this->input->post("passw");
+
+				$data['message'] = $this->User_model->create_user($liuid, $fname, $sname, $passw);
 
 				$view = 'user_new';
 			break;
 
 			case 'all':
+				// make sure user is allowed here
+				if(!$this->login->has_privilege(2))
+					show_404();
+
+				$data['users'] = $this->User_model->get_all();
 				$view = 'user_all';
 			break;
 
@@ -132,20 +151,20 @@ class Admin extends CI_controller
 		$this->load->view('admin/templates/footer', $data);
 	}
 
-	function news($action = '', $id = '')
+	function page($action = '', $id = '')
 	{
 		$data = array();
 
 		switch($action)
 		{
 			case 'new':
-				$view = 'news_post';
+				$view = 'page_post';
 			break;
 			case 'all':
-				$view = 'news_all';
+				$view = 'page_all';
 			break;
 			default:
-				$view = 'news_all';
+				$view = 'page_all';
 			break;
 		}
 

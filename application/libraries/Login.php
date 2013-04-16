@@ -44,6 +44,7 @@ class Login
 		if($this->is_logged_in()) {
 			$id = $this->CI->session->userdata('id');
 			$this->CI->load->model('User_model');
+
 			return $this->CI->User_model->has_privilege($id, $privileges);
 		}
 		return false;
