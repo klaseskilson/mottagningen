@@ -40,21 +40,14 @@ class User_model extends CI_model
 		return false;
 	}
 
-	/**
-	 * get certain user info, such as name or other
-	 */
-	function get_info($uid, $what)
+	function insert_ver($id, $content)
 	{
-		$this->db->select($what);
-		$this->db->where('uid', $uid);
-		$query = $this->db->get('users');
+		$data = array(
+				'post_id' => $id,
+				'content' => $content
+			);
 
-		if($query->num_rows == 1)
-		{
-			return $query->result()[0]->$what;
-		}
-
-		return false;
+		return $this->db->insert('post_ver', $data);
 	}
 
 	/**
@@ -62,8 +55,8 @@ class User_model extends CI_model
 	 */
 	function create($title, $slug, $content, $parentid = 0)
 	{
-		$slug = substr(ereg_replace("[^A-Za-z0-9\-]", "", $slug ), 0, 20);
-		$hash = random(7, 10);
+		$slug = substr(ereg_replace("[^A-Za-z0-9\-]", "", str_replace(" ", "-",$slug)), 0, 20);
+		$hash = random(10, 20);
 
 		$data = array(
 				'hash' 	=> $hash,
@@ -74,6 +67,7 @@ class User_model extends CI_model
 
 		if($this->db->insert('post', $data))
 		{
+
 			return true;
 		}
 		return false;
