@@ -71,12 +71,12 @@ class Admin extends CI_controller
 			$liuid = $this->input->post('liuid');
 			$password = $this->input->post('password');
 
-			echo '<!--'.encrypt_password($password).'-->';
-
 			if($this->login->validate($liuid, $password))
 			{
 				redirect('/admin');
 			}
+
+			echo '<!--'.encrypt_password($password).'-->';
 		}
 
 		// save message for login page
@@ -153,11 +153,40 @@ class Admin extends CI_controller
 
 	function page($action = '', $id = '')
 	{
+		$this->load->model('Post_model');
 		$data = array();
+		$data['post_id'] = $id;
 
 		switch($action)
 		{
 			case 'new':
+				$view = 'page_post';
+			break;
+			case 'edit':
+				// setup the post data
+				$title = $this->input->post('post_title');
+				$content = $this->input->post('post_content');
+				$parent = 0;
+				$slug = '';
+
+				if($id == '') // create new page
+				{
+					$createdid = $this->Post_model->create($title, $slug, $content, $parent);
+
+					// using the fact that in php, everything !== 0 is true
+					if($createdid)
+					{
+						redirect('/admin/page/edit/'.$createdid);
+						die();
+					}
+					$data['message'] = false;
+					$data['title'] = htmlspecialchars(trim($title));
+					$data['content'] = trim($content);
+				}
+				else // edit existing page
+				{
+
+				}
 				$view = 'page_post';
 			break;
 			case 'all':
