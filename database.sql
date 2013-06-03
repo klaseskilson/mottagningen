@@ -5,8 +5,8 @@ CREATE DATABASE IF NOT EXISTS `leg13`;
 
 USE `leg13`;
 
-DROP TABLE IF EXISTS `13_fadder_info`;
-DROP TABLE IF EXISTS `13_fadder`;
+DROP TABLE IF EXISTS `13_post_cont`;
+DROP TABLE IF EXISTS `13_posts`;
 DROP TABLE IF EXISTS `13_admin`;
 DROP TABLE IF EXISTS `13_users`;
 DROP TABLE IF EXISTS `13_weather`;
@@ -30,41 +30,6 @@ CREATE TABLE IF NOT EXISTS `13_admin` (
 
 ALTER TABLE `13_admin`
 	ADD CONSTRAINT `13_admin_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `13_users` (`uid`);
-
-CREATE TABLE IF NOT EXISTS `13_fadder` (
-	`fadderid` INT(6) NOT NULL AUTO_INCREMENT,
-	`liuid` CHAR(8) NOT NULL,
-	`fname` CHAR(60) NOT NULL,
-	`sname` CHAR(100) NOT NULL,
-	`class` CHAR(5) NOT NULL,
-	`persnr` CHAR(13) NOT NULL,
-	`tshirt` CHAR(2) NOT NULL,
-	`phone` CHAR(20) NOT NULL,
-	PRIMARY KEY (`fadderid`)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
-
-CREATE TABLE IF NOT EXISTS `13_fadder_info` (
-	`fadderid` INT(6) NOT NULL,
-	`before` BOOL NOT NULL,
-	`drive` BOOL NOT NULL,
-	`mtgdk` BOOL NOT NULL,
-	`other` BOOL NOT NULL,
-	`post` TEXT NOT NULL,
-	`sleep` CHAR(30) NOT NULL,
-	`time` TEXT NOT NULL,
-	PRIMARY KEY (`fadderid`)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
-
-ALTER TABLE `13_fadder_info`
-	ADD CONSTRAINT `13_fadder_info_ibfk_1` FOREIGN KEY (`fadderid`) REFERENCES `13_fadder` (`fadderid`);
-
-CREATE TABLE IF NOT EXISTS `13_weather` (
-	`weatherid` INT(6) NOT NULL AUTO_INCREMENT,
-	`temp` DOUBLE(6,2) NOT NULL DEFAULT 0,
-	`weather` CHAR(15) NOT NULL,
-	`cachedate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	PRIMARY KEY (`weatherid`)
-) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 CREATE TABLE IF NOT EXISTS `13_ads` (
 	`id` INT(6) NOT NULL AUTO_INCREMENT,
@@ -104,7 +69,6 @@ CREATE TABLE IF NOT EXISTS `13_post_cont` (
 
 ALTER TABLE `13_post_cont`
 	ADD CONSTRAINT `13_post_cont_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `13_posts` (`post_id`);
-
 
 -- insert data!
 INSERT INTO `13_users` (`uid`, `liuid`, `fname`, `sname`, `password`) VALUES
