@@ -28,7 +28,7 @@ class Post_model extends CI_model
 	{
 		// prepare slug for insertion
 		$slug = strtolower(empty($slug) ? $title : $slug);
-		$slug = substr(str_replace(" ", "-", preg_replace("/[^a-zA-Z0-9-]/", "", $slug)), 0, 20);
+		$slug = substr(preg_replace("/[^a-zA-Z0-9-]/", "", str_replace(" ", "-", $slug)), 0, 20);
 		$hash = random(10, 20);
 
 		// if slug length is less than 4, make it into a hash string instead
@@ -103,6 +103,21 @@ class Post_model extends CI_model
 		return false;
 	}
 
+	function get_all_posts()
+	{
+		$this->db->select('*');
+		$this->db->from("posts post");
+		// here we have a problem! In order for this to work, the year prefix needs to be
+		// hard-coded into the query
+		$this->db->join("(SELECT * FROM 13_post_cont ORDER BY cont_id DESC) cont", "post.post_id = cont.post_id", "left");
+		$this->db->group_by("post.post_id");
+		$query = $this->db->get();
+
+		if($query) return $query->result_array();
+
+		return false;
+	}
+
 	function post_exists($id)
 	{
 		$this->db->select('post_id');
@@ -110,5 +125,22 @@ class Post_model extends CI_model
 		$query = $this->db->get('posts');
 
 		return $query->num_rows();
+	}
+
+	function get_status($id)
+	{
+		$this->db->select('status');
+		$this->db->where('post_id', $id);
+		$query = $this->db->get('posts');
+
+		return $query->result_array()[0]['status'];
+	}
+
+	function togglestatus($id)
+	{
+		if($this->get_status($id))
+			return $this->db->update('posts', array('status' => 0), array('post_id' => $id));
+		else
+			return $this->db->update('posts', array('status' => 1), array('post_id' => $id));
 	}
 }

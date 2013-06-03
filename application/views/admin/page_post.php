@@ -22,7 +22,7 @@
 				LOL
 			</div>
 			<div class="span7">
-				<textarea class="span12" placeholder="Skriv nyheten här..." rows="12"
+				<textarea class="span12" placeholder="Skriv nyheten här..." rows="17"
 				id="post_content" name="post_content" class="wysiwyg"><?php echo (isset($post) ? $post['content']: ''); ?></textarea>
 				<script type="text/javascript">
 					$('#post_content').wysihtml5({

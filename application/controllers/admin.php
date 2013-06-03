@@ -227,7 +227,20 @@ class Admin extends CI_controller
 				// display page
 				$view = 'page_post';
 			break;
+			case 'togglestatus':
+				// if id is not set, redirect to create new page
+				if($id == '' || !$this->Post_model->post_exists($id))
+					redirect('/admin/page/all?msg=dne');
+
+				if($this->Post_model->togglestatus($id))
+					redirect('admin/page/all?msg=toggles');
+				else
+					redirect('admin/page/all?msg=togglef');
+			break;
 			case 'all':
+				// load all pages from model
+				$data['pages'] = $this->Post_model->get_all_posts();
+
 				$view = 'page_all';
 			break;
 			default:
