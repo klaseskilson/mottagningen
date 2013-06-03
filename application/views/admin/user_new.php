@@ -39,7 +39,7 @@
 				</div>
 				<div class="control-group">
 					<div class="controls">
-						<button type="submit" class="btn">Skapa!</button>
+						<button type="submit" class="btn btn-primary">Skapa!</button>
 					</div>
 				</div>
 			</form>

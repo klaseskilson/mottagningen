@@ -153,16 +153,20 @@ class Admin extends CI_controller
 
 	function page($action = '', $id = '')
 	{
+		// load post model for content handeling
 		$this->load->model('Post_model');
+		// prepare data array for view
 		$data = array();
 		$data['post_id'] = $id;
 
 		switch($action)
 		{
+			// create new page
 			case 'new':
 				$view = 'page_post';
 			break;
-			case 'edit':
+			// run the post model that creates new page or edit existing
+			case 'run':
 				// setup the post data
 				$title = $this->input->post('post_title');
 				$content = $this->input->post('post_content');
@@ -176,7 +180,7 @@ class Admin extends CI_controller
 					// using the fact that in php, everything !== 0 is true
 					if($createdid)
 					{
-						redirect('/admin/page/edit/'.$createdid);
+						redirect('/admin/page/edit/'.$createdid.'?msg=1');
 						die();
 					}
 					$data['message'] = false;
@@ -185,8 +189,42 @@ class Admin extends CI_controller
 				}
 				else // edit existing page
 				{
+					// attempt update
+					if($this->Post_model->update($id, $title, $slug, $content, $parent))
+					{
+						redirect('/admin/page/edit/'.$id.'?msg=1');
+					}
+					else
+					{
+						// make sure the info is stored with the browser if failure
+						$data['post'] = array(
+								'title' => $title,
+								'content' => $content,
+								'slug' => $slug,
+								'parentid' => $parent,
+								'post_id' => $id
+							);
+						// message variable for error informing
+						$data['message'] = false;
 
+						// display page
+						$view = 'page_post';
+					}
 				}
+			break;
+			// edit existing page
+			case 'edit':
+				// if id is not set, redirect to create new page
+				if($id == '' || !$this->Post_model->post_exists($id))
+					redirect('/admin/page/new');
+
+				if(isset($_GET['msg']) && $_GET['msg'] == '1')
+					$data['message'] = true;
+
+				// collect post data
+				$data['post'] = $this->Post_model->get_post($id);
+
+				// display page
 				$view = 'page_post';
 			break;
 			case 'all':
