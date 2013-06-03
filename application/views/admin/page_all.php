@@ -62,9 +62,9 @@
 								<a href="/admin/page/togglestatus/<?php echo $page['post_id']; ?>" title="Ändra status på inlägget">
 									<i style="margin-right:3px;" class="icon-eye-<?php echo !$page['status'] ? 'open' : 'close'; ?>"></i><?php echo !$page['status'] ? 'Publicera' : 'Dölj'; ?>
 								</a><br />
-								<a href="/admin/page/remove/<?php echo $page['post_id']; ?>">
+								<!--<a href="/admin/page/remove/<?php echo $page['post_id']; ?>">
 									<i style="margin-right:3px;" class="icon-trash"></i>Ta bort
-								</a>
+								</a>-->
 							</td>
 						</tr>
 					<?php
