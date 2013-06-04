@@ -72,7 +72,7 @@ ALTER TABLE `13_post_cont`
 
 -- insert data!
 INSERT INTO `13_users` (`uid`, `liuid`, `fname`, `sname`, `password`) VALUES
-(1, 'klaes950', 'Klas', 'Eskilson', 'maHyULoI1f/jxSouiC7JvZb/U6ot.gA6WYPvLbzZ.XJMT9lYOxN7.haAwWTRR2eLlrKF32clzwVqkV2pkzJ0');
+(1, 'klaes950', 'Klas', 'Eskilson', 'F.7kxJf5b.9596Nc4pnihZww1gsSyr/yMzie1CLvlrsWb6Q5cUVU/aE72lvWD8DAV17CBL8Fyi.QwfuMF7U/');
 
 INSERT INTO `13_admin` (`uid`, `privil`) VALUES
 (1, 1);
