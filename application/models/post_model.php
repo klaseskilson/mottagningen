@@ -103,12 +103,16 @@ class Post_model extends CI_model
 		return false;
 	}
 
+	/**
+	 * get all posts
+	 * @return 	array 	the posts
+	 */
 	function get_all_posts()
 	{
 		$this->db->select('*');
 		$this->db->from("posts post");
 		// here we have a problem! In order for this to work, the year prefix needs to be
-		// hard-coded into the query
+		// hard-coded into the query. UUUUGLYYYYY!
 		$this->db->join("(SELECT * FROM 13_post_cont ORDER BY cont_id DESC) cont", "post.post_id = cont.post_id", "left");
 		$this->db->group_by("post.post_id");
 		$query = $this->db->get();
@@ -118,6 +122,10 @@ class Post_model extends CI_model
 		return false;
 	}
 
+	/**
+	 * check if a post exists
+	 * @return 	bool
+	 */
 	function post_exists($id)
 	{
 		$this->db->select('post_id');
@@ -127,6 +135,10 @@ class Post_model extends CI_model
 		return $query->num_rows();
 	}
 
+	/**
+	 * get post status, draft or not
+	 * @return 	bool
+	 */
 	function get_status($id)
 	{
 		$this->db->select('status');
@@ -136,6 +148,10 @@ class Post_model extends CI_model
 		return $query->result_array()[0]['status'];
 	}
 
+	/**
+	 * change draft/public-status of a post
+	 * @return 	bool 	success or not
+	 */
 	function togglestatus($id)
 	{
 		if($this->get_status($id))

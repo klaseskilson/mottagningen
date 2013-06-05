@@ -93,7 +93,7 @@ class User_model extends CI_model
 	}
 
 	/**
-	 * ¨check if a liuid exist in the database
+	 * check if a liuid exist in the database
 	 */
 	function liuid_exists($liuid)
 	{

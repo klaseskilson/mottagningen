@@ -30,6 +30,10 @@ class Ctrl extends CI_Controller
 		{
 			var_dump($this->Weather_model->collectcache());
 		}
+		elseif($action == 'pull')
+		{
+			var_dump($this->Weather_model->collect());
+		}
 		else{
 			show_404();
 		}

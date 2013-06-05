@@ -70,6 +70,16 @@ CREATE TABLE IF NOT EXISTS `13_post_cont` (
 ALTER TABLE `13_post_cont`
 	ADD CONSTRAINT `13_post_cont_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `13_posts` (`post_id`);
 
+
+CREATE TABLE IF NOT EXISTS `13_weather` (
+	`weatherid` INT(6) NOT NULL AUTO_INCREMENT,
+	`temp` CHAR(100) NOT NULL,
+	`weather` CHAR(100) NOT NULL,
+	`cachedate` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`windspeed` FLOAT(4,2) NOT NULL DEFAULT 0.0,
+	PRIMARY KEY (`weatherid`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
 -- insert data!
 INSERT INTO `13_users` (`uid`, `liuid`, `fname`, `sname`, `password`) VALUES
 (1, 'klaes950', 'Klas', 'Eskilson', 'F.7kxJf5b.9596Nc4pnihZww1gsSyr/yMzie1CLvlrsWb6Q5cUVU/aE72lvWD8DAV17CBL8Fyi.QwfuMF7U/');

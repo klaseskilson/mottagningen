@@ -1,13 +1,18 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Ads extends CI_controller
+class Script extends CI_controller
 {
 	public function index()
 	{
 		show_404();
 	}
 
-	public function get($collector, $method)
+	/**
+	 * adsadsads!
+	 * @param 	$collector	string 	the phadder
+	 * @param 	$method 	string 	e.g. 'script.js'
+	 */
+	public function ads($collector, $method)
 	{
 		// make sure everything is properly called
 		if(strlen($collector) !== 3 || $method == '')
@@ -38,5 +43,25 @@ class Ads extends CI_controller
 			header("Content-type: application/javascript");
 			$this->load->view("ads/js", $data);
 		}
+	}
+
+
+	public function weather()
+	{
+		$this->load->model('Weather_model');
+
+		$weather = $this->Weather_model->magic();
+
+		header("Content-type: application/javascript");
+		// ugly, but I'm lazy
+		?>
+var weathertemp, weathersymbol, weatherwind;
+function getweather()
+{
+	weathertemp = <?php echo $weather['temp']; ?>;
+	weathersymbol = <?php echo $weather['weather']; ?>;
+	weatherwind = <?php echo $weather['windspeed']; ?>;
+}
+		<?php
 	}
 }

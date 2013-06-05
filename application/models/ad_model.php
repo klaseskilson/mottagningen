@@ -7,6 +7,11 @@ class Ad_model extends CI_model
 		parent::__construct();
 	}
 
+	/**
+	 * get ads!
+	 * @param 	int 	$ads 	number of ads to return
+	 * @return 	array 	ads
+	 */
 	function collect($ads = 3)
 	{
 		$this->db->select("ads.*, COUNT(ad_id) AS ads_count ");
@@ -21,6 +26,10 @@ class Ad_model extends CI_model
 		return $result->result_array();
 	}
 
+	/**
+	 * insert add view for collector $collector
+	 * @return 	bool
+	 */
 	function increase($id, $collector)
 	{
 		if(empty($collector))
