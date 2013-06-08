@@ -38,3 +38,9 @@
 	-moz-opacity: $opacity;
 	filter: alpha(opacity=($opacity * 100));
 }
+
+@mixin opensans($size = 100%) {
+	font-size: $size;
+	font-family: 'Open Sans', sans-serif;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
