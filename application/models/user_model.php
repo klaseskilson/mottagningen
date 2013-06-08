@@ -12,12 +12,15 @@ class User_model extends CI_model
 	 */
 	function validate($lid, $pwd)
 	{
+		$this->db->select("*");
 		$this->db->where('liuid', $lid);
-		$this->db->where('password', encrypt_password($pwd));
-		$query = $this->db->get('users');
-		if($query->num_rows == 1)
+		// password query
+		$pwq = $this->db->get("users");
+		$pwr = $pwq->result();
+
+		if($this->passwordhash->CheckPassword($pwd, $pwr[0]->password))
 		{
-			return $query;
+			return $pwq;
 		}
 		return false;
 	}
@@ -111,7 +114,7 @@ class User_model extends CI_model
 	{
 		if(($password == $confirm) && strlen($password) > 6)
 		{
-			$password = array('password' => encrypt_password($password));
+			$password = array('password' => $this->passwordhash->HashPassword($password));
 
 			return $this->db->update('users', $password, array('uid' => $uid));
 		}
