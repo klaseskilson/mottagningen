@@ -25,7 +25,7 @@ function initads(object)
 <?php
 foreach ($ads as $ad) {
 ?>
-	main.innerHTML += '<a href="<?php echo $ad['link']; ?>" target="_blank"><img src="http://<?php echo $_SERVER['SERVER_NAME'].':8888/web/ads/ad_'.$ad['id'].'.png'; ?>" /></a>';
+	main.innerHTML += '<a href="<?php echo $ad['link']; ?>" target="_blank"><img src="http://<?php echo $_SERVER['SERVER_NAME'].':'.($_SERVER['SERVER_PORT'] !== 80? $_SERVER['SERVER_PORT'] :'').'/web/ads/ad_'.$ad['id'].'.png'; ?>" /></a>';
 <?php
 }
 ?>
