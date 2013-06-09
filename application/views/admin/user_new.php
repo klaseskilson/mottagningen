@@ -44,5 +44,15 @@
 				</div>
 			</form>
 		</div>
+		<div class="span4">
+			<h5>Privilegier</h5>
+			<p>
+				Privilegier fungerar såhär:<br />
+				1 - superadmin (kan göra allt)<br />
+				2 - admin (kan göra det mesta (hantera användare osv), passande för general och kassör)<br />
+				3 - kraftanvändare (kan publicera inlägg)<br />
+				4 - kan logga in, men inte göra något<br />
+			</p>
+		</div>
 	</div>
 </div>

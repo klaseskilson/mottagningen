@@ -2,6 +2,13 @@
 	<div class="row-fluid">
 		<div class="span3">
 			<h4>Alla användare!</h4>
+			<p>
+				Privilegier fungerar såhär:<br />
+				1 - superadmin (kan göra allt)<br />
+				2 - admin (kan göra det mesta (hantera användare osv), passande för general och kassör)<br />
+				3 - kraftanvändare (kan publicera inlägg)<br />
+				4 - kan logga in, men inte göra något<br />
+			</p>
 		</div>
 		<div class="span9">
 			<table class="table table-striped table-hover">

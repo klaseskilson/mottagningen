@@ -72,7 +72,7 @@ class Admin extends CI_controller
 			$liuid = $this->input->post('liuid');
 			$password = $this->input->post('password');
 
-			if($this->login->validate($liuid, $password))
+			if($liuid && $password && $this->login->validate($liuid, $password))
 			{
 				redirect('/admin');
 			}
