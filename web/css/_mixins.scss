@@ -38,3 +38,31 @@
 	-moz-opacity: $opacity;
 	filter: alpha(opacity=($opacity * 100));
 }
+
+@mixin radial-grad($from, $toperc: 20%) {
+	$to: lighten($from, $toperc);
+	/* fallback */
+	background-color: $from;
+
+	/* Can't specify a percentage size? Laaaaaame. */
+	background: -webkit-gradient(radial, center center, 0, center center, 460, from($from), to($to));
+	background: -webkit-radial-gradient(50% 50%, circle cover, $to 0%, $from 100%);
+	background:    -moz-radial-gradient(center, circle cover, $to 0%, $from 100%);
+	background:     -ms-radial-gradient(center, circle cover, $to 0%, $from 100%);
+	background:         radial-gradient(center, circle cover, $to 0%, $from 100%); // Standard syntax; must be last
+}
+
+@mixin linear-grad($from, $deg) {
+	$to: lighten($from, 20%);
+	background-color: $from; // fallback color if gradients are not supported
+	background: -webkit-linear-gradient($deg, $from, $to); // For Chrome and Safari
+	background:    -moz-linear-gradient($deg, $from, $to); // For old Fx (3.6 to 15)
+	background:     -ms-linear-gradient($deg, $from, $to); // For pre-releases of IE 10
+	background:      -o-linear-gradient($deg, $from, $to); // For old Opera (11.1 to 12.0)
+	background:         linear-gradient($deg, $from, $to); // Standard syntax; must be last
+}
+
+@mixin opensans{
+	-webkit-font-smoothing: subpixel-antialiased;
+	font-familly: "Open Sans", sans-serif;
+}

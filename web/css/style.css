@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*****************************************************************************************
  * legionen.nu
  *
@@ -6,72 +7,6 @@
 /*
 	RESET
 */
-/* © reset5  2011 opensource.736cs.com MIT */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, audio, canvas, details, figcaption, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, summary, time, video {
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-  margin: 0;
-  padding: 0; }
-
-body {
-  line-height: 1; }
-
-article, aside, dialog, figure, footer, header, hgroup, nav, section, blockquote {
-  display: block; }
-
-nav ul {
-  list-style: none; }
-
-ol {
-  list-style: decimal; }
-
-ul {
-  list-style: disc; }
-
-ul ul {
-  list-style: circle; }
-
-blockquote, q {
-  quotes: none; }
-
-blockquote:before, blockquote:after, q:before, q:after {
-  content: none; }
-
-ins {
-  text-decoration: underline; }
-
-del {
-  text-decoration: line-through; }
-
-mark {
-  background: none; }
-
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted black;
-  cursor: help; }
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #cccccc;
-  margin: 1em 0;
-  padding: 0; }
-
-input[type=submit], input[type=button], button {
-  margin: 0;
-  padding: 0; }
-
-input, select, a img {
-  vertical-align: middle; }
-
 /*
 	Typsnitt
 */
@@ -81,53 +16,115 @@ input, select, a img {
   font-weight: 400;
   src: local("Open Sans"), local("OpenSans"), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format("woff"); }
 
+@font-face {
+  font-family: 'PrinceofPersia';
+  font-style: normal;
+  font-weight: 400;
+  src: local("PrinceofPersia"), local("Prince of Persia"), url(/web/fonts/princeofpersia.ttf) format("truetype"); }
+
+html, body, #sun {
+  height: 100%;
+  margin: 0; }
+
 body {
-  background: url("/web/img/teaser.jpg") #14000b;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  font-family: "Open Sans", sans-serif;
-  color: #fff;
-  width: 100%;
-  text-transform: uppercase;
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8); }
-  body a {
-    text-decoration: none;
-    color: #e6e6e6;
-    border-bottom: 1px dotted white; }
-    body a:hover {
-      color: #fff;
-      border-style: solid;
-      text-decoration: none; }
-  body h1 {
-    font-size: 500%;
-    line-height: 1; }
-  body h2 {
-    font-size: 200%; }
-  body h3 {
-    font-size: 100%;
-    text-transform: uppercase; }
-  body p {
-    margin: 0 0 20px;
-    line-height: 1.5; }
-  body #container {
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-familly: "Open Sans", sans-serif; }
+  body #sun {
+    display: none;
+    width: 100%; }
+  body #background {
+    width: 100%;
+    height: 180%;
+    position: fixed;
+    top: 0;
+    left: 0; }
+  body.sunset #background {
+    /* fallback */
+    background-color: #972600;
+    /* Can't specify a percentage size? Laaaaaame. */
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#972600), to(#fd4000));
+    background: -webkit-radial-gradient(50% 50%, circle cover, #fd4000 0%, #972600 100%);
+    background: -moz-radial-gradient(center, circle cover, #fd4000 0%, #972600 100%);
+    background: -ms-radial-gradient(center, circle cover, #fd4000 0%, #972600 100%);
+    background: radial-gradient(center, circle cover, #fd4000 0%, #972600 100%); }
+  body.night #background {
+    /* fallback */
+    background-color: #080d11;
+    /* Can't specify a percentage size? Laaaaaame. */
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#080d11), to(#294256));
+    background: -webkit-radial-gradient(50% 50%, circle cover, #294256 0%, #080d11 100%);
+    background: -moz-radial-gradient(center, circle cover, #294256 0%, #080d11 100%);
+    background: -ms-radial-gradient(center, circle cover, #294256 0%, #080d11 100%);
+    background: radial-gradient(center, circle cover, #294256 0%, #080d11 100%); }
+  body.day #background {
+    /* fallback */
+    background-color: #2661a5;
+    /* Can't specify a percentage size? Laaaaaame. */
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#2661a5), to(#abc9ec));
+    background: -webkit-radial-gradient(50% 50%, circle cover, #abc9ec 0%, #2661a5 100%);
+    background: -moz-radial-gradient(center, circle cover, #abc9ec 0%, #2661a5 100%);
+    background: -ms-radial-gradient(center, circle cover, #abc9ec 0%, #2661a5 100%);
+    background: radial-gradient(center, circle cover, #abc9ec 0%, #2661a5 100%); }
+
+#container {
+  height: 100%;
+  position: relative; }
+  #container #footer {
+    position: absolute;
+    bottom: 0;
+    height: 200px;
+    width: 100%;
+    background-image: url(/web/img/desert.png);
+    background-repeat: repeat-x;
+    background-position: bottom; }
+  #container .wrapper {
     width: 60%;
-    padding: 0 0 0 20%;
-    margin: 10% auto;
-    text-align: center; }
-    body #container iframe {
-      width: 600px;
-      height: 337px; }
+    margin: 0 auto; }
+
+/*****************
+ MISC
+ ****************/
+.clearfix {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+/*****************
+ Masthead
+ ****************/
+#masthead {
+  height: 100px; }
+  #masthead h1.pagetitle {
+    font: 400% "PrinceofPersia";
+    color: #8B0000;
+    letter-spacing: 0.03em; }
+
+/***************************************
+ SO FLUFFYYYYYYYYY! http://youtu.be/SNLJDR-XbVY?t=2s
+ ***************************************/
+#clouds {
+  position: relative;
+  background-repeat: no-repeat;
+  z-index: 21;
+  width: 100%;
+  height: 300px;
+  top: 0;
+  display: none; }
+  #clouds.animate {
+    background-image: none;
+    overflow: hidden;
+    display: block; }
+  #clouds img {
+    position: absolute; }
 
 /***************************************
  OM NÅGON HAR EN LITEN KLEN SKÄRM
  ***************************************/
-@media only screen and (max-width: 480px) {
-  #container {
-    width: 80% !important;
-    margin: 200px auto !important;
-    padding: 0 !important; }
-    #container h1 {
-      font-size: 300%; }
-    #container iframe {
-      width: 100% !important;
-      height: 200px !important; } }
+@media (min-width: 979px) and (max-width: 1279px) {
+  .wrapper {
+    width: 80% !important; } }
+@media (max-width: 979px) {
+  .wrapper {
+    width: 90% !important; } }
