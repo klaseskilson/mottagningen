@@ -147,7 +147,9 @@ class Post_model extends CI_model
 		$this->db->where('post_id', $id);
 		$query = $this->db->get('posts');
 
-		return $query->result_array()[0]['status'];
+		$result = $query->result_array();
+
+		return $result[0]['status'];
 	}
 
 	/**
