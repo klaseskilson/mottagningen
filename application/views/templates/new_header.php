@@ -28,7 +28,7 @@
 	</script>
 </head>
 
-<body class="<?php //echo $daytime; ?> day">
+<body class="<?php echo $daytime; ?>">
 	<div id="background"></div>
 	<div id="container">
 		<div id="masthead" class="wrapper">
