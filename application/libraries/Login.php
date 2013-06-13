@@ -42,13 +42,10 @@ class Login
 
 	public function validate($name = '', $pwd = '') {
 		$this->CI->load->model('User_model');
-		$query = $this->CI->User_model->validate($name, $pwd);
+		$result = $this->CI->User_model->validate($name, $pwd);
 
-		if($query) // if the user's credentials validated...
+		if($result) // if the user's credentials validated...
 		{
-			$result = $query->result();
-			$result = $result[0];
-
 			$data = array(
 				'id' => $result->uid,
 				'liuid' => $result->liuid,
@@ -58,10 +55,9 @@ class Login
 			$this->CI->session->set_userdata($data);
 			return true;
 		}
-		else // incorrect username or password
-		{
-			return false;
-		}
+
+		// incorrect username or password
+		return false;
 	}
 
 	public function get_id() {

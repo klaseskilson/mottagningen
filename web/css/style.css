@@ -1,37 +1,21 @@
 /*
-Syntax error: Invalid CSS after "...opensans($size ": expected ")", was "= 100%) {"
-        on line 42 of _mixins.scss
-        from line 12 of style.scss
+Syntax error: Invalid CSS after "": expected selector or at-rule, was "<<<<<<< HEAD"
+        on line 1 of _mixins.scss
+        from line 11 of style.scss
 
-37: 	opacity: $opacity;
-38: 	-moz-opacity: $opacity;
-39: 	filter: alpha(opacity=($opacity * 100));
-40: }
-41: 
-42: @mixin opensans($size = 100%) {
-43: 	font-size: $size;
-44: 	font-family: 'Open Sans', sans-serif;
-45: 	-webkit-font-smoothing: subpixel-antialiased;
-46: }
+1: <<<<<<< HEAD
+2: // _mixins.scss - Useful SASS mixins
+3: //
+4: // Created by Klas Eskilson (http://klaseskilson.se)
+5: //
+6: // Use, modify, do what the fuck you want with it. Released under the WTFPL license. (http://www.wtfpl.net/)
 
 Backtrace:
-_mixins.scss:42
-style.scss:12
+_mixins.scss:1
+style.scss:11
 /Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:1148:in `expected'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/script/lexer.rb:199:in `expected!'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/script/parser.rb:476:in `assert_tok'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/script/parser.rb:362:in `defn_arglist!'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/script/parser.rb:104:in `parse_mixin_definition_arglist'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:1022:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:1022:in `sass_script'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:185:in `mixin_directive'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:175:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:175:in `special_directive'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:147:in `directive'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:553:in `block_child'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:546:in `block_contents'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:82:in `stylesheet'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:27:in `parse'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:1084:in `expected'
+/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:28:in `parse'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/engine.rb:342:in `_to_tree'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/engine.rb:274:in `to_tree'
 /Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/perform.rb:225:in `visit_import'
@@ -83,4 +67,4 @@ style.scss:12
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"...opensans($size \": expected \")\", was \"= 100%) {\"\A         on line 42 of _mixins.scss\A         from line 12 of style.scss\A \A 37: 	opacity: $opacity;\A 38: 	-moz-opacity: $opacity;\A 39: 	filter: alpha(opacity=($opacity * 100));\A 40: }\A 41: \A 42: @mixin opensans($size = 100%) {\A 43: 	font-size: $size;\A 44: 	font-family: 'Open Sans', sans-serif;\A 45: 	-webkit-font-smoothing: subpixel-antialiased;\A 46: }"; }
+  content: "Syntax error: Invalid CSS after \"\": expected selector or at-rule, was \"<<<<<<< HEAD\"\A         on line 1 of _mixins.scss\A         from line 11 of style.scss\A \A 1: <<<<<<< HEAD\A 2: // _mixins.scss - Useful SASS mixins\A 3: //\A 4: // Created by Klas Eskilson (http://klaseskilson.se)\A 5: //\A 6: // Use, modify, do what the fuck you want with it. Released under the WTFPL license. (http://www.wtfpl.net/)"; }

@@ -98,7 +98,9 @@ class Post_model extends CI_model
 		$this->db->where('post.post_id', $id);
 		$query = $this->db->get();
 
-		if($query) return $query->result_array()[0];
+		$result = $query->result_array();
+
+		if($query) return $result[0];
 
 		return false;
 	}

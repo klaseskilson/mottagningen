@@ -14,7 +14,11 @@ class User_model extends CI_model
 	 */
 	function validate($lid, $pwd)
 	{
+<<<<<<< HEAD
 		$this->db->select("*");
+=======
+		$this->db->select("uid, password, liuid");
+>>>>>>> frontend
 		$this->db->where('liuid', $lid);
 		// password query
 		$pwq = $this->db->get("users");
@@ -22,7 +26,11 @@ class User_model extends CI_model
 
 		if($this->passwordhash->CheckPassword($pwd, $pwr[0]->password))
 		{
+<<<<<<< HEAD
 			return $pwq;
+=======
+			return $pwr[0];
+>>>>>>> frontend
 		}
 		return false;
 	}
@@ -59,6 +67,7 @@ class User_model extends CI_model
 		if($query)
 		{
 			return $result[0]->privil;
+<<<<<<< HEAD
 		}
 
 		return false;
@@ -87,6 +96,8 @@ class User_model extends CI_model
 		else
 		{
 			return $this->db->insert('admin', $data);
+=======
+>>>>>>> frontend
 		}
 
 		return false;
@@ -114,7 +125,7 @@ class User_model extends CI_model
 	/**
 	 * create a new user
 	 */
-	function create_user($liuid, $fname, $sname, $password)
+	function create_user($liuid, $fname, $sname, $password, $privil = 2)
 	{
 		if(strlen($liuid) == 8 && !empty($fname) && !empty($fname) && strlen($password) > 6
 			&& !$this->liuid_exists($liuid))
@@ -126,13 +137,41 @@ class User_model extends CI_model
 						'liuid'		=> $liuid
 					);
 
+<<<<<<< HEAD
 			if($this->db->insert('users', $data))
 			{
 				$uid = $this->get_id($liuid);
 
 				return $this->edit_privil($uid, 2);
 			}
+=======
+			return $this->db->insert('users', $data) && $this->change_privil($this->get_id($liuid), $privil);
+>>>>>>> frontend
 		}
+		return false;
+	}
+
+	/**
+	 * set user privil
+	 */
+	function change_privil($uid, $privil)
+	{
+		$privil = $privil > 4 ? 4 : $privil;
+
+		$this->db->select("uid");
+		$this->db->where("uid", $uid);
+		$query = $this->db->get("admin");
+
+		// create privil entry in db
+		if($query->num_rows() == 0)
+		{
+			return $this->db->insert("admin", array("uid" => $uid, "privil" => $privil));
+		}
+		else // update existing
+		{
+			return $this->db->update("admin", array("privil" => $privil), array("uid" => $uid));
+		}
+
 		return false;
 	}
 
@@ -192,4 +231,20 @@ class User_model extends CI_model
 		return false;
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * get id from liuid
+	 */
+	function get_id($liuid)
+	{
+		$this->db->select("uid");
+		$this->db->where("liuid", $liuid);
+		$query = $this->db->get("users");
+		$result = $query->result();
+
+		return $result[0]->uid;
+	}
+
+>>>>>>> frontend
 }

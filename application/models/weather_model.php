@@ -32,12 +32,14 @@ class Weather_model extends CI_Model
 	/**
 	 * insert weather data to cache
 	 */
-	function update($weather, $temp, $windspeed)
+	function update($weather, $temp, $windspeed, $sunrise, $sunset)
 	{
 		$data = array(
 					'weather' 	=> str_replace(" ", "", trim($weather)),
 					'temp' 		=> trim($temp),
-					'windspeed' => $windspeed
+					'windspeed' => $windspeed,
+					'sunrise' => $sunrise,
+					'sunset' => $sunset
 				);
 		if(!empty($data['weather']))
 		{
@@ -53,21 +55,26 @@ class Weather_model extends CI_Model
 	 */
 	function collect($area = 'Sweden/Östergötland/Norrköping')
 	{
+		// save weatherobj adress as variable
+		$weatherfile = 'http://www.yr.no/place/'.$area.'/varsel_time_for_time.xml';
 		// load weather from yr.no
-		$weatherobj = simplexml_load_file('http://www.yr.no/place/'.$area.'/varsel_time_for_time.xml');
+		$weatherobj = simplexml_load_file($weatherfile);
 		//return $weatherobj;
 		if($weatherobj)
 		{
+
 			// take only what we want
 			$current_weather = array(
 									'weather' 	=> strtolower($weatherobj->forecast->tabular->time[0]->symbol['name']),
 									'temp' 		=> intval($weatherobj->forecast->tabular->time[0]->temperature['value']),
-									'windspeed' => floatval($weatherobj->forecast->tabular->time[0]->windSpeed['mps'])
+									'windspeed' => floatval($weatherobj->forecast->tabular->time[0]->windSpeed['mps']),
+									'sunrise'	=> str_replace('T', ' ', $weatherobj->sun['rise']),
+									'sunset'	=> str_replace('T', ' ', $weatherobj->sun['set'])
 								);
 			return $current_weather;
 		}
-		else
-			return false;
+
+		return false;
 	}
 
 	/**
@@ -76,7 +83,7 @@ class Weather_model extends CI_Model
 	 */
 	function collectcache()
 	{
-		$this->db->select("temp, weather, windspeed, cachedate");
+		$this->db->select("temp, weather, windspeed, sunrise, sunset, cachedate");
 		$this->db->order_by("weatherid", "desc");
 		$this->db->limit(1);
 
@@ -94,13 +101,10 @@ class Weather_model extends CI_Model
 	{
 		if(!$this->check())
 		{
-			$magic = $this->collect();
-			$this->update($magic['weather'], $magic['temp'], $magic['windspeed']);
+			if($magic = $this->collect())
+				$this->update($magic['weather'], $magic['temp'], $magic['windspeed'], $magic['sunrise'], $magic['sunset']);
 		}
-		else
-		{
-			$magic = $this->collectcache();
-		}
+		$magic = $this->collectcache();
 		return $magic;
 	}
 }

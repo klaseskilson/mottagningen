@@ -11,6 +11,6 @@
 
 
 // set update frequency for weather collecting
-// currently set to 20 min
-$config['update_freq'] = (60*10)*2;
+// currently set to 30 min
+$config['update_freq'] = (60*10)*3;
 
