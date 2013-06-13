@@ -26,9 +26,17 @@ class Start extends CI_Controller {
 		else
 			$data['daytime'] = 'night';
 
-		$this->load->view('templates/new_header', $data);
-		$this->load->view('new', $data);
-		$this->load->view('templates/new_footer', $data);
+		if($this->login->is_admin())
+		{
+			$this->load->view('templates/new_header', $data);
+			$this->load->view('new', $data);
+			$this->load->view('templates/new_footer', $data);
+		}
+		else
+		{
+			$this->load->view('sand');
+		}
+
 	}
 }
 

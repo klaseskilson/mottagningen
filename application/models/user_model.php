@@ -4,23 +4,29 @@ class User_model extends CI_model
 {
 	function __construct()
 	{
+		// call model constructor
 		parent::__construct();
 	}
+
 
 	/**
 	 * check if login credentials are correct
 	 */
 	function validate($lid, $pwd)
 	{
+		$this->db->select("uid, password, liuid");
 		$this->db->where('liuid', $lid);
-		$this->db->where('password', encrypt_password($pwd));
-		$query = $this->db->get('users');
-		if($query->num_rows == 1)
+		// password query
+		$pwq = $this->db->get("users");
+		$pwr = $pwq->result(); // password result
+
+		if($this->passwordhash->CheckPassword($pwd, $pwr[0]->password))
 		{
-			return $query;
+			return $pwr[0];
 		}
 		return false;
 	}
+
 
 	/**
 	 * check if user has given privil
@@ -31,7 +37,7 @@ class User_model extends CI_model
 		$this->db->where('privil <=', $what);
 		$query = $this->db->get('admin');
 
-		if($query->num_rows > 0)
+		if($query->num_rows() > 0)
 		{
 			return $query;
 		}
@@ -46,10 +52,13 @@ class User_model extends CI_model
 	{
 		$this->db->select("privil");
 		$this->db->where('uid', $id);
+
 		$query = $this->db->get('admin');
-		if($query->num_rows == 1)
+		$result = $query->result();
+
+		if($query)
 		{
-			return $query;
+			return $result[0]->privil;
 		}
 
 		return false;
@@ -64,9 +73,11 @@ class User_model extends CI_model
 		$this->db->where('uid', $uid);
 		$query = $this->db->get('users');
 
-		if($query->num_rows == 1)
+		$result = $query->result();
+
+		if($query->num_rows() == 1)
 		{
-			return $query->result()[0]->$what;
+			return $result[0]->$what;
 		}
 
 		return false;
@@ -75,7 +86,7 @@ class User_model extends CI_model
 	/**
 	 * create a new user
 	 */
-	function create_user($liuid, $fname, $sname, $password)
+	function create_user($liuid, $fname, $sname, $password, $privil = 2)
 	{
 		if(strlen($liuid) == 8 && !empty($fname) && !empty($fname) && strlen($password) > 6
 			&& !$this->liuid_exists($liuid))
@@ -83,12 +94,36 @@ class User_model extends CI_model
 			$data = array(
 						'fname'		=> $fname,
 						'sname'		=> $sname,
-						'password'	=> encrypt_password($password),
+						'password'	=> $this->passwordhash->HashPassword($password),
 						'liuid'		=> $liuid
 					);
 
-			return $this->db->insert('users', $data);
+			return $this->db->insert('users', $data) && $this->change_privil($this->get_id($liuid), $privil);
 		}
+		return false;
+	}
+
+	/**
+	 * set user privil
+	 */
+	function change_privil($uid, $privil)
+	{
+		$privil = $privil > 4 ? 4 : $privil;
+
+		$this->db->select("uid");
+		$this->db->where("uid", $uid);
+		$query = $this->db->get("admin");
+
+		// create privil entry in db
+		if($query->num_rows() == 0)
+		{
+			return $this->db->insert("admin", array("uid" => $uid, "privil" => $privil));
+		}
+		else // update existing
+		{
+			return $this->db->update("admin", array("privil" => $privil), array("uid" => $uid));
+		}
+
 		return false;
 	}
 
@@ -111,7 +146,7 @@ class User_model extends CI_model
 	{
 		if(($password == $confirm) && strlen($password) > 6)
 		{
-			$password = array('password' => encrypt_password($password));
+			$password = array('password' => $this->passwordhash->HashPassword($password));
 
 			return $this->db->update('users', $password, array('uid' => $uid));
 		}
@@ -133,4 +168,18 @@ class User_model extends CI_model
 
 		return false;
 	}
+
+	/**
+	 * get id from liuid
+	 */
+	function get_id($liuid)
+	{
+		$this->db->select("uid");
+		$this->db->where("liuid", $liuid);
+		$query = $this->db->get("users");
+		$result = $query->result();
+
+		return $result[0]->uid;
+	}
+
 }

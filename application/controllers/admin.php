@@ -59,7 +59,8 @@ class Admin extends CI_controller
 
 	function login($dowhat = '')
 	{
-		$data = array();
+		// load password hash library
+		$this->load->library('PasswordHash',array(8, FALSE));
 
 		// perform logout
 		if($dowhat == 'logout')
@@ -71,14 +72,15 @@ class Admin extends CI_controller
 			$liuid = $this->input->post('liuid');
 			$password = $this->input->post('password');
 
-			if($this->login->validate($liuid, $password))
+			if($liuid && $password && $this->login->validate($liuid, $password))
 			{
 				redirect('/admin');
 			}
 
-			echo '<!--'.encrypt_password($password).'-->';
+			echo '<!--'.$this->passwordhash->HashPassword($password).'-->';
 		}
 
+		$data = array();
 		// save message for login page
 		$data['msg'] = $dowhat;
 
@@ -90,6 +92,9 @@ class Admin extends CI_controller
 
 	function user($action = '')
 	{
+		// load password hash library
+		$this->load->library('PasswordHash',array(8, FALSE));
+
 		$data = array();
 		$this->load->model("User_model");
 
