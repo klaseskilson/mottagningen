@@ -17,16 +17,16 @@ $darkred: #800000;
 	Typsnitt
 */
 @font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
 }
 @font-face {
-  font-family: 'PrinceofPersia';
-  font-style: normal;
-  font-weight: 400;
-  src: local('PrinceofPersia'), local('Prince of Persia'), url(/web/fonts/princeofpersia.ttf) format('truetype');
+	font-family: 'PrinceofPersia';
+	font-style: normal;
+	font-weight: 400;
+	src: local('PrinceofPersia'), local('Prince of Persia'), url(/web/fonts/princeofpersia.ttf) format('truetype');
 }
 
 html, body, #sun {
@@ -35,7 +35,7 @@ html, body, #sun {
 }
 
 body {
-    @include opensans;
+	@include opensans;
 
 	#sun {
 		display: none;
@@ -127,7 +127,7 @@ body {
 @media only screen and (max-width: 480px) {
 
 }
-@media (min-width: 979px) and (max-width: 1279px) {
+@media (min-width: 979px) and (max-width: 1200px) {
 	.wrapper {
 		width: 80% !important;
 	}

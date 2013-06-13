@@ -18,12 +18,12 @@
 	<link rel="stylesheet" href="/web/css/style.css" type="text/css" media="screen" />
 
 	<script>
-	var sunset = <?php echo strtotime('2013-06-12 23:59') /*$sunset*/; ?>,
-		sunrise = <?php echo /*strtotime('2013-06-12 22:47')*/ $sunrise; ?>;
+	var sunset = <?php echo /*strtotime('2013-06-13 19:10')*/ $sunset; ?>%86400,
+		sunrise = <?php echo /*strtotime('2013-06-13 19:16')*/ $sunrise; ?>%86400;
 
 	// color values [R, G, B]
-	var sunsetdark = [151, 38, 0], sunsetlight = [253, 64, 0]
-		daydark = [38, 97, 165], daylight = [88, 148, 217]
+	var sunsetdark = [151, 38, 0], sunsetlight = [253, 64, 0],
+		daydark = [38, 97, 165], daylight = [171, 201, 236],
 		nightdark = [8, 13, 17], nightlight = [41, 66, 86];
 	</script>
 </head>

@@ -12,7 +12,7 @@ var bgupdateinterval = 15*1000, // every 15 seconds
 	pageload = Math.floor(Date.now()/1000); // when was the page opened?
 // get vendor prefix
 var gradientPrefix = getCssValuePrefix('backgroundImage',
-									   'linear-gradient(left, #fff, #fff)');
+									   'radial-gradient(center, circle cover, #fff 0%, #fff 100%)');
 
 (function() {
     var lastTime = 0;
@@ -182,35 +182,42 @@ function setcolor(updateinterval, duskduration)
 	duskduration = duskduration || mainduskduration; // dusk lasts for 30 minuites
 
 		// save time in handy variable
-	var time = Math.floor(Date.now()/1000),
+	var time = Math.floor(Date.now()/1000)%86400,
 		// seconds until sunset, (86400) = seconds of a day
-		tilsunset = ((sunset + 86400*Math.floor(time/pageload)) - time)%86400,
+		tilsunset = (sunset%86400) - time,
 		// seconds until sunrise
-		tilsunrise = ((sunrise - time) + 86400*Math.floor(time/pageload))%86400,
+		tilsunrise = (sunrise%86400) - time,
 		// save background object to var
 		background = document.getElementById("background");
+
+	tilsunset = tilsunset < 0 ? tilsunset + 86400 : tilsunset;
+	tilsunrise = tilsunrise < 0 ? tilsunrise + 86400 : tilsunrise;
 
 	// DAY -> SUNSET!
 	if (tilsunset < duskduration)
 	{
+		console.log("day->sunset");
 		progress = 1-(tilsunset / duskduration);
 		lineargradient(sunsetdark, sunsetlight, daydark, daylight, progress, background);
 	}
 	// SUNSET -> NIGHT
 	else if (tilsunset > 86400-duskduration)
 	{
+		console.log("sunset->night");
 		progress = ((86400-tilsunset) / duskduration);
 		lineargradient(nightdark, nightlight, sunsetdark, sunsetlight, progress, background);
 	}
 	// NIGHT -> SUNRISE
 	else if (tilsunrise < duskduration)
 	{
+		console.log("night->sunrise");
 		progress = 1-(tilsunrise / duskduration);
 		lineargradient(sunsetdark, sunsetlight, nightdark, nightlight, progress, background);
 	}
 	// SUNRISE -> DAY
 	else if (tilsunrise > 86400-duskduration)
 	{
+		console.log("sunrise->day");
 		progress = ((86400-tilsunrise) / duskduration);
 		lineargradient(daydark, daylight, sunsetdark, sunsetlight, progress, background);
 	}
@@ -225,5 +232,7 @@ function lineargradient(todark, tolight, fromdark, fromlight, progress, theobjec
 		newlight = [Math.floor(fromlight[0]+progress*(tolight[0]-fromlight[0])),
 					Math.floor(fromlight[1]+progress*(tolight[1]-fromlight[1])),
 					Math.floor(fromlight[2]+progress*(tolight[2]-fromlight[2]))];
-	theobject.style.backgroundImage = gradientPrefix + "linear-gradient(top, rgb("+newdark[0]+","+newdark[1]+", "+newdark[2]+"), rgb("+newlight[0]+","+newlight[1]+", "+newlight[2]+"))";
+	theobject.style.backgroundImage = gradientPrefix + "radial-gradient(50% 50%, circle cover, rgb("+newlight[0]+","+newlight[1]+", "+newlight[2]+") 0%, rgb("+newdark[0]+","+newdark[1]+", "+newdark[2]+") 100%)";
+
+	console.log("Redrawing: " + newdark + " -> " + newlight);
 }
