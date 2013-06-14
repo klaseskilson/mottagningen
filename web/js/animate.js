@@ -108,7 +108,7 @@ function addClouds()
 		cloud.className = "cloud";
 		cloud.id = "cloud" + i;
 		cloud.style.left = parseInt(Math.random() * 0)+'px';
-		cloud.style.top = parseInt(Math.random() * 260)+'px';
+		cloud.style.top = parseInt(Math.random() * 200)+'px';
 		cloud.style.opacity = 0.9;
 
 		cloudsDiv.appendChild(cloud);

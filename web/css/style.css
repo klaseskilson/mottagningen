@@ -5,9 +5,6 @@
  * Är nollan eller faddern nyfiken? Ojoj!
  */
 /*
-	RESET
-*/
-/*
 	Typsnitt
 */
 @font-face {
@@ -22,13 +19,19 @@
   font-weight: 400;
   src: local("PrinceofPersia"), local("Prince of Persia"), url(/web/fonts/princeofpersia.ttf) format("truetype"); }
 
+@font-face {
+  font-family: 'Fauna One';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Fauna One"), local("FaunaOne-Regular"), url(http://themes.googleusercontent.com/static/fonts/faunaone/v1/cSd7NBXNFQWK4oX1706dY7O3LdcAZYWl9Si6vvxL-qU.woff) format("woff"); }
+
 html, body, #sun {
   height: 100%;
   margin: 0; }
 
 body {
   -webkit-font-smoothing: subpixel-antialiased;
-  font-familly: "Open Sans", sans-serif; }
+  font-family: "Open Sans", sans-serif; }
   body #sun {
     display: none;
     width: 100%; }
@@ -69,17 +72,30 @@ body {
 #container {
   height: 100%;
   position: relative; }
+  #container h1, #container h2, #container h3, #container h4, #container h5 {
+    font-family: 'Fauna One', serif;
+    -webkit-font-smoothing: subpixel-antialiased; }
+  #container p {
+    font-size: 100%;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-family: "Open Sans", sans-serif; }
+  #container .wrapper {
+    width: 60%;
+    margin: 0 auto; }
   #container #footer {
-    position: absolute;
-    bottom: 0;
     height: 200px;
     width: 100%;
     background-image: url(/web/img/desert.png);
     background-repeat: repeat-x;
-    background-position: bottom; }
-  #container .wrapper {
-    width: 60%;
-    margin: 0 auto; }
+    background-position: bottom;
+    margin: 30px 0 0; }
+  #container .maincontent {
+    background: #e6e6e6;
+    margin: 0;
+    padding: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; }
 
 /*****************
  MISC
@@ -102,14 +118,14 @@ body {
     letter-spacing: 0.03em; }
 
 /***************************************
- SO FLUFFYYYYYYYYY! http://youtu.be/SNLJDR-XbVY?t=2s
+ SO FLUFFYYYYYY! http://youtu.be/SNLJDR-XbVY?t=2s
  ***************************************/
 #clouds {
   position: relative;
   background-repeat: no-repeat;
   z-index: 21;
   width: 100%;
-  height: 300px;
+  height: 250px;
   top: 0;
   display: none; }
   #clouds.animate {
@@ -122,9 +138,12 @@ body {
 /***************************************
  OM NÅGON HAR EN LITEN KLEN SKÄRM
  ***************************************/
-@media (min-width: 979px) and (max-width: 1200px) {
+@media (min-width: 979px) and (max-width: 1280px) {
   .wrapper {
     width: 80% !important; } }
 @media (max-width: 979px) {
   .wrapper {
-    width: 90% !important; } }
+    width: 90% !important; }
+
+  #clouds {
+    height: 200px !important; } }
