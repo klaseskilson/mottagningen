@@ -30,8 +30,20 @@
 
 <body class="<?php echo $daytime; ?>">
 	<div id="background"></div>
+	<div id="sunplaceholder"></div>
 	<div id="container">
 		<div id="masthead" class="wrapper">
 			<h1 class="pagetitle">Legionen</h1>
+			<ul class="mainmenu">
+				<?php
+				foreach ($menu_pages as $page) {
+					?>
+					<li><a href="sida/visa/<?php echo $page['slug']; ?>"><?php echo $page['title']; ?></a></li>
+					<?php
+				}
+
+				do_dump($menu_pages);
+				?>
+			</ul>
 		</div>
 		<div id="clouds"></div>

@@ -85,6 +85,9 @@ class Post_model extends CI_model
 	 */
 	function get_post($id)
 	{
+		if(!is_numeric($id))
+			$id = $this->get_id($id);
+
 		// does the post exist?
 		if(!$this->post_exists($id))
 			return false;
@@ -119,6 +122,32 @@ class Post_model extends CI_model
 		$this->db->group_by("post.post_id");
 		$query = $this->db->get();
 
+		if($query) return $query->result_array();
+
+		return false;
+	}
+
+	/**
+	 * get all parent pages, eg for menu and such
+	 * @param  string $what what columns to return
+	 * @return array       the posts
+	 */
+	function get_active_parents($what = '')
+	{
+		// what to collect?
+		if($what == '')
+			$this->db->select('*');
+		else
+			$this->db->select($what);
+
+		// limit results
+		$this->db->from('posts');
+		$this->db->where(array('parentid' => 0, 'status' => 1));
+
+		// get it all
+		$query = $this->db->get();
+
+		// if query goes well, return results as array
 		if($query) return $query->result_array();
 
 		return false;
@@ -162,5 +191,22 @@ class Post_model extends CI_model
 			return $this->db->update('posts', array('status' => 0), array('post_id' => $id));
 		else
 			return $this->db->update('posts', array('status' => 1), array('post_id' => $id));
+	}
+
+	/**
+	 * slug -> id
+	 * @param  string $slug the slug
+	 * @return int       the id
+	 */
+	function get_id($slug)
+	{
+		$this->db->select("post_id");
+		$this->db->where("slug", $slug);
+		$query = $this->db->get("posts");
+		$result = $query->result_array();
+
+		if($query) return $result[0]['post_id'];
+
+		return false;
 	}
 }
