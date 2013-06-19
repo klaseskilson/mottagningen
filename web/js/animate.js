@@ -48,10 +48,10 @@ function init()
 		if(!(isAgent('Mobile') || isAgent('Android'))){
 			addClouds();
 			animateClouds();
-			// set colors at load and init continuous color change
-			setcolor();
-			initcolor(bgupdateinterval);
 		}
+		// set colors at load and init continuous color change
+		setcolor();
+		initcolor(bgupdateinterval);
 	})(this);
 }
 

@@ -16,10 +16,12 @@ class Sida extends CI_Controller {
 		// it collects weather and pages and prepare the
 		// view
 
+		// if we are still in development, make sure user is logged in
+		// before we show this. this can be removed without any problem!
 		if(defined('ENVIRONMENT') && ENVIRONMENT == 'development' && !$this->login->is_admin())
 		{
 			$this->load->view('sand');
-			die;
+			return false;
 		}
 
 		// load models

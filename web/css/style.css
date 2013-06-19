@@ -115,7 +115,22 @@ body {
   #masthead h1.pagetitle {
     font: 400% 'PrinceofPersia';
     color: #8B0000;
-    letter-spacing: 0.03em; }
+    letter-spacing: 0.03em;
+    float: left; }
+  #masthead ul.mainmenu {
+    float: right;
+    list-style: none;
+    margin: 70px 0 0; }
+    #masthead ul.mainmenu li {
+      display: block;
+      float: right;
+      text-transform: uppercase;
+      padding: 7px;
+      margin: 0 10px;
+      background: #e6e6e6;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px; }
 
 /***************************************
  SO FLUFFYYYYYY! http://youtu.be/SNLJDR-XbVY?t=2s

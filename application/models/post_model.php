@@ -29,6 +29,14 @@ class Post_model extends CI_model
 		// prepare slug for insertion
 		$slug = strtolower(empty($slug) ? $title : $slug);
 		$slug = substr(preg_replace("/[^a-zA-Z0-9-]/", "", str_replace(" ", "-", $slug)), 0, 20);
+		// make sure slug isn't already used using function slug_exists, if it is taken, add an int
+		$i = '';
+		while($this->slug_exists($slug.$i))
+			$i = ($i == '' ? 1 : $i+1);
+
+		$slug = $slug.$i;
+
+		// generate hash
 		$hash = random(10, 20);
 
 		// if slug length is less than 4, make it into a hash string instead
@@ -67,6 +75,9 @@ class Post_model extends CI_model
 		// prepare slug for insertion
 		$slug = strtolower(empty($slug) ? $title : $slug);
 		$slug = substr(preg_replace("/[^a-zA-Z0-9-]/", "", str_replace(" ", "-", $slug)), 0, 20);
+		// make sure slug isn't already used using function slug_exists, if it is taken, add an int
+		for($i = 1; $this->slug_exists($slug); $i++)
+			$slug = $slug.'-'.$i;
 		// if slug length is less than 4, make it into a hash string instead
 		if(strlen($slug) < 4) $slug = random(5, 10);
 
@@ -161,6 +172,19 @@ class Post_model extends CI_model
 	{
 		$this->db->select('post_id');
 		$this->db->where('post_id', $id);
+		$query = $this->db->get('posts');
+
+		return $query->num_rows();
+	}
+
+	/**
+	 * see if a slug is taken or not
+	 * @param  string $slug the slug
+	 * @return bool
+	 */
+	function slug_exists($slug)
+	{
+		$this->db->where('slug', $slug);
 		$query = $this->db->get('posts');
 
 		return $query->num_rows();
