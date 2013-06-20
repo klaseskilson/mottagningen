@@ -48,10 +48,10 @@ function init()
 		if(!(isAgent('Mobile') || isAgent('Android'))){
 			addClouds();
 			animateClouds();
-			// set colors at load and init continuous color change
-			setcolor();
-			initcolor(bgupdateinterval);
 		}
+		// set colors at load and init continuous color change
+		setcolor();
+		initcolor(bgupdateinterval);
 	})(this);
 }
 
@@ -108,7 +108,7 @@ function addClouds()
 		cloud.className = "cloud";
 		cloud.id = "cloud" + i;
 		cloud.style.left = parseInt(Math.random() * 0)+'px';
-		cloud.style.top = parseInt(Math.random() * 260)+'px';
+		cloud.style.top = parseInt(Math.random() * 200)+'px';
 		cloud.style.opacity = 0.9;
 
 		cloudsDiv.appendChild(cloud);

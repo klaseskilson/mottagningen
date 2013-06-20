@@ -52,10 +52,10 @@
 //
 // Use, modify, do what the fuck you want with it. Released under the WTFPL license. (http://www.wtfpl.net/)
 
-@mixin rounded($vert, $horz, $radius: 10px) {
-  border-#{$vert}-#{$horz}-radius: $radius;
-  -moz-border-radius-#{$vert}#{$horz}: $radius;
-  -webkit-border-#{$vert}-#{$horz}-radius: $radius;
+@mixin roundcorners($radius: 10px) {
+    -moz-border-radius: $radius;    // firefox
+    -webkit-border-radius: $radius; // safari/chrome
+    border-radius: $radius;         // CSS3, works in IE9
 }
 
 @mixin transition($what: all, $time: 0.3s) {
@@ -112,6 +112,6 @@
 
 @mixin opensans{
 	-webkit-font-smoothing: subpixel-antialiased;
-	font-familly: "Open Sans", sans-serif;
+	font-family: "Open Sans", sans-serif;
 }
 >>>>>>> frontend

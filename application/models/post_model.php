@@ -24,11 +24,19 @@ class Post_model extends CI_model
 	 * create a new post
 	 * @return 	id 	the created page id
 	 */
-	function create($title, $slug, $content, $parentid = 0)
+	function create($title, $slug, $content, $status, $parentid = 0)
 	{
 		// prepare slug for insertion
 		$slug = strtolower(empty($slug) ? $title : $slug);
 		$slug = substr(preg_replace("/[^a-zA-Z0-9-]/", "", str_replace(" ", "-", $slug)), 0, 20);
+		// make sure slug isn't already used using function slug_exists, if it is taken, add an int
+		$i = '';
+		while($this->slug_exists($slug.$i))
+			$i = ($i == '' ? 1 : $i+1);
+
+		$slug = $slug.$i;
+
+		// generate hash
 		$hash = random(10, 20);
 
 		// if slug length is less than 4, make it into a hash string instead
@@ -38,7 +46,8 @@ class Post_model extends CI_model
 				'hash' 	=> $hash,
 				'title' => trim($title),
 				'slug' 	=> $slug,
-				'parentid' => $parentid
+				'parentid' => $parentid,
+				'status' => $status
 			);
 
 		if($this->db->insert('posts', $data))
@@ -62,21 +71,41 @@ class Post_model extends CI_model
 	 * edit an existing post
 	 * @return 	bool 	success or not!
 	 */
-	function update($id, $title, $slug, $content, $parentid)
+	function update($id, $title, $slug, $content, $parentid, $status)
 	{
 		// prepare slug for insertion
 		$slug = strtolower(empty($slug) ? $title : $slug);
 		$slug = substr(preg_replace("/[^a-zA-Z0-9-]/", "", str_replace(" ", "-", $slug)), 0, 20);
+		// make sure slug isn't already used using function slug_exists, if it is taken, add an int
+		$i = '';
+		while($this->slug_exists($slug.$i))
+			$i = ($i == '' ? 1 : $i+1);
 		// if slug length is less than 4, make it into a hash string instead
 		if(strlen($slug) < 4) $slug = random(5, 10);
 
 		$data = array(
 				'title' => trim($title),
 				'slug' 	=> $slug,
-				'parentid' => $parentid
+				'parentid' => $parentid,
+				'status' => $status
 			);
 
 		return ($this->db->update('posts', $data, array('post_id' => $id)) && $this->insert_ver($id, $content));
+	}
+
+	/**
+	 * deletes a post
+	 * @param  int $id the post id
+	 * @return bool    success or not?
+	 */
+	function delete($id)
+	{
+		if(!$this->login->has_privilege(2) || $this->get_status($id))
+			return false;
+
+		// start with deleting post_cont, since it is depending on posts
+		return $this->db->delete('post_cont', array('post_id' => $id))
+			&& $this->db->delete('posts', array('post_id' => $id));
 	}
 
 	/**
@@ -85,6 +114,9 @@ class Post_model extends CI_model
 	 */
 	function get_post($id)
 	{
+		if(!is_numeric($id))
+			$id = $this->get_id($id);
+
 		// does the post exist?
 		if(!$this->post_exists($id))
 			return false;
@@ -125,6 +157,32 @@ class Post_model extends CI_model
 	}
 
 	/**
+	 * get all parent pages, eg for menu and such
+	 * @param  string $what what columns to return
+	 * @return array       the posts
+	 */
+	function get_active_parents($what = '')
+	{
+		// what to collect?
+		if($what == '')
+			$this->db->select('*');
+		else
+			$this->db->select($what);
+
+		// limit results
+		$this->db->from('posts');
+		$this->db->where(array('parentid' => 0, 'status' => 1));
+
+		// get it all
+		$query = $this->db->get();
+
+		// if query goes well, return results as array
+		if($query) return $query->result_array();
+
+		return false;
+	}
+
+	/**
 	 * check if a post exists
 	 * @return 	bool
 	 */
@@ -132,6 +190,19 @@ class Post_model extends CI_model
 	{
 		$this->db->select('post_id');
 		$this->db->where('post_id', $id);
+		$query = $this->db->get('posts');
+
+		return $query->num_rows();
+	}
+
+	/**
+	 * see if a slug is taken or not
+	 * @param  string $slug the slug
+	 * @return bool
+	 */
+	function slug_exists($slug)
+	{
+		$this->db->where('slug', $slug);
 		$query = $this->db->get('posts');
 
 		return $query->num_rows();
@@ -147,7 +218,9 @@ class Post_model extends CI_model
 		$this->db->where('post_id', $id);
 		$query = $this->db->get('posts');
 
-		return $query->result_array()[0]['status'];
+		$result = $query->result_array();
+
+		return $result[0]['status'];
 	}
 
 	/**
@@ -160,5 +233,22 @@ class Post_model extends CI_model
 			return $this->db->update('posts', array('status' => 0), array('post_id' => $id));
 		else
 			return $this->db->update('posts', array('status' => 1), array('post_id' => $id));
+	}
+
+	/**
+	 * slug -> id
+	 * @param  string $slug the slug
+	 * @return int       the id
+	 */
+	function get_id($slug)
+	{
+		$this->db->select("post_id");
+		$this->db->where("slug", $slug);
+		$query = $this->db->get("posts");
+		$result = $query->result_array();
+
+		if($query) return $result[0]['post_id'];
+
+		return false;
 	}
 }

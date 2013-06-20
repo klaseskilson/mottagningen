@@ -1,51 +1,78 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Sida extends CI_Controller {
+	// prepare data array for view
+	private $data = array();
 
 	/**
-	 * Controller handeling pages
+	 * this is done every time the constructor is called
 	 */
+	public function __construct()
+	{
+		// thing that _has_ to be done according to CI
+		parent::__construct();
 
+		// this is what we do every time the site loads
+		// it collects weather and pages and prepare the
+		// view
+
+		// if we are still in development, make sure user is logged in
+		// before we show this. this can be removed without any problem!
+		if(defined('ENVIRONMENT') && ENVIRONMENT == 'development' && !$this->login->is_admin())
+		{
+			$this->load->view('sand');
+			return false;
+		}
+
+		// load models
+		$this->load->model("Weather_model");
+		$this->load->model("Post_model");
+
+		// save weather using the magic function
+		$this->data['weather'] = $this->Weather_model->magic();
+		// save pages for menu
+		$this->data['menu_pages'] = $this->Post_model->get_active_parents("title, slug");
+
+		// sunrise and sunset in unix timestamp
+		$this->data['sunset'] = strtotime($this->data['weather']['sunset']);
+		$this->data['sunrise'] = strtotime($this->data['weather']['sunrise']);
+
+		// is it dawn? i.e. less than 30 mins to or from sunset or sunrise?
+		if(abs(time() - $this->data['sunset']) < 30*60 || abs(time() - $this->data['sunrise']) < 30*60)
+			$this->data['daytime'] = 'dawn';
+		// is it day?
+		elseif(time() > $this->data['sunrise'] && time() < $this->data['sunset'])
+			$this->data['daytime'] = 'day';
+		// it's night
+		else
+			$this->data['daytime'] = 'night';
+	}
+
+	/**
+	 * Index Page for this controller.
+	 */
 	public function index()
 	{
-		$this->visa('hem');
-	}
-
-	public function visa($view = 'hmm')
-	{
-		$data = array();
-
-		$this->load->view('templates/header', $data);
-
-		if($view == 'fika')
-		{
-			$this->load->view('fika');
-		}
-		else
-		{
-			$this->load->view('start');
-		}
-
-		$this->load->view('templates/footer', $data);
-	}
-
-	public function cool($new = 'new')
-	{
-		$data = array();
-
-		// load config for weather and weather model
-		$this->config->load("leg_weather");
-		$this->load->model("Weather_model");
-
-		// skicka
-		$data['weather'] = $this->Weather_model->magic();
+		$data = $this->data;
 
 		$this->load->view('templates/new_header', $data);
-		$this->load->view($new, $data);
+		$this->load->view('start', $data);
+		$this->load->view('templates/new_footer', $data);
+	}
+
+	function visa($id = '')
+	{
+		if($id == '') show_404();
+
+		$data = $this->data;
+
+		$data['page'] = $this->Post_model->get_post($id);
+
+		$this->load->view('templates/new_header', $data);
+		$this->load->view('page', $data);
 		$this->load->view('templates/new_footer', $data);
 	}
 }
 
-
-/* End of file sida.php */
-/* Location: ./application/controllers/sida.php */
+/* End of file start.php */
+/* Location: ./application/controllers/start.php */

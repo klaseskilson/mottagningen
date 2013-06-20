@@ -1,5 +1,4 @@
 <?php // footer ?>
-	<div class="clearfix"></div>
 	<div id="footer">
 		<div class="wrapper">
 			<p>
@@ -12,8 +11,10 @@
 
 <!-- legionens swaga animationer -->
 <script src="/web/js/animate.js" type="text/javascript"></script>
+<script src="/script/ads/leg/script.js" type="text/javascript"></script>
 <script>
 	init();
+	initads("adswrapper");
 </script>
 </body>
 </html>

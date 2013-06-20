@@ -5,13 +5,12 @@
  * Är nollan eller faddern nyfiken? Ojoj!
  */
 
-/*
-	RESET
-*/
+// importera mixins
 @import "mixins";
 
 // VARIABLER
 $darkred: #800000;
+$boxbgcolor: darken(#fff, 10%);
 
 /*
 	Typsnitt
@@ -26,7 +25,13 @@ $darkred: #800000;
 	font-family: 'PrinceofPersia';
 	font-style: normal;
 	font-weight: 400;
-	src: local('PrinceofPersia'), local('Prince of Persia'), url(/web/fonts/princeofpersia.ttf) format('truetype');
+	src: local('PrinceofPersia'), local('Prince of Persia'), url(/web/font/princeofpersia.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Fauna One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Fauna One'), local('FaunaOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/faunaone/v1/cSd7NBXNFQWK4oX1706dY7O3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
 }
 
 html, body, #sun {
@@ -61,19 +66,33 @@ body {
 	height: 100%;
 	position: relative;
 
+	h1, h2, h3, h4, h5 {
+		font-family: 'Fauna One', serif;
+		-webkit-font-smoothing: subpixel-antialiased;
+	}
+	p {
+		font-size: 100%;
+
+		@include opensans();
+	}
+	.wrapper {
+		width: 60%;
+		margin: 0 auto;
+	}
 	#footer {
-		position: absolute;
-		bottom: 0;
 		height: 200px;
 		width: 100%;
 		background-image: url(/web/img/desert.png);
 		background-repeat: repeat-x;
 		background-position: bottom;
+		margin: 30px 0 0;
 	}
+	.maincontent {
+		background: $boxbgcolor;
+		margin: 0 0 20px;
+		padding: 10px;
 
-	.wrapper {
-		width: 60%;
-		margin: 0 auto;
+		@include roundcorners();
 	}
 }
 
@@ -91,23 +110,57 @@ body {
 #masthead {
 	height: 100px;
 
-	h1.pagetitle {
-		font: 400% 'PrinceofPersia';
-		color: #8B0000;
+	a {
+		text-decoration: none;
+
+		@include transition;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	h1.pagetitle a{
+		font: 200% 'PrinceofPersia';
+		color: #fff;
 		letter-spacing: 0.03em;
+		float: left;
+		text-shadow: #000 0 0 10px;
+
+		&:hover {
+			text-decoration: none;
+			text-shadow: #000 0 0 20px;
+		}
+	}
+
+	ul.mainmenu {
+		float: right;
+		list-style: none;
+		margin: 70px 0 0;
+
+		li {
+			display: block;
+			float: right;
+			text-transform: uppercase;
+			padding: 7px;
+			margin: 0 10px;
+			background: $boxbgcolor;
+
+			@include roundcorners(5px);
+		}
 	}
 }
 
 
 /***************************************
- SO FLUFFYYYYYYYYY! http://youtu.be/SNLJDR-XbVY?t=2s
+ SO FLUFFYYYYYY! http://youtu.be/SNLJDR-XbVY?t=2s
  ***************************************/
 #clouds {
 	position: relative;
 	background-repeat: no-repeat;
 	z-index: 21;
     width: 100%;
-    height: 300px;
+    height: 250px;
     top: 0;
     display: none;
 
@@ -127,7 +180,7 @@ body {
 @media only screen and (max-width: 480px) {
 
 }
-@media (min-width: 979px) and (max-width: 1200px) {
+@media (min-width: 979px) and (max-width: 1280px) {
 	.wrapper {
 		width: 80% !important;
 	}
@@ -135,5 +188,8 @@ body {
 @media (max-width: 979px) {
 	.wrapper {
 		width: 90% !important;
+	}
+	#clouds {
+		height: 200px !important;
 	}
 }
