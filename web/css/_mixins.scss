@@ -1,51 +1,3 @@
-<<<<<<< HEAD
-// _mixins.scss - Useful SASS mixins
-//
-// Created by Klas Eskilson (http://klaseskilson.se)
-//
-// Use, modify, do what the fuck you want with it. Released under the WTFPL license. (http://www.wtfpl.net/)
-
-@mixin rounded($vert, $horz, $radius: 10px) {
-  border-#{$vert}-#{$horz}-radius: $radius;
-  -moz-border-radius-#{$vert}#{$horz}: $radius;
-  -webkit-border-#{$vert}-#{$horz}-radius: $radius;
-}
-
-@mixin transition($what: all, $time: 0.3s) {
-	-webkit-transition: $what $time ease-in-out;
-	-moz-transition: $what $time ease-in-out;
-	-ms-transition: $what $time ease-in-out;
-	-o-transition: $what $time ease-in-out;
-	transition: $what $time ease-in-out;
-}
-
-@mixin clearfix {
-	content: ".";
-	display: block;
-	height: 0;
-	clear: both;
-	visibility: hidden;
-}
-
-@mixin radius($radius: 5px) {
-	-webkit-border-radius: $radius;
-	-moz-border-radius: $radius;
-	-khtml-border-radius: $radius;
-	border-radius: $radius;
-}
-
-@mixin opac($opacity) {
-	opacity: $opacity;
-	-moz-opacity: $opacity;
-	filter: alpha(opacity=($opacity * 100));
-}
-
-@mixin opensans($size = 100%) {
-	font-size: $size;
-	font-family: 'Open Sans', sans-serif;
-	-webkit-font-smoothing: subpixel-antialiased;
-}
-=======
 // _mixins.scss - Useful SASS mixins
 //
 // Created by Klas Eskilson (http://klaseskilson.se)
@@ -114,4 +66,3 @@
 	-webkit-font-smoothing: subpixel-antialiased;
 	font-family: "Open Sans", sans-serif;
 }
->>>>>>> frontend

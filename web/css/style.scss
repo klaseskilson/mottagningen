@@ -186,10 +186,25 @@ body {
 	}
 }
 @media (max-width: 979px) {
+	body {
+		padding: 0 !important;
+	}
 	.wrapper {
 		width: 90% !important;
 	}
 	#clouds {
 		height: 200px !important;
+	}
+	h1.pagetitle {
+		font-size: 190% !important;
+	}
+	ul.mainmenu {
+		float: left !important;
+		margin: 10px 0 !important;
+
+		li {
+			float: left !important;
+			margin: 3px !important;
+		}
 	}
 }

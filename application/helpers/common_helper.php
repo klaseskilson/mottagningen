@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-=======
->>>>>>> frontend
 /**
  * returns a random string
  * @param 	int 	$max 	string max length

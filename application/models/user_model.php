@@ -14,11 +14,7 @@ class User_model extends CI_model
 	 */
 	function validate($lid, $pwd)
 	{
-<<<<<<< HEAD
-		$this->db->select("*");
-=======
 		$this->db->select("uid, password, liuid");
->>>>>>> frontend
 		$this->db->where('liuid', $lid);
 		// password query
 		$pwq = $this->db->get("users");
@@ -26,11 +22,7 @@ class User_model extends CI_model
 
 		if($this->passwordhash->CheckPassword($pwd, $pwr[0]->password))
 		{
-<<<<<<< HEAD
-			return $pwq;
-=======
 			return $pwr[0];
->>>>>>> frontend
 		}
 		return false;
 	}
@@ -67,37 +59,6 @@ class User_model extends CI_model
 		if($query)
 		{
 			return $result[0]->privil;
-<<<<<<< HEAD
-		}
-
-		return false;
-	}
-
-	/**
-	 * update privil for user
-	 */
-	function edit_privil($id, $privil)
-	{
-		// se if privil exists
-		$this->db->select("*");
-		$this->db->where('uid', $id);
-		$query = $this->db->get('admin');
-		$result = $query->result();
-
-		$data = array(
-					'uid' => $id,
-					'privil' => $privil
-				);
-
-		if($query->num_rows() > 0)
-		{
-			return $this->db->update('admin', $data, array('uid' => $uid));
-		}
-		else
-		{
-			return $this->db->insert('admin', $data);
-=======
->>>>>>> frontend
 		}
 
 		return false;
@@ -136,17 +97,7 @@ class User_model extends CI_model
 						'password'	=> $this->passwordhash->HashPassword($password),
 						'liuid'		=> $liuid
 					);
-
-<<<<<<< HEAD
-			if($this->db->insert('users', $data))
-			{
-				$uid = $this->get_id($liuid);
-
-				return $this->edit_privil($uid, 2);
-			}
-=======
 			return $this->db->insert('users', $data) && $this->change_privil($this->get_id($liuid), $privil);
->>>>>>> frontend
 		}
 		return false;
 	}
@@ -230,21 +181,4 @@ class User_model extends CI_model
 
 		return false;
 	}
-
-<<<<<<< HEAD
-=======
-	/**
-	 * get id from liuid
-	 */
-	function get_id($liuid)
-	{
-		$this->db->select("uid");
-		$this->db->where("liuid", $liuid);
-		$query = $this->db->get("users");
-		$result = $query->result();
-
-		return $result[0]->uid;
-	}
-
->>>>>>> frontend
 }

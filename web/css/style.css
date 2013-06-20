@@ -1,71 +1,190 @@
+@charset "utf-8";
+/*****************************************************************************************
+ * legionen.nu
+ *
+ * Är nollan eller faddern nyfiken? Ojoj!
+ */
 /*
-Syntax error: Invalid CSS after "": expected selector or at-rule, was "<<<<<<< HEAD"
-        on line 1 of _mixins.scss
-        from line 9 of style.scss
-
-1: <<<<<<< HEAD
-2: // _mixins.scss - Useful SASS mixins
-3: //
-4: // Created by Klas Eskilson (http://klaseskilson.se)
-5: //
-6: // Use, modify, do what the fuck you want with it. Released under the WTFPL license. (http://www.wtfpl.net/)
-
-Backtrace:
-_mixins.scss:1
-style.scss:9
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:1148:in `expected'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:1084:in `expected'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/scss/parser.rb:28:in `parse'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/engine.rb:342:in `_to_tree'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/engine.rb:274:in `to_tree'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/perform.rb:225:in `visit_import'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `map'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/perform.rb:109:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/perform.rb:121:in `with_environment'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/perform.rb:108:in `visit_children'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/perform.rb:128:in `visit_root'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/perform.rb:7:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/visitors/perform.rb:7:in `visit'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/tree/root_node.rb:20:in `render'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/engine.rb:315:in `_render'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/engine.rb:262:in `render'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/plugin/compiler.rb:362:in `update_stylesheet'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/plugin/compiler.rb:203:in `update_stylesheets'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/plugin/compiler.rb:201:in `each'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/plugin/compiler.rb:201:in `update_stylesheets'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/plugin/compiler.rb:283:in `watch'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/vendor/listen/lib/listen/multi_listener.rb:108:in `call'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/vendor/listen/lib/listen/multi_listener.rb:108:in `on_change'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/vendor/listen/lib/listen/multi_listener.rb:117:in `initialize_adapter'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/vendor/listen/lib/listen/adapter.rb:198:in `call'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/vendor/listen/lib/listen/adapter.rb:198:in `report_changes'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/vendor/listen/lib/listen/adapter.rb:210:in `poll_changed_dirs'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/vendor/listen/lib/listen/adapters/darwin.rb:38:in `start'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/vendor/listen/lib/listen/adapters/darwin.rb:38:in `initialize'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/vendor/listen/lib/listen/adapters/darwin.rb:38:in `new'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/vendor/listen/lib/listen/adapters/darwin.rb:38:in `start'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/vendor/listen/lib/listen/multi_listener.rb:44:in `start'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/plugin/compiler.rb:291:in `watch'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/plugin.rb:107:in `send'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/plugin.rb:107:in `method_missing'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/exec.rb:452:in `watch_or_update'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/exec.rb:315:in `process_result'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/exec.rb:41:in `parse'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/../lib/sass/../sass/exec.rb:21:in `parse!'
-/Library/Ruby/Gems/1.8/gems/sass-3.2.9/bin/sass:9
-/usr/bin/sass:19:in `load'
-/usr/bin/sass:19
+	Typsnitt
 */
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Syntax error: Invalid CSS after \"\": expected selector or at-rule, was \"<<<<<<< HEAD\"\A         on line 1 of _mixins.scss\A         from line 9 of style.scss\A \A 1: <<<<<<< HEAD\A 2: // _mixins.scss - Useful SASS mixins\A 3: //\A 4: // Created by Klas Eskilson (http://klaseskilson.se)\A 5: //\A 6: // Use, modify, do what the fuck you want with it. Released under the WTFPL license. (http://www.wtfpl.net/)"; }
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Open Sans"), local("OpenSans"), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format("woff"); }
+
+@font-face {
+  font-family: 'PrinceofPersia';
+  font-style: normal;
+  font-weight: 400;
+  src: local("PrinceofPersia"), local("Prince of Persia"), url(/web/font/princeofpersia.ttf) format("truetype"); }
+
+@font-face {
+  font-family: 'Fauna One';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Fauna One"), local("FaunaOne-Regular"), url(http://themes.googleusercontent.com/static/fonts/faunaone/v1/cSd7NBXNFQWK4oX1706dY7O3LdcAZYWl9Si6vvxL-qU.woff) format("woff"); }
+
+html, body, #sun {
+  height: 100%;
+  margin: 0; }
+
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: "Open Sans", sans-serif; }
+  body #sun {
+    display: none;
+    width: 100%; }
+  body #background {
+    width: 100%;
+    height: 180%;
+    position: fixed;
+    top: 0;
+    left: 0; }
+  body.sunset #background {
+    /* fallback */
+    background-color: #972600;
+    /* Can't specify a percentage size? Laaaaaame. */
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#972600), to(#fd4000));
+    background: -webkit-radial-gradient(50% 50%, circle cover, #fd4000 0%, #972600 100%);
+    background: -moz-radial-gradient(center, circle cover, #fd4000 0%, #972600 100%);
+    background: -ms-radial-gradient(center, circle cover, #fd4000 0%, #972600 100%);
+    background: radial-gradient(center, circle cover, #fd4000 0%, #972600 100%); }
+  body.night #background {
+    /* fallback */
+    background-color: #080d11;
+    /* Can't specify a percentage size? Laaaaaame. */
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#080d11), to(#294256));
+    background: -webkit-radial-gradient(50% 50%, circle cover, #294256 0%, #080d11 100%);
+    background: -moz-radial-gradient(center, circle cover, #294256 0%, #080d11 100%);
+    background: -ms-radial-gradient(center, circle cover, #294256 0%, #080d11 100%);
+    background: radial-gradient(center, circle cover, #294256 0%, #080d11 100%); }
+  body.day #background {
+    /* fallback */
+    background-color: #2661a5;
+    /* Can't specify a percentage size? Laaaaaame. */
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#2661a5), to(#abc9ec));
+    background: -webkit-radial-gradient(50% 50%, circle cover, #abc9ec 0%, #2661a5 100%);
+    background: -moz-radial-gradient(center, circle cover, #abc9ec 0%, #2661a5 100%);
+    background: -ms-radial-gradient(center, circle cover, #abc9ec 0%, #2661a5 100%);
+    background: radial-gradient(center, circle cover, #abc9ec 0%, #2661a5 100%); }
+
+#container {
+  height: 100%;
+  position: relative; }
+  #container h1, #container h2, #container h3, #container h4, #container h5 {
+    font-family: 'Fauna One', serif;
+    -webkit-font-smoothing: subpixel-antialiased; }
+  #container p {
+    font-size: 100%;
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-family: "Open Sans", sans-serif; }
+  #container .wrapper {
+    width: 60%;
+    margin: 0 auto; }
+  #container #footer {
+    height: 200px;
+    width: 100%;
+    background-image: url(/web/img/desert.png);
+    background-repeat: repeat-x;
+    background-position: bottom;
+    margin: 30px 0 0; }
+  #container .maincontent {
+    background: #e6e6e6;
+    margin: 0 0 20px;
+    padding: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; }
+
+/*****************
+ MISC
+ ****************/
+.clearfix {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+/*****************
+ Masthead
+ ****************/
+#masthead {
+  height: 100px; }
+  #masthead a {
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
+    #masthead a:hover {
+      text-decoration: none; }
+  #masthead h1.pagetitle a {
+    font: 200% 'PrinceofPersia';
+    color: #fff;
+    letter-spacing: 0.03em;
+    float: left;
+    text-shadow: #000 0 0 10px; }
+    #masthead h1.pagetitle a:hover {
+      text-decoration: none;
+      text-shadow: #000 0 0 20px; }
+  #masthead ul.mainmenu {
+    float: right;
+    list-style: none;
+    margin: 70px 0 0; }
+    #masthead ul.mainmenu li {
+      display: block;
+      float: right;
+      text-transform: uppercase;
+      padding: 7px;
+      margin: 0 10px;
+      background: #e6e6e6;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px; }
+
+/***************************************
+ SO FLUFFYYYYYY! http://youtu.be/SNLJDR-XbVY?t=2s
+ ***************************************/
+#clouds {
+  position: relative;
+  background-repeat: no-repeat;
+  z-index: 21;
+  width: 100%;
+  height: 250px;
+  top: 0;
+  display: none; }
+  #clouds.animate {
+    background-image: none;
+    overflow: hidden;
+    display: block; }
+  #clouds img {
+    position: absolute; }
+
+/***************************************
+ OM NÅGON HAR EN LITEN KLEN SKÄRM
+ ***************************************/
+@media (min-width: 979px) and (max-width: 1280px) {
+  .wrapper {
+    width: 80% !important; } }
+@media (max-width: 979px) {
+  body {
+    padding: 0 !important; }
+
+  .wrapper {
+    width: 90% !important; }
+
+  #clouds {
+    height: 200px !important; }
+
+  h1.pagetitle {
+    font-size: 190% !important; }
+
+  ul.mainmenu {
+    float: left !important;
+    margin: 10px 0 !important; }
+    ul.mainmenu li {
+      float: left !important;
+      margin: 3px !important; } }
