@@ -33,7 +33,7 @@
 	<div id="sunplaceholder"></div>
 	<div id="container">
 		<div id="masthead" class="wrapper">
-			<h1 class="pagetitle"><a href="../">Legionen</a></h1>
+			<h1 class="pagetitle"><a href="/">Legionen</a></h1>
 			<ul class="mainmenu">
 				<?php
 				foreach ($menu_pages as $page) {

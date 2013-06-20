@@ -21,7 +21,7 @@ class Sida extends CI_Controller {
 		if(defined('ENVIRONMENT') && ENVIRONMENT == 'development' && !$this->login->is_admin())
 		{
 			$this->load->view('sand');
-			die;
+			return false;
 		}
 
 		// load models

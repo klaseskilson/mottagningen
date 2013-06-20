@@ -112,11 +112,24 @@ body {
  ****************/
 #masthead {
   height: 100px; }
-  #masthead h1.pagetitle {
-    font: 400% 'PrinceofPersia';
-    color: #8B0000;
+  #masthead a {
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
+    #masthead a:hover {
+      text-decoration: none; }
+  #masthead h1.pagetitle a {
+    font: 200% 'PrinceofPersia';
+    color: #fff;
     letter-spacing: 0.03em;
-    float: left; }
+    float: left;
+    text-shadow: #000 0 0 10px; }
+    #masthead h1.pagetitle a:hover {
+      text-decoration: none;
+      text-shadow: #000 0 0 20px; }
   #masthead ul.mainmenu {
     float: right;
     list-style: none;

@@ -110,11 +110,27 @@ body {
 #masthead {
 	height: 100px;
 
-	h1.pagetitle {
-		font: 400% 'PrinceofPersia';
-		color: #8B0000;
+	a {
+		text-decoration: none;
+
+		@include transition;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	h1.pagetitle a{
+		font: 200% 'PrinceofPersia';
+		color: #fff;
 		letter-spacing: 0.03em;
 		float: left;
+		text-shadow: #000 0 0 10px;
+
+		&:hover {
+			text-decoration: none;
+			text-shadow: #000 0 0 20px;
+		}
 	}
 
 	ul.mainmenu {
