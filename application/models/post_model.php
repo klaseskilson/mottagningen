@@ -24,7 +24,7 @@ class Post_model extends CI_model
 	 * create a new post
 	 * @return 	id 	the created page id
 	 */
-	function create($title, $slug, $content, $parentid = 0)
+	function create($title, $slug, $content, $status, $parentid = 0)
 	{
 		// prepare slug for insertion
 		$slug = strtolower(empty($slug) ? $title : $slug);
@@ -46,7 +46,8 @@ class Post_model extends CI_model
 				'hash' 	=> $hash,
 				'title' => trim($title),
 				'slug' 	=> $slug,
-				'parentid' => $parentid
+				'parentid' => $parentid,
+				'status' => $status
 			);
 
 		if($this->db->insert('posts', $data))
@@ -70,24 +71,41 @@ class Post_model extends CI_model
 	 * edit an existing post
 	 * @return 	bool 	success or not!
 	 */
-	function update($id, $title, $slug, $content, $parentid)
+	function update($id, $title, $slug, $content, $parentid, $status)
 	{
 		// prepare slug for insertion
 		$slug = strtolower(empty($slug) ? $title : $slug);
 		$slug = substr(preg_replace("/[^a-zA-Z0-9-]/", "", str_replace(" ", "-", $slug)), 0, 20);
 		// make sure slug isn't already used using function slug_exists, if it is taken, add an int
-		for($i = 1; $this->slug_exists($slug); $i++)
-			$slug = $slug.'-'.$i;
+		$i = '';
+		while($this->slug_exists($slug.$i))
+			$i = ($i == '' ? 1 : $i+1);
 		// if slug length is less than 4, make it into a hash string instead
 		if(strlen($slug) < 4) $slug = random(5, 10);
 
 		$data = array(
 				'title' => trim($title),
 				'slug' 	=> $slug,
-				'parentid' => $parentid
+				'parentid' => $parentid,
+				'status' => $status
 			);
 
 		return ($this->db->update('posts', $data, array('post_id' => $id)) && $this->insert_ver($id, $content));
+	}
+
+	/**
+	 * deletes a post
+	 * @param  int $id the post id
+	 * @return bool    success or not?
+	 */
+	function delete($id)
+	{
+		if(!$this->login->has_privilege(2) || $this->get_status($id))
+			return false;
+
+		// start with deleting post_cont, since it is depending on posts
+		return $this->db->delete('post_cont', array('post_id' => $id))
+			&& $this->db->delete('posts', array('post_id' => $id));
 	}
 
 	/**

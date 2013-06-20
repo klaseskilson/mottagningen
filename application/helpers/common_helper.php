@@ -91,3 +91,26 @@ function do_dump(&$var, $var_name = NULL, $indent = NULL, $reference = NULL)
 
     echo "</div>";
 }
+
+function readabletime($time) {
+    $time = strtotime($time);
+    $nummer = array('noll', 'en', 'två', 'tre', 'fyra', 'fem', 'sex', 'sju', 'åtta', 'nio', 'tio', 'elva', 'tolv');
+
+    $diff = time() - $time;
+
+    if($diff < 600) // tio minuter
+        return "alldeles nyligen";
+    elseif($diff < 3600) // en timmer
+        return "senaste timmen";
+    elseif($diff < 10800) // tre timmar
+        return "några timmar sedan";
+    elseif($diff < 86400) // ett dygn
+        return "idag";
+    elseif($diff < 2592000) // 30 dagar
+    {
+        $daysago = floor($diff / 86400); // dagar sedan
+        return (($daysago < 13) ? $nummer[$daysago] : $daysago ).' dag'.($daysago !== 1 ? 'ar' : '').' sedan';
+    }
+    else
+        return $time;
+}

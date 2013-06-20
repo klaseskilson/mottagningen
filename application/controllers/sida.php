@@ -21,7 +21,7 @@ class Sida extends CI_Controller {
 		if(defined('ENVIRONMENT') && ENVIRONMENT == 'development' && !$this->login->is_admin())
 		{
 			$this->load->view('sand');
-			return false;
+			die;
 		}
 
 		// load models
@@ -56,9 +56,21 @@ class Sida extends CI_Controller {
 		$data = $this->data;
 
 		$this->load->view('templates/new_header', $data);
-		$this->load->view('new', $data);
+		$this->load->view('start', $data);
 		$this->load->view('templates/new_footer', $data);
+	}
 
+	function visa($id = '')
+	{
+		if($id == '') show_404();
+
+		$data = $this->data;
+
+		$data['page'] = $this->Post_model->get_post($id);
+
+		$this->load->view('templates/new_header', $data);
+		$this->load->view('page', $data);
+		$this->load->view('templates/new_footer', $data);
 	}
 }
 

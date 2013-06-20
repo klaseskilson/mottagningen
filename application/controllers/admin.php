@@ -177,10 +177,11 @@ class Admin extends CI_controller
 				$content = $this->input->post('post_content');
 				$parent = 0;
 				$slug = '';
+				$status = $this->input->post('post_status');
 
 				if($id == '') // create new page
 				{
-					$createdid = $this->Post_model->create($title, $slug, $content, $parent);
+					$createdid = $this->Post_model->create($title, $slug, $content, $status, $parent);
 
 					// using the fact that in php, everything !== 0 is true
 					if($createdid)
@@ -195,7 +196,7 @@ class Admin extends CI_controller
 				else // edit existing page
 				{
 					// attempt update
-					if($this->Post_model->update($id, $title, $slug, $content, $parent))
+					if($this->Post_model->update($id, $title, $slug, $content, $parent, $status))
 					{
 						redirect('/admin/page/edit/'.$id.'?msg=1');
 					}
@@ -245,6 +246,18 @@ class Admin extends CI_controller
 			case 'all':
 				// load all pages from model
 				$data['pages'] = $this->Post_model->get_all_posts();
+
+				$view = 'page_all';
+			break;
+			case 'remove':
+				// if id is not set, redirect to create new page
+				if($id == '' || !$this->Post_model->post_exists($id))
+					redirect('/admin/page/all?msg=dne');
+
+				if($this->Post_model->delete($id))
+					redirect('admin/page/all?msg=removes');
+				else
+					redirect('admin/page/all?msg=removef');
 
 				$view = 'page_all';
 			break;

@@ -38,7 +38,7 @@
 				<?php
 				foreach ($menu_pages as $page) {
 					?>
-					<li><a href="sida/visa/<?php echo $page['slug']; ?>"><?php echo $page['title']; ?></a></li>
+					<li><a href="/sida/visa/<?php echo $page['slug']; ?>"><?php echo $page['title']; ?></a></li>
 					<?php
 				}
 				?>
