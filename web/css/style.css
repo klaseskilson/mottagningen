@@ -108,6 +108,9 @@ body {
   clear: both;
   visibility: hidden; }
 
+.uppercase {
+  text-transform: uppercase; }
+
 /*****************
  Masthead
  ****************/

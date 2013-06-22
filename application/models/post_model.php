@@ -142,7 +142,7 @@ class Post_model extends CI_model
 	 * get all posts
 	 * @return 	array 	the posts
 	 */
-	function get_all_posts($type = 0)
+	function get_all_posts($type = 0, $status = '')
 	{
 		$this->db->select('*');
 		$this->db->from("posts post");
@@ -150,6 +150,8 @@ class Post_model extends CI_model
 		// hard-coded into the query. UUUUGLYYYYY!
 		$this->db->join("(SELECT * FROM 13_post_cont ORDER BY cont_id DESC) cont", "post.post_id = cont.post_id", "left");
 		$this->db->where('type', $type);
+		if($status !== '')
+			$this->db->where('status', $status);
 		$this->db->group_by("post.post_id");
 		$query = $this->db->get();
 

@@ -53,7 +53,13 @@ class Sida extends CI_Controller {
 	 */
 	public function index()
 	{
+		if(defined('ENVIRONMENT') && ENVIRONMENT == 'development' && !$this->login->is_admin())
+			return false;
+
 		$data = $this->data;
+
+		// get all public posts
+		$data['posts'] = $this->Post_model->get_all_posts(1, 1);
 
 		if(!isset($_GET['ajax'])) $this->load->view('templates/new_header', $data);
 		$this->load->view('start', $data);
