@@ -38,6 +38,18 @@
 					</div>
 				</div>
 				<div class="control-group">
+					<label class="control-label" for="privil">Privilegier</label>
+					<div class="controls">
+						<select id="privil" name="privil" class="input-medium">
+							<option value="1">1</option>
+							<option value="2" selected="selected">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+						</select>
+					</div>
+				</label>
+				</div>
+				<div class="control-group">
 					<div class="controls">
 						<button type="submit" class="btn btn-primary">Skapa!</button>
 					</div>

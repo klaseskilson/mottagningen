@@ -44,4 +44,4 @@
 				?>
 			</ul>
 		</div>
-		<div id="clouds"></div>
+		<div id="clouds" class="hidden-phone"></div>

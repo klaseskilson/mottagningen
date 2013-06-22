@@ -98,8 +98,10 @@ function readabletime($time) {
 
     $diff = time() - $time;
 
-    if($diff < 600) // tio minuter
-        return "alldeles nyligen";
+    if($diff < 180) // två minuter
+        return "nyss";
+    elseif($diff < 600) // tio minuter
+        return "några minuter sedan";
     elseif($diff < 3600) // en timmer
         return "senaste timmen";
     elseif($diff < 10800) // tre timmar
@@ -109,7 +111,7 @@ function readabletime($time) {
     elseif($diff < 2592000) // 30 dagar
     {
         $daysago = floor($diff / 86400); // dagar sedan
-        return (($daysago < 13) ? $nummer[$daysago] : $daysago ).' dag'.($daysago !== 1 ? 'ar' : '').' sedan';
+        return (($daysago < 13) ? $nummer[$daysago] : $daysago ).' dag'.($daysago == 1 ? '' : 'ar').' sedan';
     }
     else
         return $time;

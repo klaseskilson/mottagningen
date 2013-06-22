@@ -48,13 +48,12 @@ CREATE TABLE IF NOT EXISTS `13_ad_views` (
 ALTER TABLE `13_ad_views`
 	ADD CONSTRAINT `13_ad_views_ibfk_1` FOREIGN KEY (`ad_id`) REFERENCES `13_ads` (`id`);
 
-
 CREATE TABLE IF NOT EXISTS `13_posts` (
 	`post_id` INT(6) NOT NULL AUTO_INCREMENT,
 	`title` CHAR(100) NOT NULL,
 	`slug` CHAR(30) NOT NULL,
 	`hash` CHAR(30) NOT NULL,
-	`parentid` INT(6) NOT NULL DEFAULT 0,
+	`type` TINYINT(1) NOT NULL DEFAULT 0, -- 0 = sida, 1 = inlägg
 	`status` TINYINT(1) DEFAULT 0,
 	PRIMARY KEY (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
@@ -64,11 +63,14 @@ CREATE TABLE IF NOT EXISTS `13_post_cont` (
 	`post_id` INT(6) NOT NULL,
 	`content` TEXT NOT NULL,
 	`time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`uid` INT(6) NOT NULL DEFAULT 1,
 	PRIMARY KEY (`cont_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
 ALTER TABLE `13_post_cont`
 	ADD CONSTRAINT `13_post_cont_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `13_posts` (`post_id`);
+ALTER TABLE `13_post_cont`
+	ADD CONSTRAINT `13_post_cont_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `13_users` (`uid`);
 
 
 CREATE TABLE IF NOT EXISTS `13_weather` (

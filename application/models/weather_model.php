@@ -102,9 +102,11 @@ class Weather_model extends CI_Model
 		if(!$this->check())
 		{
 			if($magic = $this->collect())
+			{
 				$this->update($magic['weather'], $magic['temp'], $magic['windspeed'], $magic['sunrise'], $magic['sunset']);
+				return $magic;
+			}
 		}
-		$magic = $this->collectcache();
-		return $magic;
+		return $this->collectcache();
 	}
 }

@@ -181,4 +181,17 @@ class User_model extends CI_model
 
 		return false;
 	}
+
+
+	function get_name($uid)
+	{
+		$this->db->select("fname, sname");
+		$this->db->where('uid', $uid);
+		$query = $this->db->get("users");
+		$result = $query->result();
+
+		if($query) return $result[0]->fname.' '.$result[0]->sname;
+
+		return false;
+	}
 }

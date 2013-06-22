@@ -117,8 +117,9 @@ class Admin extends CI_controller
 				$fname = $this->input->post("fname");
 				$sname = $this->input->post("sname");
 				$passw = $this->input->post("passw");
+				$privil = $this->input->post("privil");
 
-				$data['message'] = $this->User_model->create_user($liuid, $fname, $sname, $passw);
+				$data['message'] = $this->User_model->create_user($liuid, $fname, $sname, $passw, $privil);
 
 				$view = 'user_new';
 			break;
@@ -160,6 +161,8 @@ class Admin extends CI_controller
 	{
 		// load post model for content handeling
 		$this->load->model('Post_model');
+		// load user model for name collecting
+		$this->load->model('User_model');
 		// prepare data array for view
 		$data = array();
 		$data['post_id'] = $id;
@@ -229,11 +232,12 @@ class Admin extends CI_controller
 
 				// collect post data
 				$data['post'] = $this->Post_model->get_post($id);
+				$data['author'] = $this->User_model->get_name($data['post']['uid']);
 
 				// display page
 				$view = 'page_post';
 			break;
-			case 'togglestatus':
+			case 'togglestatus': // change status of post
 				// if id is not set, redirect to create new page
 				if($id == '' || !$this->Post_model->post_exists($id))
 					redirect('/admin/page/all?msg=dne');
@@ -243,13 +247,21 @@ class Admin extends CI_controller
 				else
 					redirect('admin/page/all?msg=togglef');
 			break;
-			case 'all':
+			case 'all': // see all pages/posts
 				// load all pages from model
 				$data['pages'] = $this->Post_model->get_all_posts();
 
+				// få med namnen. FULT, men det fungerar.
+				foreach ($data['pages'] as $key => $value) {
+					$data['pages'][$key] = array_merge(
+											$data['pages'][$key],
+											array('editor' => $this->User_model->get_name($data['pages'][$key]['uid']))
+										);
+				}
+
 				$view = 'page_all';
 			break;
-			case 'remove':
+			case 'remove': // remove post
 				// if id is not set, redirect to create new page
 				if($id == '' || !$this->Post_model->post_exists($id))
 					redirect('/admin/page/all?msg=dne');
@@ -263,6 +275,133 @@ class Admin extends CI_controller
 			break;
 			default:
 				$view = 'page_all';
+			break;
+		}
+
+		$this->load->view('admin/templates/header', $data);
+		$this->load->view('admin/templates/menu');
+		$this->load->view('admin/'.$view, $data);
+		$this->load->view('admin/templates/footer', $data);
+	}
+
+	function post($action = '', $id = '')
+	{
+		// load post model for content handeling
+		$this->load->model('Post_model');
+		// load user model for name collecting
+		$this->load->model('User_model');
+		// prepare data array for view
+		$data = array();
+		$data['post_id'] = $id;
+
+		switch($action)
+		{
+			// create new page
+			case 'new':
+				$view = 'post_post';
+			break;
+			// run the post model that creates new page or edit existing
+			case 'run':
+				// setup the post data
+				$title = $this->input->post('post_title');
+				$content = $this->input->post('post_content');
+				$type = 1;
+				$slug = '';
+				$status = $this->input->post('post_status');
+
+				if($id == '') // create new page
+				{
+					$createdid = $this->Post_model->create($title, $slug, $content, $status, $type);
+
+					// using the fact that in php, everything !== 0 is true
+					if($createdid)
+					{
+						redirect('/admin/post/edit/'.$createdid.'?msg=1');
+						die();
+					}
+					$data['message'] = false;
+					$data['title'] = htmlspecialchars(trim($title));
+					$data['content'] = trim($content);
+				}
+				else // edit existing page
+				{
+					// attempt update
+					if($this->Post_model->update($id, $title, $slug, $content, $status, $type))
+					{
+						redirect('/admin/post/edit/'.$id.'?msg=1');
+					}
+					else
+					{
+						// make sure the info is stored with the browser if failure
+						$data['post'] = array(
+								'title' => $title,
+								'content' => $content,
+								'slug' => $slug,
+								'parentid' => $parent,
+								'post_id' => $id
+							);
+						// message variable for error informing
+						$data['message'] = false;
+
+						// display page
+						$view = 'post_post';
+					}
+				}
+			break;
+			// edit existing page
+			case 'edit':
+				// if id is not set, redirect to create new page
+				if($id == '' || !$this->Post_model->post_exists($id))
+					redirect('/admin/post/new');
+
+				if(isset($_GET['msg']) && $_GET['msg'] == '1')
+					$data['message'] = true;
+
+				// collect post data
+				$data['post'] = $this->Post_model->get_post($id);
+				$data['author'] = $this->User_model->get_name($data['post']['uid']);
+
+				// display page
+				$view = 'post_post';
+			break;
+			case 'togglestatus': // change status of post
+				// if id is not set, redirect to create new page
+				if($id == '' || !$this->Post_model->post_exists($id))
+					redirect('/admin/post/all?msg=dne');
+
+				if($this->Post_model->togglestatus($id))
+					redirect('admin/post/all?msg=toggles');
+				else
+					redirect('admin/post/all?msg=togglef');
+			break;
+			case 'all': // see all pages/posts
+				// load all pages from model
+				$data['pages'] = $this->Post_model->get_all_posts(1);
+
+				// få med namnen. FULT, men det fungerar.
+				foreach ($data['pages'] as $key => $value) {
+					$data['pages'][$key] = array_merge(
+											$data['pages'][$key],
+											array('editor' => $this->User_model->get_name($data['pages'][$key]['uid']))
+										);
+				}
+
+				$view = 'post_all';
+			break;
+			case 'remove': // remove post
+				// if id is not set, redirect to create new page
+				if($id == '' || !$this->Post_model->post_exists($id))
+					redirect('/admin/post/all?msg=dne');
+
+				if($this->Post_model->delete($id))
+					redirect('admin/post/all?msg=removes');
+				else
+					redirect('admin/post/all?msg=removef');
+
+				$view = 'post_all';
+			break;
+			default:
+				$view = 'post_all';
 			break;
 		}
 

@@ -19,14 +19,14 @@
 			<!-- Everything you want hidden at 940px or less, place within here -->
 			<div class="nav-collapse collapse">
 				<ul class="nav">
-					<li><a href="/admin">Hem</a></li> <!-- class="active" -->
+					<li><a href="/admin"><i class="icon-home"></i> Hem</a></li> <!-- class="active" -->
 					<?php
 					if($this->login->has_privilege('2'))
 					{
 					?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Användare
+							<i class="icon-user"></i> Användare
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
@@ -41,7 +41,7 @@
 					?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							Sidor
+							<i class="icon-info-sign"></i> Sidor
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
@@ -50,15 +50,26 @@
 							<li><a href="/admin/page/all">Se alla</a></li>
 						</ul>
 					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-file"></i> Inlägg
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/admin/post/new">Skapa nytt inlägg</a></li>
+							<li class="divider"></li>
+							<li><a href="/admin/post/all">Se alla inlägg</a></li>
+						</ul>
+					</li>
 				</ul>
 				<ul class="nav pull-right">
 					<li>
 						<a href="/admin/user/me" title="Redigera konto">
-							Inloggad som <?php echo $this->login->get_info("fname"); ?>
+							<i class="icon-cog"></i> Inloggad som <?php echo $this->login->get_info("fname"); ?>
 						</a>
 					</li>
-					<li><a href="/">Gå till sidan</a></li>
-					<li><a href="/admin/login/logout">Logga ut</a></li>
+					<li><a href="/"><i class="icon-globe"></i> Gå till sidan</a></li>
+					<li><a href="/admin/login/logout"><i class="icon-road"></i> Logga ut</a></li>
 				</ul>
 			</div>
 

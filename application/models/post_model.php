@@ -14,7 +14,8 @@ class Post_model extends CI_model
 	{
 		$data = array(
 				'post_id' => $id,
-				'content' => $content
+				'content' => $content,
+				'uid'	  => $this->login->get_id()
 			);
 
 		return $this->db->insert('post_cont', $data);
@@ -24,7 +25,7 @@ class Post_model extends CI_model
 	 * create a new post
 	 * @return 	id 	the created page id
 	 */
-	function create($title, $slug, $content, $status, $parentid = 0)
+	function create($title, $slug, $content, $status, $type = 0)
 	{
 		// prepare slug for insertion
 		$slug = strtolower(empty($slug) ? $title : $slug);
@@ -46,7 +47,7 @@ class Post_model extends CI_model
 				'hash' 	=> $hash,
 				'title' => trim($title),
 				'slug' 	=> $slug,
-				'parentid' => $parentid,
+				'type' => $type,
 				'status' => $status
 			);
 
@@ -71,7 +72,7 @@ class Post_model extends CI_model
 	 * edit an existing post
 	 * @return 	bool 	success or not!
 	 */
-	function update($id, $title, $slug, $content, $parentid, $status)
+	function update($id, $title, $slug, $content, $status, $type = 0)
 	{
 		// prepare slug for insertion
 		$slug = strtolower(empty($slug) ? $title : $slug);
@@ -86,7 +87,7 @@ class Post_model extends CI_model
 		$data = array(
 				'title' => trim($title),
 				'slug' 	=> $slug,
-				'parentid' => $parentid,
+				'type' => $type,
 				'status' => $status
 			);
 
@@ -141,13 +142,14 @@ class Post_model extends CI_model
 	 * get all posts
 	 * @return 	array 	the posts
 	 */
-	function get_all_posts()
+	function get_all_posts($type = 0)
 	{
 		$this->db->select('*');
 		$this->db->from("posts post");
 		// here we have a problem! In order for this to work, the year prefix needs to be
 		// hard-coded into the query. UUUUGLYYYYY!
 		$this->db->join("(SELECT * FROM 13_post_cont ORDER BY cont_id DESC) cont", "post.post_id = cont.post_id", "left");
+		$this->db->where('type', $type);
 		$this->db->group_by("post.post_id");
 		$query = $this->db->get();
 
@@ -157,21 +159,17 @@ class Post_model extends CI_model
 	}
 
 	/**
-	 * get all parent pages, eg for menu and such
+	 * get all avtive pages, eg for menu and such
 	 * @param  string $what what columns to return
 	 * @return array       the posts
 	 */
-	function get_active_parents($what = '')
+	function get_active_pages($what = '*')
 	{
 		// what to collect?
-		if($what == '')
-			$this->db->select('*');
-		else
-			$this->db->select($what);
-
+		$this->db->select($what);
 		// limit results
 		$this->db->from('posts');
-		$this->db->where(array('parentid' => 0, 'status' => 1));
+		$this->db->where(array('type' => 0, 'status' => 1));
 
 		// get it all
 		$query = $this->db->get();

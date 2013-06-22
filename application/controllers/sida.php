@@ -31,17 +31,17 @@ class Sida extends CI_Controller {
 		// save weather using the magic function
 		$this->data['weather'] = $this->Weather_model->magic();
 		// save pages for menu
-		$this->data['menu_pages'] = $this->Post_model->get_active_parents("title, slug");
+		$this->data['menu_pages'] = $this->Post_model->get_active_pages("title, slug");
 
 		// sunrise and sunset in unix timestamp
 		$this->data['sunset'] = strtotime($this->data['weather']['sunset']);
 		$this->data['sunrise'] = strtotime($this->data['weather']['sunrise']);
 
 		// is it dawn? i.e. less than 30 mins to or from sunset or sunrise?
-		if(abs(time() - $this->data['sunset']) < 30*60 || abs(time() - $this->data['sunrise']) < 30*60)
+		if(abs(time() - $this->data['sunset'])%86400 < 30*60 || abs(time() - $this->data['sunrise'])%86400 < 30*60)
 			$this->data['daytime'] = 'dawn';
 		// is it day?
-		elseif(time() > $this->data['sunrise'] && time() < $this->data['sunset'])
+		elseif(time()%86400 > $this->data['sunrise']%86400 && time()%86400 < $this->data['sunset']%86400)
 			$this->data['daytime'] = 'day';
 		// it's night
 		else
@@ -55,9 +55,9 @@ class Sida extends CI_Controller {
 	{
 		$data = $this->data;
 
-		$this->load->view('templates/new_header', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/new_header', $data);
 		$this->load->view('start', $data);
-		$this->load->view('templates/new_footer', $data);
+		if(!isset($_GET['ajax']))  $this->load->view('templates/new_footer', $data);
 	}
 
 	function visa($id = '')
@@ -68,9 +68,22 @@ class Sida extends CI_Controller {
 
 		$data['page'] = $this->Post_model->get_post($id);
 
-		$this->load->view('templates/new_header', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/new_header', $data);
 		$this->load->view('page', $data);
-		$this->load->view('templates/new_footer', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/new_footer', $data);
+	}
+
+	function inlagg($id = '')
+	{
+		if($id == '') show_404();
+
+		$data = $this->data;
+
+		$data['page'] = $this->Post_model->get_post($id);
+
+		if(!isset($_GET['ajax'])) $this->load->view('templates/new_header', $data);
+		$this->load->view('page', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/new_footer', $data);
 	}
 }
 

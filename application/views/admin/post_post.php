@@ -1,10 +1,10 @@
 <div id="container">
-	<form action="/admin/page/run/<?php echo $post_id; ?>" method="post">
+	<form action="/admin/post/run/<?php echo $post_id; ?>" method="post">
 		<div class="row-fluid">
 			<div class="span7 offset2">
 				<legend>
 					<?php
-						echo (!isset($post) ? 'Skapa ny sida' : 'Redigera sida');
+						echo (!isset($post) ? 'Skapa nytt inlägg' : 'Redigera inlägg');
 					?>
 				</legend>
 				<?php
@@ -20,8 +20,8 @@
 				{
 					?>
 					<p>
-						<a href="/sida/visa/<?php echo $post['slug']; ?>" target="_blank" title="Adressen till sidan. Klicka för att öppna i ett nytt fönster." data-toggle="tooltip">
-							<i class="icon-globe" style="margin-right:3px;"></i><?php echo $_SERVER['SERVER_NAME'] ?>/sida/visa/<?php echo $post['slug']; ?>
+						<a href="/sida/inlagg/<?php echo $post['slug']; ?>" target="_blank" title="Adressen till sidan. Klicka för att öppna i ett nytt fönster." data-toggle="tooltip">
+							<i class="icon-globe" style="margin-right:3px;"></i><?php echo $_SERVER['SERVER_NAME'] ?>/sida/inlagg/<?php echo $post['slug']; ?>
 						</a>
 					</p>
 					<?php
@@ -37,7 +37,7 @@
 					if($this->login->has_privilege(2) && !$post['status'])
 					{
 						?>
-						<a href="/admin/page/remove/<?php echo $post['post_id']; ?>" onclick="return false;"
+						<a href="/admin/post/remove/<?php echo $post['post_id']; ?>" onclick="return false;"
 							data-toggle="popover" title="<strong>Varning!</strong> Detta går inte att ångra."
 							data-content="<a class='btn btn-small btn-danger' href='/admin/page/remove/<?php echo $post['post_id']; ?>'>
 										  <i class='icon-trash icon-white'></i> Okej, fortsätt!</a>"

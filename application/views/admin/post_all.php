@@ -38,9 +38,9 @@
 	<?php }  ?>
 	<div class="row-fluid">
 		<div class="span2">
-			<h4>Alla sidor</h4>
+			<h4>Alla inlägg</h4>
 			<p>
-				Här nedan kan du se samtliga sidor som finns på sidan!
+				Här nedan kan du se samtliga inlägg som finns på sidan!
 			</p>
 		</div>
 		<div class="span10">
@@ -59,8 +59,8 @@
 						<tr>
 							<td>
 								<strong><?php echo $page['title']; ?></strong>
-								<?php echo $page['status'] ? '<a href="/sida/visa/'.$page['slug'].'" target="_blank" class="label"
-								data-toggle="tooltip" title="Sidan är publicerad och synlig publikt. Klicka för att se.">Publicerad</a>':''; ?><br />
+								<?php echo $page['status'] ? '<a href="/sida/inlagg/'.$page['slug'].'" target="_blank" class="label"
+								data-toggle="tooltip" title="Inlägget är publicerat och synligt publikt. Klicka för att se.">Publicerad</a>':''; ?><br />
 								<small title="Senast redigerad" data-toggle="tooltip">
 									<i class="icon-pencil"></i> <?php echo $page['time']; ?>
 									av <?php echo $page['editor']; ?>.
@@ -68,20 +68,20 @@
 							</td>
 							<td><?php echo substr(strip_tags($page['content']),0,400); ?>...</td>
 							<td>
-								<a href="/admin/page/edit/<?php echo $page['post_id']; ?>">
+								<a href="/admin/post/edit/<?php echo $page['post_id']; ?>">
 									<i style="margin-right:3px;" class="icon-edit"></i>Redigera
 								</a><br />
-								<a href="/admin/page/togglestatus/<?php echo $page['post_id']; ?>" data-toggle="tooltip" title="Ändra status på inlägget">
+								<a href="/admin/post/togglestatus/<?php echo $page['post_id']; ?>" data-toggle="tooltip" title="Ändra status på inlägget">
 									<i style="margin-right:3px;" class="icon-eye-<?php echo !$page['status'] ? 'open' : 'close'; ?>"></i><?php echo !$page['status'] ? 'Publicera' : 'Dölj'; ?>
 								</a><br />
 								<?php
 								if($this->login->has_privilege(2) && !$page['status'])
 								{
 								?>
-								<a href="/admin/page/remove/<?php echo $page['post_id']; ?>" onclick="return false;"
+								<a href="/admin/post/remove/<?php echo $page['post_id']; ?>" onclick="return false;"
 									data-toggle="popover" title="<strong>Varning!</strong> Detta går inte att ångra."
 									data-location="left"
-									data-content="<a class='btn btn-small btn-danger' href='/admin/page/remove/<?php echo $page['post_id']; ?>'>
+									data-content="<a class='btn btn-small btn-danger' href='/admin/post/remove/<?php echo $page['post_id']; ?>'>
 												  <i class='icon-trash icon-white'></i> Okej, fortsätt!</a>">
 									<i style="margin-right:3px;" class="icon-trash"></i>Ta bort
 								</a>
