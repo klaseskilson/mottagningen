@@ -152,6 +152,8 @@ class Post_model extends CI_model
 		$this->db->where('type', $type);
 		if($status !== '')
 			$this->db->where('status', $status);
+		if($type == 1)
+			$this->db->order_by('cont.time', 'desc');
 		$this->db->group_by("post.post_id");
 		$query = $this->db->get();
 
