@@ -13,7 +13,6 @@
 			</div>
 		</div>
 		<div class="span4">
-			<h4>Annanonser</h4>
 			<div class="maincontent" id="adswrapper"></div>
 		</div>
 	</div>

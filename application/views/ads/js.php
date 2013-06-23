@@ -9,10 +9,10 @@ Brilliant ads loaded from <?php echo $_SERVER['SERVER_NAME'] ?> in only {elapsed
 Collector is <?php echo $collector; ?>.
 
 README:
-1. Load file in header of HTML Document.
-2. Call this function in body onload
+1. Load file in header of HTML Document. It need to be this specific file, not a local copy.
+2. Call this function in body onload or inside a script tag
 	initads("objecttocontainads");
-3. In the HTML document, include an empty div with the id you call in the body onload.
+3. In the HTML document, include an empty div with the id you call in the initads function.
 For example
 	<div id="objecttocontainads"></div>
 4. DONE!
