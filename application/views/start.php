@@ -21,7 +21,8 @@
 		</div>
 		<div class="span4">
 			<div class="maincontent">
-				<h5>Någon tredje grej, Twitter kanske?</h5>
+				<h5><a href="https://twitter.com/legionen" target="_blank" title="Följ Legionen på Twitter, Nollan!">Twitter</a>, nollan!</h5>
+				<div id="tweets_list"><li>Ojoj, tänker ju.</li></div>
 			</div>
 		</div>
 	</div>

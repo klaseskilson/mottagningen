@@ -19,7 +19,8 @@ $boxbgcolor: darken(#fff, 10%);
 	font-family: 'Open Sans';
 	font-style: normal;
 	font-weight: 400;
-	src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+	src: local('Open Sans'), local('OpenSans'),
+	url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
 }
 @font-face {
 	font-family: 'PrinceofPersia';
@@ -31,7 +32,8 @@ $boxbgcolor: darken(#fff, 10%);
   font-family: 'Fauna One';
   font-style: normal;
   font-weight: 400;
-  src: local('Fauna One'), local('FaunaOne-Regular'), url(http://themes.googleusercontent.com/static/fonts/faunaone/v1/cSd7NBXNFQWK4oX1706dY7O3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+  src: local('Fauna One'), local('FaunaOne-Regular'),
+  url(http://themes.googleusercontent.com/static/fonts/faunaone/v1/cSd7NBXNFQWK4oX1706dY7O3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
 }
 
 html, body, #sun {
@@ -39,6 +41,9 @@ html, body, #sun {
 	margin: 0;
 }
 
+/******************
+ FINT SKARE VA
+ *****************/
 body {
 	@include opensans;
 
@@ -49,7 +54,8 @@ body {
 
 	#background {
 		width: 100%; height: 180%;
-		position: fixed; top: 0; left: 0;
+		position: fixed;
+		top: 0; left: 0;
 	}
 	&.sunset #background {
 		@include radial-grad(#972600);
@@ -60,8 +66,23 @@ body {
 	&.day #background {
 		@include radial-grad(#2661a5, 40%);
 	}
+	#desert {
+		height: 200px;
+		width: 100%;
+		background-image: url(/web/img/desert.png);
+		background-repeat: repeat-x;
+		background-position: bottom;
+		margin: 30px 0 0;
+	}
+	&.night #desert {
+		@include opac(0.7);
+	}
 }
 
+
+/******************
+ TYDLIGT SKARE VA
+ *****************/
 #container {
 	height: 100%;
 	position: relative;
@@ -72,28 +93,39 @@ body {
 	}
 	p {
 		font-size: 100%;
-
 		@include opensans();
 	}
 	.wrapper {
 		width: 60%;
 		margin: 0 auto;
 	}
-	#footer {
-		height: 200px;
-		width: 100%;
-		background-image: url(/web/img/desert.png);
-		background-repeat: repeat-x;
-		background-position: bottom;
-		margin: 30px 0 0;
-	}
 	.maincontent {
 		background: $boxbgcolor;
 		margin: 0 0 20px;
 		padding: 10px;
 		box-shadow: rgba(0,0,0,0.2) 0 0 20px;
+		@include roundcorners;
+	}
+	#footer {
+		font-size: 90%;
+		color: $boxbgcolor;
+		background: darken($boxbgcolor, 66%);
+		padding: 10px;
+		@include roundcorners;
 
-		@include roundcorners();
+		p {
+			margin: 0;
+		}
+		a {
+			color: lighten($boxbgcolor, 10%);
+		}
+	}
+	#adswrapper {
+		text-align: center;
+
+		img {
+			margin: 0 0 10px;
+		}
 	}
 }
 

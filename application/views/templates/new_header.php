@@ -14,12 +14,12 @@
 	<!-- Legionen laddar Bootstrap, för det är swag -->
 	<link rel="stylesheet" href="/web/css/bootstrap.min.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/web/css/bootstrap-responsive.min.css" type="text/css" media="screen" />
-	<!-- Legionen laddar sin egna stil, för den är så jäääävla swag -->
+	<!-- Legionen laddar sin egna stil, för den är så jäääävla B R A. -->
 	<link rel="stylesheet" href="/web/css/style.css" type="text/css" media="screen" />
 
 	<script>
-	var sunset = <?php echo /*strtotime('2013-06-13 19:10')*/ $sunset; ?>%86400,
-		sunrise = <?php echo /*strtotime('2013-06-13 19:16')*/ $sunrise; ?>%86400;
+	var sunset = <?php echo $sunset; ?>%86400,
+		sunrise = <?php echo $sunrise; ?>%86400;
 
 	// color values [R, G, B]
 	var sunsetdark = [151, 38, 0], sunsetlight = [253, 64, 0],

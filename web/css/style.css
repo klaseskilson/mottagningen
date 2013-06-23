@@ -29,6 +29,9 @@ html, body, #sun {
   height: 100%;
   margin: 0; }
 
+/******************
+ FINT SKARE VA
+ *****************/
 body {
   -webkit-font-smoothing: subpixel-antialiased;
   font-family: "Open Sans", sans-serif; }
@@ -68,7 +71,21 @@ body {
     background: -moz-radial-gradient(center, circle cover, #abc9ec 0%, #2661a5 100%);
     background: -ms-radial-gradient(center, circle cover, #abc9ec 0%, #2661a5 100%);
     background: radial-gradient(center, circle cover, #abc9ec 0%, #2661a5 100%); }
+  body #desert {
+    height: 200px;
+    width: 100%;
+    background-image: url(/web/img/desert.png);
+    background-repeat: repeat-x;
+    background-position: bottom;
+    margin: 30px 0 0; }
+  body.night #desert {
+    opacity: 0.7;
+    -moz-opacity: 0.7;
+    filter: alpha(opacity=70); }
 
+/******************
+ TYDLIGT SKARE VA
+ *****************/
 #container {
   height: 100%;
   position: relative; }
@@ -82,13 +99,6 @@ body {
   #container .wrapper {
     width: 60%;
     margin: 0 auto; }
-  #container #footer {
-    height: 200px;
-    width: 100%;
-    background-image: url(/web/img/desert.png);
-    background-repeat: repeat-x;
-    background-position: bottom;
-    margin: 30px 0 0; }
   #container .maincontent {
     background: #e6e6e6;
     margin: 0 0 20px;
@@ -97,6 +107,22 @@ body {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px; }
+  #container #footer {
+    font-size: 90%;
+    color: #e6e6e6;
+    background: #3d3d3d;
+    padding: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; }
+    #container #footer p {
+      margin: 0; }
+    #container #footer a {
+      color: white; }
+  #container #adswrapper {
+    text-align: center; }
+    #container #adswrapper img {
+      margin: 0 0 10px; }
 
 /*****************
  MISC
