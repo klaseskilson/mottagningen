@@ -178,13 +178,13 @@ class Admin extends CI_controller
 				// setup the post data
 				$title = $this->input->post('post_title');
 				$content = $this->input->post('post_content');
-				$parent = 0;
+				$type = 0;
 				$slug = '';
 				$status = $this->input->post('post_status');
 
 				if($id == '') // create new page
 				{
-					$createdid = $this->Post_model->create($title, $slug, $content, $status, $parent);
+					$createdid = $this->Post_model->create($title, $slug, $content, $status, $type);
 
 					// using the fact that in php, everything !== 0 is true
 					if($createdid)
@@ -199,7 +199,7 @@ class Admin extends CI_controller
 				else // edit existing page
 				{
 					// attempt update
-					if($this->Post_model->update($id, $title, $slug, $content, $parent, $status))
+					if($this->Post_model->update($id, $title, $slug, $content, $status, $type))
 					{
 						redirect('/admin/page/edit/'.$id.'?msg=1');
 					}
