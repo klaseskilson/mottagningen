@@ -47,9 +47,9 @@
 	/* Can't specify a percentage size? Laaaaaame. */
 	background: -webkit-gradient(radial, center center, 0, center center, 460, from($from), to($to));
 	background: -webkit-radial-gradient(50% 50%, circle cover, $to 0%, $from 100%);
-	background:    -moz-radial-gradient(center, circle cover, $to 0%, $from 100%);
-	background:     -ms-radial-gradient(center, circle cover, $to 0%, $from 100%);
-	background:         radial-gradient(center, circle cover, $to 0%, $from 100%); // Standard syntax; must be last
+	background:    -moz-radial-gradient(50% 50%, circle cover, $to 0%, $from 100%);
+	background:     -ms-radial-gradient(50% 50%, circle cover, $to 0%, $from 100%);
+	background:         radial-gradient(50% 50%, circle cover, $to 0%, $from 100%); // Standard syntax; must be last
 }
 
 @mixin linear-grad($from, $deg) {

@@ -1,6 +1,6 @@
 <?php // footer ?>
-	<div id="footer" class="wrapper container-fluid">
-		<div class="row-fluid">
+	<footer id="footer" class="wrapper container-fluid">
+		<section class="row-fluid">
 			<div class="span8">
 				<p>
 					Hejhej! Allt som finns här får såklart användas hur du vill, förutsatt
@@ -21,12 +21,12 @@
 					</a>
 				</p>
 			</div>
-		</div>
-	</div>
+		</section>
+	</footer>
 	<div id="desert"></div>
 </div><!-- #container -->
 
-<!-- legionens swaga animationer -->
+<!-- legionens animationer, hurra! http://bigassmessage.com/83502 -->
 <script src="/web/js/animate.js" type="text/javascript"></script>
 <script src="/script/ads/leg/script.js" type="text/javascript"></script>
 <script>

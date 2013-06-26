@@ -1,4 +1,4 @@
-<div id="container">
+	<div id="container">
 	<form action="/admin/page/run/<?php echo $post_id; ?>" method="post">
 		<div class="row-fluid">
 			<div class="span7 offset2">
@@ -48,7 +48,7 @@
 					} // privil & status
 					?>
 					<p>
-						Inlägget redigerades senast <?php echo $post['time']; ?>, alltså
+						Sidan redigerades senast <?php echo $post['time']; ?>, alltså
 						<?php echo readabletime($post['time']); ?>, av <?php echo $author; ?>.
 					</p>
 					<?php

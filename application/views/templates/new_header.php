@@ -18,8 +18,8 @@
 	<link rel="stylesheet" href="/web/css/style.css" type="text/css" media="screen" />
 
 	<script>
-	var sunset = <?php echo $sunset; ?>%86400,
-		sunrise = <?php echo $sunrise; ?>%86400;
+	var sunrise = <?php echo /*strtotime("2013-06-25 18:01")*/ $sunrise; ?>%86400,
+		sunset = <?php echo /*strtotime("2013-06-25 18:10")*/ $sunset; ?>%86400;
 
 	// color values [R, G, B]
 	var sunsetdark = [151, 38, 0], sunsetlight = [253, 64, 0],
@@ -30,9 +30,8 @@
 
 <body class="<?php echo $daytime; ?>">
 	<div id="background"></div>
-	<div id="sunplaceholder"></div>
 	<div id="container">
-		<div id="masthead" class="wrapper">
+		<header id="masthead" class="wrapper">
 			<h1 class="pagetitle"><a href="/">Legionen</a></h1>
 			<ul class="mainmenu">
 				<?php
@@ -43,5 +42,5 @@
 				}
 				?>
 			</ul>
-		</div>
+		</header>
 		<div id="clouds" class="hidden-phone"></div>

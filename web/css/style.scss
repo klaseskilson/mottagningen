@@ -36,7 +36,7 @@ $boxbgcolor: darken(#fff, 10%);
   url(http://themes.googleusercontent.com/static/fonts/faunaone/v1/cSd7NBXNFQWK4oX1706dY7O3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
 }
 
-html, body, #sun {
+html, body {
 	height: 100%;
 	margin: 0;
 }
@@ -47,15 +47,19 @@ html, body, #sun {
 body {
 	@include opensans;
 
-	#sun {
-		display: none;
-		width: 100%;
-	}
-
 	#background {
 		width: 100%; height: 180%;
 		position: fixed;
 		top: 0; left: 0;
+		@include transition(all, 3s);
+
+		#thesun {
+			position: absolute;
+			background: url(/web/img/sun.png);
+			width: 100px; height: 99px;
+			margin: -50px 0 0 -50px;
+
+		}
 	}
 	&.sunset #background {
 		@include radial-grad(#972600);
@@ -87,7 +91,7 @@ body {
 	height: 100%;
 	position: relative;
 
-	h1, h2, h3, h4, h5 {
+	h1, h2, h3, h4, h5, .title {
 		font-family: 'Fauna One', serif;
 		-webkit-font-smoothing: subpixel-antialiased;
 	}
@@ -105,6 +109,10 @@ body {
 		padding: 10px;
 		box-shadow: rgba(0,0,0,0.2) 0 0 20px;
 		@include roundcorners;
+
+		time::after{
+			clear: both;
+		}
 	}
 	#footer {
 		font-size: 90%;
@@ -138,6 +146,9 @@ body {
 }
 .uppercase {
 	text-transform: uppercase;
+}
+.nomargin {
+	margin: 0;
 }
 /*****************
  Masthead
