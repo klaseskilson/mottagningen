@@ -22,6 +22,7 @@ class Image_model extends CI_model
 	function get_all($select = '*', $limit = 0)
 	{
 		$this->db->select($select);
+		$this->db->order_by('date','desc');
 		if($limit !== 0)
 			$this->db->limit($limit);
 		$query = $this->db->get('images');
@@ -35,6 +36,7 @@ class Image_model extends CI_model
 	{
 		$this->db->select($select);
 		$this->db->where('status', 1);
+		$this->db->order_by('date','desc');
 		if($limit !== 0)
 			$this->db->limit($limit);
 		$query = $this->db->get('images');
