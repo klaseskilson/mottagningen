@@ -413,45 +413,48 @@ class Admin extends CI_controller
 	}
 
 	/**
-	 * images handeling
-	 * @param  string $action [description]
-	 * @param  string $id     [description]
-	 * @return [type]         [description]
+	 * image handeling
 	 */
 	function images($action = 'upload', $id = '')
 	{
 		$data = array();
+		// load image model for image db handeling
+		$this->load->model("Image_model");
+		// load user model for name, basically
+		$this->load->model("User_model");
 
 		switch ($action) {
 			case 'run': // image is sent to server!
-				/*$config['upload_path'] = '/web/uploads/';
-				$config['allowed_types'] = 'gif|jpg|png';
-				$config['max_size']	= '2048';
-				$config['max_width']  = '2560';
-				$config['max_height']  = '1440';
-
-				$this->load->library('upload', $config);
-
-				if ( ! $this->upload->do_upload('file'))
-				{
-					$error = array('error' => $this->upload->display_errors());
-				}
-				else
-				{
-
-				}*/
 				$uploaddir = './web/uploads/';
-				$uploadfile = $uploaddir . date('ymd_H-i-') . random(1,3) . '-'
-							. basename($_FILES['file']['name']);
+				$filename = '('.date('ymd_H-i_').random(1,3).') '.basename($_FILES['file']['name']);
 
-				if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile))
+				$uploadfile = $uploaddir.$filename;
+
+				// check file type!
+				if(($_FILES['file']['type'] == 'image/jpeg' || $_FILES['file']['type'] == 'image/png') &&
+					move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile))
 				{
 					echo "File is valid, and was successfully uploaded.\n";
+					$this->Image_model->add($filename);
 				}
 				else
 				{
-					echo "Possible file upload attack!\n";
+					exit;
 				}
+				break;
+			case 'all':
+				$data['images'] = $this->Image_model->get_all();
+
+
+				// få med namnen. FULT, men det fungerar.
+				foreach ($data['images'] as $key => $value) {
+					$data['images'][$key] = array_merge(
+											$data['images'][$key],
+											array('editor' => $this->User_model->get_name($data['images'][$key]['uid']))
+										);
+				}
+
+				$view = 'images_all';
 				break;
 			default: // upload
 				$view = 'images_upload';

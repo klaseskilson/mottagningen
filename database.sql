@@ -84,6 +84,18 @@ CREATE TABLE IF NOT EXISTS `13_weather` (
 	PRIMARY KEY (`weatherid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 
+CREATE TABLE IF NOT EXISTS `13_images` (
+	`imageid` INT(6) NOT NULL AUTO_INCREMENT,
+	`filename` CHAR(100) NOT NULL,
+	`date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`uid` INT(6) NOT NULL,
+	`status` TINYINT NOT NULL DEFAULT 0,
+	PRIMARY KEY (`imageid`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+ALTER TABLE `13_images`
+	ADD CONSTRAINT `13_images_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `13_users` (`uid`);
+
 -- insert data!
 INSERT INTO `13_users` (`uid`, `liuid`, `fname`, `sname`, `password`) VALUES
 (1, 'klaes950', 'Klas', 'Eskilson', 'F.7kxJf5b.9596Nc4pnihZww1gsSyr/yMzie1CLvlrsWb6Q5cUVU/aE72lvWD8DAV17CBL8Fyi.QwfuMF7U/');
