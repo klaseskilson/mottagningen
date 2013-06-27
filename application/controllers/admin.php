@@ -7,6 +7,7 @@ class Admin extends CI_controller
 	{
 		// Call the controller constructor
 		parent::__construct();
+		$this->load->helper(array('form', 'url'));
 
 		// logged in?
 		if(!$this->login->is_admin() && $this->uri->segment(2) != "login")
@@ -410,4 +411,58 @@ class Admin extends CI_controller
 		$this->load->view('admin/'.$view, $data);
 		$this->load->view('admin/templates/footer', $data);
 	}
+
+	/**
+	 * images handeling
+	 * @param  string $action [description]
+	 * @param  string $id     [description]
+	 * @return [type]         [description]
+	 */
+	function images($action = 'upload', $id = '')
+	{
+		$data = array();
+
+		switch ($action) {
+			case 'run': // image is sent to server!
+				/*$config['upload_path'] = '/web/uploads/';
+				$config['allowed_types'] = 'gif|jpg|png';
+				$config['max_size']	= '2048';
+				$config['max_width']  = '2560';
+				$config['max_height']  = '1440';
+
+				$this->load->library('upload', $config);
+
+				if ( ! $this->upload->do_upload('file'))
+				{
+					$error = array('error' => $this->upload->display_errors());
+				}
+				else
+				{
+
+				}*/
+				$uploaddir = './web/uploads/';
+				$uploadfile = $uploaddir . date('ymd_H-i-') . random(1,3) . '-'
+							. basename($_FILES['file']['name']);
+
+				if (move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile))
+				{
+					echo "File is valid, and was successfully uploaded.\n";
+				}
+				else
+				{
+					echo "Possible file upload attack!\n";
+				}
+				break;
+			default: // upload
+				$view = 'images_upload';
+				break;
+		}
+
+
+		$this->load->view('admin/templates/header', $data);
+		$this->load->view('admin/templates/menu');
+		$this->load->view('admin/'.$view, $data);
+		$this->load->view('admin/templates/footer', $data);
+	}
+
 }

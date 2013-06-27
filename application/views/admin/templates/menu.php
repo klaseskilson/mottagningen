@@ -61,6 +61,23 @@
 							<li><a href="/admin/post/all">Se alla inlägg</a></li>
 						</ul>
 					</li>
+					<?php
+					if($this->login->has_privilege('2'))
+					{
+					?>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="icon-camera"></i> Fotografier
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="/admin/images/upload">Ladda upp</a></li>
+							<li><a href="/admin/images/all">Se alla</a></li>
+						</ul>
+					</li>
+					<?php
+					}
+					?>
 				</ul>
 				<ul class="nav pull-right">
 					<li>

@@ -33,6 +33,8 @@
 	<script src="/web/js/vendor/bootstrap-wysihtml5.sv-SE.js"></script>
 	<script type="text/javascript" src="/web/js/vendor/bootstrap-wysihtml5.js"></script>
 	<link rel="stylesheet" href="/web/css/bootstrap-wysihtml5.css" type="text/css" media="screen" />
+	<!-- DROPZONE! -->
+	<link rel="stylesheet" href="/web/css/vendor/dropzone.css" type="text/css" media="screen" />
 
 	<script>
 	if (typeof jQuery == 'undefined')
