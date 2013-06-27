@@ -433,7 +433,7 @@ class Admin extends CI_controller
 				// check file type!
 				if(($_FILES['file']['type'] == 'image/jpeg' || $_FILES['file']['type'] == 'image/png') &&
 					move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)
-					&& $this->Image_model->add($filename);)
+					&& $this->Image_model->add($filename))
 				{
 					echo "File is valid, and was successfully uploaded.\n";
 					exit;
