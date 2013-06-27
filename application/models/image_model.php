@@ -43,6 +43,24 @@ class Image_model extends CI_model
 
 		return false;
 	}
+
+	function toggle($id, $status)
+	{
+		return $this->db->update('images', array('status' => $status), array('imageid' => $id));
+	}
+
+	function remove($id)
+	{
+		$this->db->select("filename");
+		$this->db->where("imageid", $id);
+		$query = $this->db->get("images");
+		$result = $query->result_array();
+
+		$filename = $result[0]['filename'];
+
+		return unlink('web/uploads/'.$filename)
+			&& $this->db->delete('images', array('imageid' => $id));
+	}
 }
 /*
 END OF image_model.php

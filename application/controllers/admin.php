@@ -442,6 +442,29 @@ class Admin extends CI_controller
 					exit;
 				}
 				break;
+			case 'batchedit':
+				if($this->input->post("batch-show"))
+				{
+					foreach ($this->input->post("batch_list") as $image) {
+						$this->Image_model->toggle($image, 1);
+					}
+					redirect('/admin/images/all?msg=1');
+				}
+				elseif($this->input->post("batch-hide"))
+				{
+					foreach ($this->input->post("batch_list") as $image) {
+						$this->Image_model->toggle($image, 0);
+					}
+					redirect('/admin/images/all?msg=1');
+				}
+				elseif($this->input->post("batch-delete"))
+				{
+					foreach ($this->input->post("batch_list") as $image) {
+						$this->Image_model->remove($image);
+					}
+					redirect('/admin/images/all?msg=1');
+				}
+				break;
 			case 'all':
 				$data['images'] = $this->Image_model->get_all();
 

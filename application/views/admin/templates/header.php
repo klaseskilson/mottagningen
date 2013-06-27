@@ -26,6 +26,12 @@
 	<!-- load js -->
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<!-- FANCYBOX! -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" type="text/css" />
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.js"></script>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.js"></script>
+	<!-- fejnt -->
 	<script type="text/javascript" src="/web/js/admin.js"></script>
 
 	<!-- WYSIWYG editor -->
@@ -35,6 +41,7 @@
 	<link rel="stylesheet" href="/web/css/bootstrap-wysihtml5.css" type="text/css" media="screen" />
 	<!-- DROPZONE! -->
 	<link rel="stylesheet" href="/web/css/vendor/dropzone.css" type="text/css" media="screen" />
+
 
 	<script>
 	if (typeof jQuery == 'undefined')

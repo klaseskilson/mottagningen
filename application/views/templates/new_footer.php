@@ -27,7 +27,7 @@
 </div><!-- #container -->
 
 <!-- legionens animationer, hurra! http://bigassmessage.com/83502 -->
-<script src="/web/js/animate.js" type="text/javascript"></script>
+<script src="/web/js/animate.js"></script>
 <script src="/script/ads/leg/script.js" type="text/javascript"></script>
 <script>
 	init();
