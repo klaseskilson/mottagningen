@@ -31,33 +31,6 @@ class Admin extends CI_controller
 		$this->load->view('admin/templates/footer', $data);
 	}
 
-	function fadder($action = 'all', $id = '')
-	{
-		$data = array();
-		$this->load->model("Fadder_model");
-		$view = '';
-
-		if($action == "open")
-		{
-			if(!empty($id))
-				$data['fadder'] = $this->Fadder_model->get_fadder($id);
-			else
-				show_404();
-
-			$view = "fadder_single";
-		}
-		elseif($action == "all")
-		{
-			$data['faddrar'] = $this->Fadder_model->get_all();
-			$view = "fadder_all";
-		}
-
-		$this->load->view('admin/templates/header', $data);
-		$this->load->view('admin/templates/menu');
-		$this->load->view('admin/'.$view, $data);
-		$this->load->view('admin/templates/footer', $data);
-	}
-
 	function login($dowhat = '')
 	{
 		// load password hash library
@@ -160,6 +133,9 @@ class Admin extends CI_controller
 
 	function page($action = '', $id = '')
 	{
+		// make sure user is allowed here
+		if(!$this->login->has_privilege(3))
+			show_404();
 		// load post model for content handeling
 		$this->load->model('Post_model');
 		// load user model for name collecting
@@ -287,6 +263,9 @@ class Admin extends CI_controller
 
 	function post($action = '', $id = '')
 	{
+		// make sure user is allowed here
+		if(!$this->login->has_privilege(3))
+			show_404();
 		// load post model for content handeling
 		$this->load->model('Post_model');
 		// load user model for name collecting
@@ -417,6 +396,9 @@ class Admin extends CI_controller
 	 */
 	function images($action = 'upload', $id = '')
 	{
+		// make sure user is allowed here
+		if(!$this->login->has_privilege(4))
+			show_404();
 		$data = array();
 		// load image model for image db handeling
 		$this->load->model("Image_model");
