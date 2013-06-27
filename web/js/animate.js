@@ -146,7 +146,7 @@ function animatesun()
 	// update the suns position
 	sunposition(dayprogress());
 	var thesun = document.getElementById("thesun");
-	var r = dayprogress()*360;
+	var r = rightnow()/10;
 
 	thesun.style.left = sun[0]+'%';
 	thesun.style.top = sun[1]+'%';
@@ -303,5 +303,7 @@ function lingrad(dark, light, theobject)
 
 function display(objectid, status)
 {
-	document.getElementById(objectid).style.display = status;
+	theobj = document.getElementById(objectid);
+	if(theobj)
+		theobj.style.display = status;
 }
