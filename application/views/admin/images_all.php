@@ -26,7 +26,7 @@
 							</td>
 							<td>
 								Uppladdad av <?php echo $image['editor']; ?> <?php echo $image['cachedate']; ?>,
-								alltså ungefär <?php echo readabletime($image['cachedate']); ?>.
+								alltså <?php echo readabletime($image['cachedate']); ?>.
 							</td>
 							<td>
 								Hej
