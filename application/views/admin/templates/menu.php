@@ -38,6 +38,8 @@
 					</li>
 					<?php
 					}
+					if($this->login->has_privilege('3'))
+					{
 					?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -62,7 +64,8 @@
 						</ul>
 					</li>
 					<?php
-					if($this->login->has_privilege('2'))
+					}
+					if($this->login->has_privilege('4'))
 					{
 					?>
 					<li class="dropdown">
