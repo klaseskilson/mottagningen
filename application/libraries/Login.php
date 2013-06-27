@@ -20,7 +20,7 @@ class Login
 	}
 
 	function is_admin() {
-		if($this->is_logged_in() && $this->CI->session->userdata('privil') < 4) {
+		if($this->is_logged_in() && $this->CI->session->userdata('privil') <= 4) {
 			return true;
 		}
 		return false;
