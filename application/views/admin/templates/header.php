@@ -35,13 +35,32 @@
 	<script type="text/javascript" src="/web/js/admin.js"></script>
 
 	<!-- WYSIWYG editor -->
-	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/wysihtml5/0.3.0/wysihtml5.min.js"></script>
-	<script src="/web/js/vendor/bootstrap-wysihtml5.sv-SE.js"></script>
-	<script type="text/javascript" src="/web/js/vendor/bootstrap-wysihtml5.js"></script>
-	<link rel="stylesheet" href="/web/css/bootstrap-wysihtml5.css" type="text/css" media="screen" />
+	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+	<script>
+		tinymce.init({
+			selector:'#post_content',
+			toolbar: "undo redo | styleselect | bold italic | bullist numlist outdent indent | link unlink image | code | removeformat",
+			paste_as_text: true,
+			plugins: "link code paste image",
+			target_list: [
+			    {title: 'Samma flik', value: '_self'},
+			    {title: 'Ny flik', value: '_blank'}
+			],
+			menubar: false,
+			paste_as_text: true,
+			style_formats : [
+				{title : 'Rubrik 1', block : 'h1',},
+				{title : 'Rubrik 2', block : 'h2',},
+				{title : 'Rubrik 3', block : 'h3',},
+				{title : 'Rubrik 4', block : 'h4',},
+				{title : 'Rubrik 5', block : 'h5',},
+				{title : 'Normal', block : 'p',},
+			],
+			language_url : '/web/js/vendor/tinymce/sv.js'
+		});
+	</script>
 	<!-- DROPZONE! -->
 	<link rel="stylesheet" href="/web/css/vendor/dropzone.css" type="text/css" media="screen" />
-
 
 	<script>
 	if (typeof jQuery == 'undefined')

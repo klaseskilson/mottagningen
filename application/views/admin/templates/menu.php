@@ -75,6 +75,7 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="/admin/images/upload">Ladda upp</a></li>
+							<li class="divider"></li>
 							<li><a href="/admin/images/all">Se alla</a></li>
 						</ul>
 					</li>

@@ -52,24 +52,12 @@
 						<?php echo readabletime($post['time']); ?>, av <?php echo $author; ?>.
 					</p>
 					<?php
-				} // isset($post)
+				} // end isset($post)
 				?>
 			</div>
 			<div class="span7">
 				<textarea class="span12" placeholder="Skriv nyheten här..." rows="17"
 				id="post_content" name="post_content" class="wysiwyg"><?php echo (isset($post) ? $post['content']: ''); ?></textarea>
-				<script type="text/javascript">
-					$('#post_content').wysihtml5({
-						"font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
-						"emphasis": true, //Italics, bold, etc. Default true
-						"lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
-						"html": true, //Button which allows you to edit the generated HTML. Default false
-						"link": true, //Button to insert a link. Default true
-						"image": true, //Button to insert an image. Default true,
-						"color": false //Button to change color of font
-						//,"locale": "sv-SE"
-					});
-				</script>
 			</div>
 			<div class="span3">
 				<h4>Spara</h4>
