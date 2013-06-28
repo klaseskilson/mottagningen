@@ -1,12 +1,31 @@
 <div id="container">
 	<div class="row-fluid">
 		<div class="span3">
+			<h4>Ladda upp</h4>
+			<div class="alert alert-block">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<h4>Obs!</h4>
+				<p>
+					Bilderna måste godkännas innan de är blir synliga, så att du vet!
+				</p>
+			</div>
+			<script src="/web/js/vendor/dropzone.js" type="text/javascript"></script>
+			<form method="post" action="/admin/images/run" class="dropzone" enctype="multipart/form-data">
+				<div class="dz-message">
+					<h1 class="center" style="font-size:500%;">
+						<i class="icon-upload"></i>
+					</h1>
+					<p class="lead">
+						Drag och släpp bilder, eller klicka, här för att ladda upp dem.
+					</p>
+				</div>
+			</form>
+		</div>
+		<div class="span9">
 			<h4>Alla bilder</h4>
 			<p>
 				Här ser du samtliga bilder som laddats upp, samt vem som laddat upp dem.
 			</p>
-		</div>
-		<div class="span9">
 			<form action="/admin/images/batchedit" method="post">
 				<div class="span6">
 					Med markerade:

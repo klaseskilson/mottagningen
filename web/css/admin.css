@@ -18,3 +18,7 @@
 @media (max-width: 767px) {
   #content {
     padding: 0 !important; } }
+
+.center {
+	text-align: center;
+}

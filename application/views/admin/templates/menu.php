@@ -69,15 +69,9 @@
 					{
 					?>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<a href="/admin/images">
 							<i class="icon-camera"></i> Fotografier
-							<b class="caret"></b>
 						</a>
-						<ul class="dropdown-menu">
-							<li><a href="/admin/images/upload">Ladda upp</a></li>
-							<li class="divider"></li>
-							<li><a href="/admin/images/all">Se alla</a></li>
-						</ul>
 					</li>
 					<?php
 					}

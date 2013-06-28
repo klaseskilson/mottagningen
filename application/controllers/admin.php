@@ -399,6 +399,7 @@ class Admin extends CI_controller
 		// make sure user is allowed here
 		if(!$this->login->has_privilege(4))
 			show_404();
+
 		$data = array();
 		// load image model for image db handeling
 		$this->load->model("Image_model");
@@ -449,9 +450,8 @@ class Admin extends CI_controller
 					redirect('/admin/images/all?msg=1');
 				}
 				break;
-			case 'all':
+			default:
 				$data['images'] = $this->Image_model->get_all();
-
 
 				// få med namnen. FULT, men det fungerar.
 				foreach ($data['images'] as $key => $value) {
@@ -462,9 +462,6 @@ class Admin extends CI_controller
 				}
 
 				$view = 'images_all';
-				break;
-			default: // upload
-				$view = 'images_upload';
 				break;
 		}
 
