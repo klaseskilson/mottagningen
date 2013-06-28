@@ -1,6 +1,6 @@
 <div id="container">
 	<div class="row-fluid">
-		<div class="span3">
+		<div class="span4">
 			<h4>Ladda upp</h4>
 			<div class="alert alert-block">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -21,7 +21,7 @@
 				</div>
 			</form>
 		</div>
-		<div class="span9">
+		<div class="span8">
 			<h4>Alla bilder</h4>
 			<p>
 				Här ser du samtliga bilder som laddats upp, samt vem som laddat upp dem.
