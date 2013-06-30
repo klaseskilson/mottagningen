@@ -3,9 +3,6 @@ $(document).ready(function() {
 	$('[data-toggle="popover"]').popover({
 		'html': true});
 
-	$('a.batch-all').click(function(){
-		$('.input-batch').prop('checked', true);
-	});
 	$('input.batch-controll').change(function(){
 		$('.input-batch').prop('checked', this.checked);
 	});
@@ -18,5 +15,15 @@ $(document).ready(function() {
 			}
 		}
 	});
+
+	Dropzone.options.imagesform = {
+		addRemoveLinks: true,
+		init: function() {
+			this.on("complete", function() {
+				if (this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0)
+					$('#imagesneedtobee').show();
+			});
+		}
+	};
 
 });

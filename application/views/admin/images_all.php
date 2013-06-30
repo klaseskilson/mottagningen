@@ -2,15 +2,23 @@
 	<div class="row-fluid">
 		<div class="span4">
 			<h4>Ladda upp</h4>
-			<div class="alert alert-block">
+			<div class="alert alert-block" id="imagesneedtobee">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				<h4>Obs!</h4>
+				<h4><i class="icon-ok-sign"></i> Klart!</h4>
 				<p>
-					Bilderna måste godkännas innan de är blir synliga, så att du vet!
+					Samtliga bilder skall nu vara uppladdade. Observera att bilderna måste
+					godkännas innan de är blir synliga.
+				</p>
+				<p>
+					<a href="#" onclick="document.location.reload(true); return false;">
+						<i class="icon-refresh"></i> Uppdatera sidan
+					</a>
+					för att se bilderna här till höger.
 				</p>
 			</div>
+			<script>$('#imagesneedtobee').hide(0);</script>
 			<script src="/web/js/vendor/dropzone.js" type="text/javascript"></script>
-			<form method="post" action="/admin/images/run" class="dropzone" enctype="multipart/form-data">
+			<form method="post" action="/admin/images/run" class="dropzone" enctype="multipart/form-data" id="imagesform">
 				<div class="dz-message">
 					<h1 class="center" style="font-size:500%;">
 						<i class="icon-upload"></i>
@@ -54,7 +62,7 @@
 								<td>
 									<a href="/web/uploads/<?php echo $image['filename']; ?>" target="_blank"
 										class="fancybox" title="Se bild!">
-										<img src="/web/uploads/<?php echo $image['filename']; ?>"
+										<img src="/web/script/timthumb.php?w=200&src=<?php echo urlencode('/web/uploads/'.$image['filename']); ?>"
 											 alt="<?php echo $image['imageid']; ?>" />
 									 </a>
 								</td>

@@ -5,6 +5,7 @@ application/logs/*
 web/css/.sass-cache/*
 bravestman/*
 web/uploads/*
+web/script/cache/*
 
 # dont care about the ads
 web/ads/*
