@@ -45,9 +45,8 @@
 					<thead>
 						<tr>
 							<th><input type="checkbox" class="batch-controll" /></th>
-							<th class="span2">Bild</th>
-							<th class="span8">Info</th>
-							<th class="span2">Hantera</th>
+							<th class="span3">Bild</th>
+							<th class="span9">Info</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -72,9 +71,6 @@
 									</span>
 									Uppladdad av <?php echo $image['editor']; ?> <?php echo $image['date']; ?>,
 									alltså <?php echo readabletime($image['date']); ?>.
-								</td>
-								<td>
-									Hej
 								</td>
 							</tr>
 							<?php
