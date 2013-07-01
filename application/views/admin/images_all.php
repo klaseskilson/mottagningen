@@ -2,7 +2,7 @@
 	<div class="row-fluid">
 		<div class="span4">
 			<h4>Ladda upp</h4>
-			<div class="alert alert-block" id="imagesneedtobee">
+			<div class="alert alert-block alert-success" id="imagesneedtobee">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
 				<h4><i class="icon-ok-sign"></i> Klart!</h4>
 				<p>
@@ -30,9 +30,10 @@
 			</form>
 		</div>
 		<div class="span8">
-			<h4>Alla bilder</h4>
+			<h4>Alla <?php echo $countall; ?> bilder</h4>
 			<p>
-				Här ser du samtliga bilder som laddats upp, samt vem som laddat upp dem.
+				Här ser du samtliga <?php echo $countall; ?> bilder som laddats upp, samt vem som laddat upp dem.
+				Bilderna visas <?php echo $limit; ?> i taget.
 			</p>
 			<form action="/admin/images/batchedit" method="post">
 				<div class="span6">
@@ -79,6 +80,22 @@
 					</tbody>
 				</table>
 			</form>
+			<div class="pagination pagination-centered">
+				<ul>
+					<li<?php if($page == 1) echo ' class="disabled"'; ?>>
+						<a href="/admin/images/page/<?php echo $page == 1 ? 1 : $page-1; ?>">«</a>
+					</li>
+					<?php
+					for($i = 1; $i <= $totalpages; $i++)
+					{
+						echo '<li'.($page == $i ? ' class="active"': '').'><a href="/admin/images/page/'.$i.'">'.$i.'</a></li>';
+					}
+					?>
+					<li<?php if($page == $totalpages) echo ' class="disabled"'; ?>>
+						<a href="/admin/images/page/<?php echo $page == $totalpages ? $totalpages : $page+1; ?>">»</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

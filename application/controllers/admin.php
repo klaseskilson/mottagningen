@@ -394,11 +394,14 @@ class Admin extends CI_controller
 	/**
 	 * image handeling
 	 */
-	function images($action = 'upload', $id = '')
+	function images($action = 'page', $page = 1)
 	{
 		// make sure user is allowed here
 		if(!$this->login->has_privilege(4))
 			show_404();
+
+		// decrease $page by one to prepare for database handeling
+		$page = abs(intval($page) - 1);
 
 		$data = array();
 		// load image model for image db handeling
@@ -451,7 +454,11 @@ class Admin extends CI_controller
 				}
 				break;
 			default:
-				$data['images'] = $this->Image_model->get_all();
+				$data['limit'] = 15;
+				$data['images'] = $this->Image_model->get_all('*', $data['limit'], $page);
+				$data['page'] = $page+1;
+				$data['countall'] = $this->Image_model->count_all();
+				$data['totalpages'] = ceil($data['countall']/$data['limit']);
 
 				// få med namnen. FULT, men det fungerar.
 				foreach ($data['images'] as $key => $value) {

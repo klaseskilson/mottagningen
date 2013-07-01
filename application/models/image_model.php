@@ -19,12 +19,12 @@ class Image_model extends CI_model
 		return $this->db->insert("images", $insert_data);
 	}
 
-	function get_all($select = '*', $limit = 0)
+	function get_all($select = '*', $limit = 0, $page = 0)
 	{
 		$this->db->select($select);
 		$this->db->order_by('date','desc');
 		if($limit !== 0)
-			$this->db->limit($limit);
+			$this->db->limit($limit, $limit*$page);
 		$query = $this->db->get('images');
 
 		if($query) return $query->result_array();
@@ -42,6 +42,16 @@ class Image_model extends CI_model
 		$query = $this->db->get('images');
 
 		if($query) return $query->result_array();
+
+		return false;
+	}
+
+	function count_all()
+	{
+		$this->db->select('imageid');
+		$query = $this->db->get('images');
+
+		if($query) return $query->num_rows();
 
 		return false;
 	}
