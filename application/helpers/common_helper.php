@@ -107,7 +107,7 @@ function readabletime($time) {
     elseif($diff < 10800) // tre timmar
         return "några timmar sedan";
     elseif($diff < 86400) // ett dygn
-        return "idag";
+        return "senaste dygnet";
     elseif($diff < 2592000) // 30 dagar
     {
         $daysago = floor($diff / 86400); // dagar sedan

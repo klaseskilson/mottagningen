@@ -94,6 +94,7 @@ body {
 	h1, h2, h3, h4, h5, .title {
 		font-family: 'Fauna One', serif;
 		-webkit-font-smoothing: subpixel-antialiased;
+		font-weight: normal;
 	}
 	p {
 		font-size: 100%;
@@ -136,7 +137,21 @@ body {
 		}
 	}
 }
-
+/*****************
+ INLÄGG OCH SIDOR SKA VARA FINA
+ ****************/
+.post {
+	img {
+		&.float-left {
+			float: left;
+			margin: 0 10px 10px 0;
+		}
+		&.float-right {
+			float: right;
+			margin: 0 0 10px 10px;
+		}
+	}
+}
 
 /*****************
  MISC

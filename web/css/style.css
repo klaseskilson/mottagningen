@@ -99,7 +99,8 @@ body {
   position: relative; }
   #container h1, #container h2, #container h3, #container h4, #container h5, #container .title {
     font-family: 'Fauna One', serif;
-    -webkit-font-smoothing: subpixel-antialiased; }
+    -webkit-font-smoothing: subpixel-antialiased;
+    font-weight: normal; }
   #container p {
     font-size: 100%;
     -webkit-font-smoothing: subpixel-antialiased;
@@ -133,6 +134,16 @@ body {
     text-align: center; }
     #container #adswrapper img {
       margin: 0 0 10px; }
+
+/*****************
+ INLÄGG OCH SIDOR SKA VARA FINA
+ ****************/
+.post img.float-left {
+  float: left;
+  margin: 0 10px 10px 0; }
+.post img.float-right {
+  float: right;
+  margin: 0 0 10px 10px; }
 
 /*****************
  MISC
