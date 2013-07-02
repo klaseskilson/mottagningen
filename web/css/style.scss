@@ -16,7 +16,7 @@ $boxbgcolor: darken(#fff, 10%);
 	Typsnitt
 */
 @font-face {
-	font-family: 'Open Sans';
+	font-family: 'OpenSans';
 	font-style: normal;
 	font-weight: 400;
 	src: local('Open Sans'), local('OpenSans'), url('/web/font/OpenSans.eot');
@@ -32,11 +32,14 @@ $boxbgcolor: darken(#fff, 10%);
 	src: local('PrinceofPersia'), local('Prince of Persia'), url(/web/font/princeofpersia.ttf) format('truetype');
 }
 @font-face {
-  font-family: 'Fauna One';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Fauna One'), local('FaunaOne-Regular'),
-  url(http://themes.googleusercontent.com/static/fonts/faunaone/v1/cSd7NBXNFQWK4oX1706dY7O3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+	font-family: 'FaunaOne';
+	font-style: normal;
+	font-weight: normal;
+	src: local('Fauna One'), local('FaunaOne-Regular');
+	src: url('/webfont/FaunaOne-Regular.eot');
+	src: url('/web/font/FaunaOne-Regular.svg') format('svg'),
+		 url('/web/font/FaunaOne-Regular.woff') format('woff'),
+		 url('/web/font/FaunaOne-Regular.ttf') format('truetype');
 }
 
 html, body {
@@ -95,7 +98,7 @@ body {
 	position: relative;
 
 	h1, h2, h3, h4, h5, .title {
-		font-family: 'Fauna One', serif;
+		font-family: 'FaunaOne', 'Fauna One', serif;
 		-webkit-font-smoothing: subpixel-antialiased;
 		font-weight: normal;
 		-webkit-text-stroke-width: 0.6px;
