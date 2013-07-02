@@ -7,7 +7,7 @@
 	<section class="row-fluid">
 		<div class="span4">
 			<div class="maincontent">
-				<h3>Välkommen, nollan!</h3>
+				<h3>Välkommen, Nollan!</h3>
 				<p>
 					Här på Legionens sida finns mycket klokt att läsa, både före och under
 					Nolle-p.

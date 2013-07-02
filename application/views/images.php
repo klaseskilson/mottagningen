@@ -4,6 +4,9 @@
 		<div class="span8">
 			<div class="maincontent">
 				<h3>Bilder</h3>
+				<p>
+					Klicka på bilderna för att se dem större.
+				</p>
 				<div class="row-fluid">
 					<?php
 					$i = 0;
