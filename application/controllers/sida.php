@@ -32,6 +32,8 @@ class Sida extends CI_Controller {
 		$this->data['weather'] = $this->Weather_model->magic();
 		// save pages for menu
 		$this->data['menu_pages'] = $this->Post_model->get_active_pages("title, slug");
+		// send environment to view
+		$this->data['CI_ENVIRONMENT'] = defined('ENVIRONMENT') ? ENVIRONMENT : false;
 
 		// sunrise and sunset in unix timestamp
 		$this->data['sunset'] = strtotime($this->data['weather']['sunset']);
@@ -66,9 +68,9 @@ class Sida extends CI_Controller {
 		// get all public posts
 		$data['posts'] = $this->Post_model->get_all_posts(1, 1);
 
-		if(!isset($_GET['ajax'])) $this->load->view('templates/new_header', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/header', $data);
 		$this->load->view('start', $data);
-		if(!isset($_GET['ajax']))  $this->load->view('templates/new_footer', $data);
+		if(!isset($_GET['ajax']))  $this->load->view('templates/footer', $data);
 	}
 
 	function visa($id = '')
@@ -79,9 +81,9 @@ class Sida extends CI_Controller {
 
 		$data['page'] = $this->Post_model->get_post($id);
 
-		if(!isset($_GET['ajax'])) $this->load->view('templates/new_header', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/header', $data);
 		$this->load->view('page', $data);
-		if(!isset($_GET['ajax'])) $this->load->view('templates/new_footer', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/footer', $data);
 	}
 
 	function inlagg($id = '')
@@ -92,9 +94,9 @@ class Sida extends CI_Controller {
 
 		$data['page'] = $this->Post_model->get_post($id);
 
-		if(!isset($_GET['ajax'])) $this->load->view('templates/new_header', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/header', $data);
 		$this->load->view('page', $data);
-		if(!isset($_GET['ajax'])) $this->load->view('templates/new_footer', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/footer', $data);
 	}
 
 	function bilder($page = 1)
@@ -109,9 +111,9 @@ class Sida extends CI_Controller {
 		$data['images'] = $this->Image_model->get_all_public('filename, date', $data['limit'], $data['page']-1);
 		$data['totalpages'] = ceil($data['total']/$data['limit']);
 
-		if(!isset($_GET['ajax'])) $this->load->view('templates/new_header', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/header', $data);
 		$this->load->view('images', $data);
-		if(!isset($_GET['ajax'])) $this->load->view('templates/new_footer', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/footer', $data);
 	}
 }
 

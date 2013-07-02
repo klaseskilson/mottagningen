@@ -1,9 +1,7 @@
 # ignore these files #
 *.DS_Store
-user_guide/*
 application/logs/*
 web/css/.sass-cache/*
-bravestman/*
 web/uploads/*
 web/script/cache/*
 

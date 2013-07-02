@@ -1,20 +1,47 @@
 <!DOCTYPE html>
-<html lang="sv">
+<!--[if lt IE 7 ]><html class="ie ie6" lang="sv"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="sv"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="sv"> <![endif]-->
+<!--[if IE 9 ]><html class="ie ie9" lang="sv"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="sv"> <!--<![endif]-->
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Legionen</title>
+	<title>Legionen <?php echo isset($title) ? $title : '&ndash; Nollans beskyddare'; ?></title>
 
 	<!-- Legionen laddar Bootstrap, för det är swag -->
 	<link rel="stylesheet" href="/web/css/bootstrap.min.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/web/css/bootstrap-responsive.min.css" type="text/css" media="screen" />
-	<!-- Legionen laddar sin egna stil, för den är så jäääävla swag -->
+	<!-- Legionen laddar sin egna stil, för den är så jäääävla B R A. -->
 	<link rel="stylesheet" href="/web/css/style.css" type="text/css" media="screen" />
 
-	<meta property="og:image" content="http://legionen.nu/web/img/teaser.jpg" />
-	<meta property="og:url" content="http://legionen.nu" />
-	<meta property="og:title" content="Legionen 2013" />
+	<script>
+	var sunrise = <?php echo /*strtotime("2013-06-25 18:01")*/ $sunrise; ?>%86400,
+		sunset = <?php echo /*strtotime("2013-06-25 18:10")*/ $sunset; ?>%86400;
+
+	// color values [R, G, B]
+	var sunsetdark = [151, 38, 0], sunsetlight = [253, 64, 0],
+		daydark = [38, 97, 165], daylight = [171, 201, 236],
+		nightdark = [8, 13, 17], nightlight = [41, 66, 86];
+	</script>
 </head>
 
-<body>
+<body class="<?php echo $daytime; ?>">
+	<div id="background"></div>
+	<div id="container">
+		<header id="masthead" class="wrapper">
+			<h1 class="pagetitle"><a href="/">Legionen</a></h1>
+			<ul class="mainmenu">
+				<li><a href="/sida/bilder/">Bilder</a></li>
+				<?php
+				foreach ($menu_pages as $page) {
+					?>
+					<li><a href="/sida/visa/<?php echo $page['slug']; ?>"><?php echo $page['title']; ?></a></li>
+					<?php
+				}
+				?>
+			</ul>
+		</header>
+		<div id="clouds" class="hidden-phone"></div>
