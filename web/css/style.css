@@ -118,7 +118,11 @@ body {
     border-radius: 10px; }
     #container .maincontent time::after {
       clear: both; }
-  #container #footer {
+  #container #footer p {
+    margin: 0; }
+  #container #footer a {
+    color: white; }
+  #container #footer .maincontent {
     font-size: 90%;
     color: #e6e6e6;
     background: #3d3d3d;
@@ -126,10 +130,6 @@ body {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px; }
-    #container #footer p {
-      margin: 0; }
-    #container #footer a {
-      color: white; }
   #container #adswrapper {
     text-align: center; }
     #container #adswrapper img {

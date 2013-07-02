@@ -116,17 +116,18 @@ body {
 		}
 	}
 	#footer {
-		font-size: 90%;
-		color: $boxbgcolor;
-		background: darken($boxbgcolor, 66%);
-		padding: 10px;
-		@include roundcorners;
-
 		p {
 			margin: 0;
 		}
 		a {
 			color: lighten($boxbgcolor, 10%);
+		}
+		.maincontent {
+			font-size: 90%;
+			color: $boxbgcolor;
+			background: darken($boxbgcolor, 66%);
+			padding: 10px;
+			@include roundcorners;
 		}
 	}
 	#adswrapper {

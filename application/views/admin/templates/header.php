@@ -20,6 +20,12 @@
 	<link rel="stylesheet" href="/web/css/bootstrap-responsive.min.css" type="text/css" media="screen" />
 	<!-- Legionen laddar sin egna adminstil, för den är så jäääävla swag -->
 	<link rel="stylesheet" href="/web/css/admin.css" type="text/css" media="screen" />
+	<!-- fiiint -->
+	<link href="/web/img/admin_apple-touch-icon.png" rel="apple-touch-icon" />
+	<link href="/web/img/admin_apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
+	<link href="/web/img/admin_apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
+	<link href="/web/img/admin_apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
+	<link rel="icon" type="image/png" href="/web/img/admin_favicon.png">
 
 	<title>Legionen admin<?php if(isset($pagetitle)) echo ' '.$pagetitle; ?></title>
 

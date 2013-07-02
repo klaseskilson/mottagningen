@@ -16,6 +16,12 @@
 	<link rel="stylesheet" href="/web/css/bootstrap-responsive.min.css" type="text/css" media="screen" />
 	<!-- Legionen laddar sin egna stil, för den är så jäääävla B R A. -->
 	<link rel="stylesheet" href="/web/css/style.css" type="text/css" media="screen" />
+	<!-- Åååååh, så fejnt det kan bli på hemskärmen -->
+	<link href="/web/img/apple-touch-icon.png" rel="apple-touch-icon" />
+	<link href="/web/img/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
+	<link href="/web/img/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
+	<link href="/web/img/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
+	<link rel="icon" type="image/png" href="/web/img/favicon.png">
 
 	<script>
 	var sunrise = <?php echo /*strtotime("2013-06-25 18:01")*/ $sunrise; ?>%86400,

@@ -68,7 +68,7 @@
 			?>
 		</div>
 		<div class="span4">
-			<h4>Annanonser</h4>
+			<h4>Annonser</h4>
 			<div class="maincontent" id="adswrapper"></div>
 		</div>
 	</section>

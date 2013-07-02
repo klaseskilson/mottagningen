@@ -231,10 +231,10 @@ function addClouds()
 function animateClouds()
 {
     // kolla om klient stödjer transformproperty
-    if(!cssprefix)
+    if(cssprefix === false)
     {
         //avsluta animateClouds()
-        return;
+        return 'nope';
     }
 
     // leta upp clouds-diven
@@ -281,13 +281,14 @@ function animateClouds()
  */
 function getCssPrefix(name)
 {
-	var prefixes = ['', '-webkit-', '-moz-', '-ms-', '-o-'],
+	var prefixes = ['-webkit-', '-moz-', '-ms-', '-o-', ''],
 		el = document.createElement('div'),
 		index = 0;
 
 	while (index < prefixes.length) {
 		var prefix = prefixes[index++];
-		if (document.createElement('div').style[prefix + name] !== undefined) {
+		if (document.createElement('div').style[prefix + name] != undefined) {
+			console.log("Found " + prefix);
 			return prefix;
 		}
 	}

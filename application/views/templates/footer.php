@@ -2,24 +2,32 @@
 	<footer id="footer" class="wrapper container-fluid">
 		<section class="row-fluid">
 			<div class="span8">
-				<p>
-					Hejhej! Allt som finns här får såklart användas hur du vill, förutsatt
-					att du följer de licenser som finns på de pluginer och verktyg som
-					du hittar. Det är det viktigaste som finns för en öppen, trygg och
-					trevlig webb! Kika gärna runt bland koden om du tycker sånt är kul!
-				</p>
+				<div class="maincontent">
+					<p>
+						Legionen har <a href="http://facebook.com/legionen.nu" target="_blank">Facebook</a>
+						och <a href="http://twitter.com/legionen" target="_blank">Twitter</a>. Följ Legionen där!
+					</p>
+					<p>
+						Allt som finns här får såklart användas hur du vill, förutsatt
+						att du följer de licenser som finns på de pluginer och verktyg som
+						du hittar. Det är det viktigaste som finns för en öppen, trygg och
+						trevlig webb! Kika gärna runt bland koden om du tycker sånt är kul!
+					</p>
+				</div>
 			</div>
 			<div class="span4">
-				<p>
-					<a href="http://www.yr.no/place/Sweden/%C3%96sterg%C3%B6tland/Norrk%C3%B6ping/" target="_blank">
-						Weather forecast from yr.no, delivered by the Norwegian Meteorological Institute and the NRK
-					</a>
-				</p>
-				<p>
-					<a href="http://twitter.github.io/bootstrap/" target="_blank">
-						Legionen &lt;3 Bootstrap
-					</a>
-				</p>
+				<div class="maincontent">
+					<p>
+						<a href="http://www.yr.no/place/Sweden/%C3%96sterg%C3%B6tland/Norrk%C3%B6ping/" target="_blank">
+							Weather forecast from yr.no, delivered by the Norwegian Meteorological Institute and the NRK
+						</a>
+					</p>
+					<p>
+						<a href="http://twitter.github.io/bootstrap/" target="_blank">
+							Legionen &lt;3 Bootstrap
+						</a>
+					</p>
+				</div>
 			</div>
 		</section>
 	</footer>
