@@ -32,13 +32,13 @@ class Image_model extends CI_model
 		return false;
 	}
 
-	function get_all_public($select = '*', $limit = 0)
+	function get_all_public($select = '*', $limit = 0, $page)
 	{
 		$this->db->select($select);
 		$this->db->where('status', 1);
 		$this->db->order_by('date','desc');
 		if($limit !== 0)
-			$this->db->limit($limit);
+			$this->db->limit($limit, $limit*$page);
 		$query = $this->db->get('images');
 
 		if($query) return $query->result_array();
@@ -46,12 +46,31 @@ class Image_model extends CI_model
 		return false;
 	}
 
-	function count_all()
+	function count_all($public = '')
 	{
 		$this->db->select('imageid');
+		if($public !== '')
+			$this->db->where('status', $public);
 		$query = $this->db->get('images');
 
 		if($query) return $query->num_rows();
+
+		return false;
+	}
+
+	/**
+	 * used on the front page
+	 * @return [type] [description]
+	 */
+	function get_four_random()
+	{
+		$this->db->select('filename');
+		$this->db->where('status', 1);
+		$this->db->order_by('filename', 'random');
+		$this->db->limit(4);
+		$query = $this->db->get('images');
+
+		if($query) return $query->result_array();
 
 		return false;
 	}

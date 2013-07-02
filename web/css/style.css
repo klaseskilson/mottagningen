@@ -147,6 +147,12 @@ body {
 .post h1, .post h2, .post h3, .post h4, .post h5, .post h6 {
   clear: both; }
 
+.startimg img {
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0; }
+
 /*****************
  MISC
  ****************/

@@ -1,3 +1,4 @@
+
 <?php
 // new fancy layout
 ?>
@@ -8,15 +9,34 @@
 			<div class="maincontent">
 				<h3>Välkommen, nollan!</h3>
 				<p>
-					Här på Legionens sida finns mycket klokt att läsa. Se till att göra det,
-					Nollan. Så att du är väl förberedd på alla fantastiska äventyr du kommer vara
-					med om under Nolle-p, Nollan.
+					Här på Legionens sida finns mycket klokt att läsa, både före och under
+					Nolle-p.
+				</p>
+				<p>
+					Under Nolle-p kommer här också en massa fina bilder komma upp, de kan
+					du titta på tillsammans med dina Nollan-vänner. Sånt är ju trevligt,
+					Nollan.
+				</p>
+				<p>
+					Har Nollan förresten
+					<a href="https://facebook.com/legionen.nu" target="_blank" title="Följ Legionen på Facebook">Facebook</a>
+					eller <a href="https://twitter.com/legionen" target="_blank" title="Följ Legionen på Twitter">Twitter</a>?
+					 Det har Legionen med!
 				</p>
 			</div>
 		</div>
 		<div class="span4">
-			<div class="maincontent">
-				<h5>Finfina bilder</h5>
+			<div class="maincontent startimg">
+				<h5><a href="/sida/bilder" title="Se fler bilder!">Finfina bilder</a></h5>
+				<?php
+				foreach ($images as $image)
+				{
+					echo '<a href="/sida/bilder" title="Se fler bilder!">
+					<img src="/web/script/timthumb.php?w=300&h=200&src='.urlencode('/web/uploads/'.$image['filename']).'"/>
+					</a>';
+				}
+				?>
+				<div class="clearfix"></div>
 			</div>
 		</div>
 		<div class="span4">

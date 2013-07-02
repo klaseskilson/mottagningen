@@ -34,6 +34,7 @@
 		<header id="masthead" class="wrapper">
 			<h1 class="pagetitle"><a href="/">Legionen</a></h1>
 			<ul class="mainmenu">
+				<li><a href="/sida/bilder/">Bilder</a></li>
 				<?php
 				foreach ($menu_pages as $page) {
 					?>

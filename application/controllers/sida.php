@@ -56,7 +56,12 @@ class Sida extends CI_Controller {
 		if(defined('ENVIRONMENT') && ENVIRONMENT == 'development' && !$this->login->is_admin())
 			return false;
 
+		// setup data variable
 		$data = $this->data;
+
+		$this->load->model('Image_model');
+
+		$data['images'] = $this->Image_model->get_four_random();
 
 		// get all public posts
 		$data['posts'] = $this->Post_model->get_all_posts(1, 1);
@@ -89,6 +94,23 @@ class Sida extends CI_Controller {
 
 		if(!isset($_GET['ajax'])) $this->load->view('templates/new_header', $data);
 		$this->load->view('page', $data);
+		if(!isset($_GET['ajax'])) $this->load->view('templates/new_footer', $data);
+	}
+
+	function bilder($page = 1)
+	{
+		$this->load->model('Image_model');
+
+		$data = $this->data;
+
+		$data['page'] = abs(intval($page));
+		$data['total'] = $this->Image_model->count_all(1);
+		$data['limit'] = 24;
+		$data['images'] = $this->Image_model->get_all_public('filename, date', $data['limit'], $data['page']-1);
+		$data['totalpages'] = ceil($data['total']/$data['limit']);
+
+		if(!isset($_GET['ajax'])) $this->load->view('templates/new_header', $data);
+		$this->load->view('images', $data);
 		if(!isset($_GET['ajax'])) $this->load->view('templates/new_footer', $data);
 	}
 }
