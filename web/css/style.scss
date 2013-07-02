@@ -19,8 +19,11 @@ $boxbgcolor: darken(#fff, 10%);
 	font-family: 'Open Sans';
 	font-style: normal;
 	font-weight: 400;
-	src: local('Open Sans'), local('OpenSans'),
-	url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+	src: local('Open Sans'), local('OpenSans'), url('/web/font/OpenSans.eot');
+	src: url('/web/font/OpenSans.eot?#iefix') format('embedded-opentype'),
+         url('/web/font/OpenSans.svg#OpenSans') format('svg'),
+		 url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff'),
+         url('/web/font/OpenSans.ttf') format('truetype');
 }
 @font-face {
 	font-family: 'PrinceofPersia';
