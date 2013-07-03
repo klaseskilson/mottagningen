@@ -25,7 +25,12 @@ $boxbgcolor: darken(#fff, 10%);
          url('/web/font/opensans-regular.ttf') format('truetype'),
          url('/web/font/opensans-regular.svg#OpenSansRegular') format('svg');
 }
-/* font-fix */
+/*
+font-fix
+om du någonsin fastnar med fula typsnitt i chrome på windows, läs detta (och skit i google
+web fonts):
+http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 	@font-face {
 		font-family: 'OpenSans';
