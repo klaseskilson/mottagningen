@@ -50,4 +50,4 @@
 				?>
 			</ul>
 		</header>
-		<div id="clouds" class="hidden-phone"></div>
+		<div id="clouds" class="hidden-phone hidden-tablet"></div>
