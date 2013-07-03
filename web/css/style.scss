@@ -16,15 +16,23 @@ $boxbgcolor: darken(#fff, 10%);
 	Typsnitt
 */
 @font-face {
-	font-family: 'OpenSans';
+	font-family: 'OpenSansRegular';
 	font-style: normal;
 	font-weight: 400;
-	src: local('Open Sans'), local('OpenSans'), url('/web/font/OpenSans.eot');
-	src: url('/web/font/OpenSans.eot?#iefix') format('embedded-opentype'),
-         url('/web/font/OpenSans.svg#OpenSans') format('svg'),
-		 url(http://themes.googleusercontent.com/static/fonts/opensans/v6/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff'),
-         url('/web/font/OpenSans.ttf') format('truetype');
+    src: url('/web/font/opensans-regular.eot');
+    src: url('/web/font/opensans-regular.eot') format('embedded-opentype'),
+         url('/web/font/opensans-regular.woff') format('woff'),
+         url('/web/font/opensans-regular.ttf') format('truetype'),
+         url('/web/font/opensans-regular.svg#OpenSansRegular') format('svg');
 }
+/* font-fix */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		font-family: 'OpenSans';
+		src: url('/web/font/OpenSans.svg#OpenSans') format('svg') !important;
+	}
+}
+
 @font-face {
 	font-family: 'PrinceofPersia';
 	font-style: normal;
