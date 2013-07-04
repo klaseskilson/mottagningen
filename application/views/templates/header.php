@@ -12,8 +12,8 @@
 	<title>Legionen <?php echo isset($title) ? $title : '&ndash; Nollans beskyddare'; ?></title>
 
 	<!-- Legionen laddar Bootstrap, för det är swag -->
-	<link rel="stylesheet" href="/web/css/bootstrap.min.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/web/css/bootstrap-responsive.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/web/css/vendor/bootstrap.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/web/css/vendor/bootstrap-responsive.min.css" type="text/css" media="screen" />
 	<!-- Legionen laddar sin egna stil, för den är så jäääävla B R A. -->
 	<link rel="stylesheet" href="/web/css/style.min.css" type="text/css" media="screen" />
 	<!-- Åååååh, så fejnt det kan bli på hemskärmen -->

@@ -16,8 +16,8 @@
 
 	<!-- swagstrap -->
 
-	<link rel="stylesheet" href="/web/css/flatstrap.min.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/web/css/bootstrap-responsive.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/web/css/vendor/flatstrap.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/web/css/vendor/bootstrap-responsive.min.css" type="text/css" media="screen" />
 	<!-- Legionen laddar sin egna adminstil, för den är så jäääävla swag -->
 	<link rel="stylesheet" href="/web/css/admin.css" type="text/css" media="screen" />
 	<!-- fiiint -->
