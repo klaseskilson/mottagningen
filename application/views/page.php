@@ -10,6 +10,7 @@
 				<?php
 				echo $page['content'];
 				?>
+				<div class="clearfix"></div>
 			</div>
 		</div>
 		<div class="span4">
