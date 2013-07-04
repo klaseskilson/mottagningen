@@ -28,6 +28,8 @@ class Sida extends CI_Controller {
 		$this->load->model("Weather_model");
 		$this->load->model("Post_model");
 
+		header('Hmm: Ojoj. Nu är Nollan och gräver djupt minsann.');
+
 		// save weather using the magic function
 		$this->data['weather'] = $this->Weather_model->magic();
 		// save pages for menu
@@ -63,7 +65,7 @@ class Sida extends CI_Controller {
 
 		$this->load->model('Image_model');
 
-		$data['images'] = $this->Image_model->get_four_random();
+		$data['images'] = $this->Image_model->get_random(6);
 
 		// get all public posts
 		$data['posts'] = $this->Post_model->get_all_posts(1, 1);
