@@ -1,1 +1,329 @@
-@charset "utf-8";@font-face{font-family:'OpenSansRegular';font-style:normal;font-weight:400;src:url("/web/font/opensans-regular.eot");src:url("/web/font/opensans-regular.eot") format("embedded-opentype"),url("/web/font/opensans-regular.woff") format("woff"),url("/web/font/opensans-regular.ttf") format("truetype"),url("/web/font/opensans-regular.svg#OpenSansRegular") format("svg")}@media screen and (-webkit-min-device-pixel-ratio: 0){@font-face{font-family:'OpenSans';src:url("/web/font/OpenSans.svg#OpenSans") format("svg") !important}}@font-face{font-family:'PrinceofPersia';font-style:normal;font-weight:400;src:local("PrinceofPersia"),local("Prince of Persia"),url(/web/font/princeofpersia.ttf) format("truetype")}@font-face{font-family:'FaunaOne';font-style:normal;font-weight:normal;src:local("Fauna One"),local("FaunaOne-Regular");src:url("/webfont/FaunaOne-Regular.eot");src:url("/web/font/FaunaOne-Regular.svg") format("svg"),url("/web/font/FaunaOne-Regular.woff") format("woff"),url("/web/font/FaunaOne-Regular.ttf") format("truetype")}html,body{height:100%;margin:0}body{-webkit-font-smoothing:subpixel-antialiased;font-family:"OpenSansRegular", "Open Sans", sans-serif}body #background{width:100%;height:180%;position:fixed;top:0;left:0;-webkit-transition:all 3s ease-in-out;-moz-transition:all 3s ease-in-out;-ms-transition:all 3s ease-in-out;-o-transition:all 3s ease-in-out;transition:all 3s ease-in-out}body #background #thesun{position:absolute;background:url(/web/img/sun.png);width:100px;height:99px;margin:-50px 0 0 -50px}body.sunset #background{background-color:#972600;background:-webkit-gradient(radial, center center, 0, center center, 460, from(#972600), to(#fd4000));background:-webkit-radial-gradient(50% 50%, circle cover, #fd4000 0%, #972600 100%);background:-moz-radial-gradient(50% 50%, circle cover, #fd4000 0%, #972600 100%);background:-ms-radial-gradient(50% 50%, circle cover, #fd4000 0%, #972600 100%);background:radial-gradient(50% 50%, circle cover, #fd4000 0%, #972600 100%)}body.night #background{background-color:#080d11;background:-webkit-gradient(radial, center center, 0, center center, 460, from(#080d11), to(#294256));background:-webkit-radial-gradient(50% 50%, circle cover, #294256 0%, #080d11 100%);background:-moz-radial-gradient(50% 50%, circle cover, #294256 0%, #080d11 100%);background:-ms-radial-gradient(50% 50%, circle cover, #294256 0%, #080d11 100%);background:radial-gradient(50% 50%, circle cover, #294256 0%, #080d11 100%)}body.day #background{background-color:#2661a5;background:-webkit-gradient(radial, center center, 0, center center, 460, from(#2661a5), to(#abc9ec));background:-webkit-radial-gradient(50% 50%, circle cover, #abc9ec 0%, #2661a5 100%);background:-moz-radial-gradient(50% 50%, circle cover, #abc9ec 0%, #2661a5 100%);background:-ms-radial-gradient(50% 50%, circle cover, #abc9ec 0%, #2661a5 100%);background:radial-gradient(50% 50%, circle cover, #abc9ec 0%, #2661a5 100%)}body #desert{height:200px;width:100%;background-image:url(/web/img/desert.png);background-repeat:repeat-x;background-position:bottom;margin:30px 0 0}body.night #desert{opacity:0.7;-moz-opacity:0.7;filter:alpha(opacity=70)}#container{height:100%;position:relative}#container h1,#container h2,#container h3,#container h4,#container h5,#container .title{font-family:'FaunaOne', 'Fauna One', serif;-webkit-font-smoothing:subpixel-antialiased;font-weight:normal;-webkit-text-stroke-width:0.6px}#container p{font-size:100%;-webkit-font-smoothing:subpixel-antialiased;font-family:"OpenSansRegular", "Open Sans", sans-serif}#container .wrapper{width:60%;margin:0 auto}#container .maincontent{background:#e6e6e6;margin:0 0 20px;padding:10px;box-shadow:rgba(0,0,0,0.2) 0 0 20px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px}#container .maincontent time::after{clear:both}#container #footer p{margin:0}#container #footer a{color:#fff}#container #footer .maincontent{font-size:90%;color:#e6e6e6;background:#3d3d3d;padding:10px;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px}#container #adswrapper{text-align:center}#container #adswrapper img{margin:0 0 10px}.post img.float-left{float:left;margin:0 10px 10px 0}.post img.float-right{float:right;margin:0 0 10px 10px}.post h1,.post h2,.post h3,.post h4,.post h5,.post h6{clear:both}.startimg img{float:left;width:50%;margin:0;padding:0}.clearfix{content:".";display:block;height:0;clear:both;visibility:hidden}.uppercase{text-transform:uppercase}.nomargin{margin:0}.center{text-align:center}#masthead{height:100px}#masthead a{text-decoration:none;-webkit-transition:all 0.3s ease-in-out;-moz-transition:all 0.3s ease-in-out;-ms-transition:all 0.3s ease-in-out;-o-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out}#masthead a:hover{text-decoration:none}#masthead h1.pagetitle a{font:200% 'PrinceofPersia';color:#fff;letter-spacing:0.03em;float:left;text-shadow:#000 0 0 10px}#masthead h1.pagetitle a:hover{text-decoration:none;text-shadow:#000 0 0 20px}#masthead ul.mainmenu{float:right;list-style:none;margin:70px 0 0}#masthead ul.mainmenu li{display:block;float:right;text-transform:uppercase;padding:7px;margin:0 10px;background:#e6e6e6;box-shadow:rgba(0,0,0,0.2) 0 0 20px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px}#clouds{position:relative;background-repeat:no-repeat;z-index:21;width:100%;height:250px;top:0;display:none}#clouds.animate{background-image:none;overflow:hidden;display:block}#clouds img{position:absolute}@media only screen and (max-width: 480px){h1.pagetitle{font-size:190% !important}}@media (min-width: 1280px){.wrapper{width:1200px !important}}@media (min-width: 979px) and (max-width: 1279px){.wrapper{width:80% !important}}@media (max-width: 979px){body{padding:0 !important}.wrapper{width:90% !important}#clouds{height:200px !important}ul.mainmenu{float:left !important;margin:10px 0 !important;clear:left}ul.mainmenu li{float:left !important;margin:3px !important}}
+@charset "utf-8";
+/*****************************************************************************************
+ * legionen.nu
+ *
+ * Är nollan eller faddern nyfiken? Ojoj!
+ */
+/*
+	Typsnitt
+*/
+@font-face {
+  font-family: 'OpenSansRegular';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/web/font/opensans-regular.eot");
+  src: url("/web/font/opensans-regular.eot") format("embedded-opentype"), url("/web/font/opensans-regular.woff") format("woff"), url("/web/font/opensans-regular.ttf") format("truetype"), url("/web/font/opensans-regular.svg#OpenSansRegular") format("svg");
+}
+
+/*
+font-fix
+om du någonsin fastnar med fula typsnitt i chrome på windows, läs detta (och skit i google
+web fonts):
+http://www.adtrak.co.uk/blog/font-face-chrome-rendering/
+*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'OpenSans';
+    src: url("/web/font/OpenSans.svg#OpenSans") format("svg") !important;
+}
+}
+@font-face {
+  font-family: 'PrinceofPersia';
+  font-style: normal;
+  font-weight: 400;
+  src: local("PrinceofPersia"), local("Prince of Persia"), url(/web/font/princeofpersia.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: 'FaunaOne';
+  font-style: normal;
+  font-weight: normal;
+  src: local("Fauna One"), local("FaunaOne-Regular");
+  src: url("/webfont/FaunaOne-Regular.eot");
+  src: url("/web/font/FaunaOne-Regular.svg") format("svg"), url("/web/font/FaunaOne-Regular.woff") format("woff"), url("/web/font/FaunaOne-Regular.ttf") format("truetype");
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/******************
+ FINT SKARE VA
+ *****************/
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: "OpenSansRegular", "Open Sans", sans-serif;
+}
+body #background {
+  width: 100%;
+  height: 180%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 3s ease-in-out;
+  -moz-transition: all 3s ease-in-out;
+  -ms-transition: all 3s ease-in-out;
+  -o-transition: all 3s ease-in-out;
+  transition: all 3s ease-in-out;
+}
+body #background #thesun {
+  position: absolute;
+  background: url(/web/img/sun.png);
+  width: 100px;
+  height: 99px;
+  margin: -50px 0 0 -50px;
+}
+body.sunset #background {
+  /* fallback */
+  background-color: #972600;
+  /* Can't specify a percentage size? Laaaaaame. */
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#972600), to(#fd4000));
+  background: -webkit-radial-gradient(50% 50%, circle cover, #fd4000 0%, #972600 100%);
+  background: -moz-radial-gradient(50% 50%, circle cover, #fd4000 0%, #972600 100%);
+  background: -ms-radial-gradient(50% 50%, circle cover, #fd4000 0%, #972600 100%);
+  background: radial-gradient(50% 50%, circle cover, #fd4000 0%, #972600 100%);
+}
+body.night #background {
+  /* fallback */
+  background-color: #080d11;
+  /* Can't specify a percentage size? Laaaaaame. */
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#080d11), to(#294256));
+  background: -webkit-radial-gradient(50% 50%, circle cover, #294256 0%, #080d11 100%);
+  background: -moz-radial-gradient(50% 50%, circle cover, #294256 0%, #080d11 100%);
+  background: -ms-radial-gradient(50% 50%, circle cover, #294256 0%, #080d11 100%);
+  background: radial-gradient(50% 50%, circle cover, #294256 0%, #080d11 100%);
+}
+body.day #background {
+  /* fallback */
+  background-color: #2661a5;
+  /* Can't specify a percentage size? Laaaaaame. */
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#2661a5), to(#abc9ec));
+  background: -webkit-radial-gradient(50% 50%, circle cover, #abc9ec 0%, #2661a5 100%);
+  background: -moz-radial-gradient(50% 50%, circle cover, #abc9ec 0%, #2661a5 100%);
+  background: -ms-radial-gradient(50% 50%, circle cover, #abc9ec 0%, #2661a5 100%);
+  background: radial-gradient(50% 50%, circle cover, #abc9ec 0%, #2661a5 100%);
+}
+body #desert {
+  height: 200px;
+  width: 100%;
+  background-image: url(/web/img/desert.png);
+  background-repeat: repeat-x;
+  background-position: bottom;
+  margin: 30px 0 0;
+}
+body.night #desert {
+  opacity: 0.7;
+  -moz-opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+
+/******************
+ TYDLIGT SKARE VA
+ *****************/
+#container {
+  height: 100%;
+  position: relative;
+}
+#container h1, #container h2, #container h3, #container h4, #container h5, #container .title {
+  font-family: 'FaunaOne', 'Fauna One', serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-weight: normal;
+  -webkit-text-stroke-width: 0.6px;
+}
+#container p {
+  font-size: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: "OpenSansRegular", "Open Sans", sans-serif;
+}
+#container .wrapper {
+  width: 60%;
+  margin: 0 auto;
+}
+#container .maincontent {
+  background: #e6e6e6;
+  margin: 0 0 20px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 20px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+#container .maincontent time::after {
+  clear: both;
+}
+#container #footer p {
+  margin: 0;
+}
+#container #footer a {
+  color: white;
+}
+#container #footer .maincontent {
+  font-size: 90%;
+  color: #e6e6e6;
+  background: #3d3d3d;
+  padding: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+#container #adswrapper {
+  text-align: center;
+}
+#container #adswrapper img {
+  margin: 0 0 10px;
+}
+
+/*****************
+ INLÄGG OCH SIDOR SKA VARA FINA
+ ****************/
+.post img.float-left {
+  float: left;
+  margin: 0 10px 10px 0;
+}
+.post img.float-right {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6 {
+  clear: both;
+}
+
+.startimg img {
+  float: left;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+}
+
+/*****************
+ MISC
+ ****************/
+.clearfix {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.nomargin {
+  margin: 0;
+}
+
+.center {
+  text-align: center;
+}
+
+/*****************
+ Masthead
+ ****************/
+#masthead {
+  height: 100px;
+}
+#masthead a {
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+#masthead a:hover {
+  text-decoration: none;
+}
+#masthead h1.pagetitle a {
+  font: 200% 'PrinceofPersia';
+  color: #fff;
+  letter-spacing: 0.03em;
+  float: left;
+  text-shadow: #000 0 0 10px;
+}
+#masthead h1.pagetitle a:hover {
+  text-decoration: none;
+  text-shadow: #000 0 0 20px;
+}
+#masthead ul.mainmenu {
+  float: right;
+  list-style: none;
+  margin: 70px 0 0;
+}
+#masthead ul.mainmenu li {
+  display: block;
+  float: right;
+  text-transform: uppercase;
+  padding: 7px;
+  margin: 0 10px;
+  background: #e6e6e6;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 20px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/***************************************
+ SO FLUFFYYYYYY! http://youtu.be/SNLJDR-XbVY?t=2s
+ ***************************************/
+#clouds {
+  position: relative;
+  background-repeat: no-repeat;
+  z-index: 21;
+  width: 100%;
+  height: 250px;
+  top: 0;
+  display: none;
+}
+#clouds.animate {
+  background-image: none;
+  overflow: hidden;
+  display: block;
+}
+#clouds img {
+  position: absolute;
+}
+
+/***************************************
+ OM NÅGON HAR EN LITEN KLEN SKÄRM
+ ***************************************/
+@media only screen and (max-width: 480px) {
+  h1.pagetitle {
+    font-size: 190% !important;
+  }
+}
+@media (min-width: 1280px) {
+  .wrapper {
+    width: 1200px !important;
+  }
+}
+@media (min-width: 979px) and (max-width: 1279px) {
+  .wrapper {
+    width: 80% !important;
+  }
+}
+@media (max-width: 979px) {
+  body {
+    padding: 0 !important;
+  }
+
+  .wrapper {
+    width: 90% !important;
+  }
+
+  #clouds {
+    height: 200px !important;
+  }
+
+  ul.mainmenu {
+    float: left !important;
+    margin: 10px 0 !important;
+    clear: left;
+  }
+  ul.mainmenu li {
+    float: left !important;
+    margin: 3px !important;
+  }
+}

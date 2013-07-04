@@ -8,6 +8,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:description" content="Legionen – Nollans beskyddare. Legionen är GDK- och MT-sektionernas phadderi på Tekniska högskolan vid Linköpings Universitet, Campus Norrköping."/>
+	<meta property="og:image" content="/web/img/ogimage.jpg"/>
+	<meta property="og:title" content="Legionen – Nollans beskyddare - legionen.nu"/>
+	<meta name="description" content="Legionen – Nollans beskyddare. Legionen är GDK- och MT-sektionernas phadderi på Tekniska högskolan vid Linköpings Universitet, Campus Norrköping." />
 
 	<title>Legionen <?php echo isset($title) ? $title : '&ndash; Nollans beskyddare'; ?></title>
 
