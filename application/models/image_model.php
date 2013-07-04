@@ -62,12 +62,12 @@ class Image_model extends CI_model
 	 * used on the front page
 	 * @return [type] [description]
 	 */
-	function get_four_random()
+	function get_random($limit = 4)
 	{
 		$this->db->select('filename');
 		$this->db->where('status', 1);
 		$this->db->order_by('filename', 'random');
-		$this->db->limit(4);
+		$this->db->limit($limit);
 		$query = $this->db->get('images');
 
 		if($query) return $query->result_array();
