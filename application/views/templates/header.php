@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="/web/css/bootstrap.min.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="/web/css/bootstrap-responsive.min.css" type="text/css" media="screen" />
 	<!-- Legionen laddar sin egna stil, för den är så jäääävla B R A. -->
-	<link rel="stylesheet" href="/web/css/style.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/web/css/style.min.css" type="text/css" media="screen" />
 	<!-- Åååååh, så fejnt det kan bli på hemskärmen -->
 	<link href="/web/img/apple-touch-icon.png" rel="apple-touch-icon" />
 	<link href="/web/img/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
@@ -50,4 +50,5 @@
 				?>
 			</ul>
 		</header>
-		<div id="clouds" class="hidden-phone hidden-tablet"></div>
+		<div id="clouds"></div>
+		<div class="clearfix"></div>
