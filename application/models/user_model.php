@@ -140,7 +140,7 @@ class User_model extends CI_model
 		if(strlen($password) >= 6)
 			$data['password'] = $this->passwordhash->HashPassword($password);
 
-		return $this->change_privil($id, $privil) && $this->db->update('users', $data);
+		return $this->change_privil($id, $privil) && $this->db->update('users', $data, array("uid" => $uid));
 	}
 
 	/**
