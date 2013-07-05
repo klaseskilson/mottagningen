@@ -66,6 +66,10 @@ class Admin extends CI_controller
 
 	function user($action = '', $id = '')
 	{
+		// make sure user is allowed where it is
+		if(!($action == 'me' || $action == 'pwd') && !$this->login->has_privilege(2))
+			show_404();
+
 		// load password hash library
 		$this->load->library('PasswordHash',array(8, FALSE));
 
@@ -75,18 +79,10 @@ class Admin extends CI_controller
 		switch($action)
 		{
 			case 'new':
-				// make sure user is allowed here
-				if(!$this->login->has_privilege(2))
-					show_404();
-
 				$view = 'user_new';
 			break;
 
 			case 'new_run':
-				// make sure user is allowed here
-				if(!$this->login->has_privilege(2))
-					show_404();
-
 				$liuid = $this->input->post("liuid");
 				$fname = $this->input->post("fname");
 				$sname = $this->input->post("sname");
@@ -126,10 +122,6 @@ class Admin extends CI_controller
 			break;
 
 			case 'all':
-				// make sure user is allowed here
-				if(!$this->login->has_privilege(2))
-					show_404();
-
 				$data['users'] = $this->User_model->get_all();
 				$view = 'user_all';
 			break;
