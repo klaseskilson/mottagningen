@@ -64,7 +64,7 @@ class Admin extends CI_controller
 		$this->load->view('admin/templates/footer', $data);
 	}
 
-	function user($action = '')
+	function user($action = '', $id = '')
 	{
 		// load password hash library
 		$this->load->library('PasswordHash',array(8, FALSE));
@@ -96,6 +96,33 @@ class Admin extends CI_controller
 				$data['message'] = $this->User_model->create_user($liuid, $fname, $sname, $passw, $privil);
 
 				$view = 'user_new';
+			break;
+
+			case 'edit':
+				if($id == '' || !$this->User_model->user_exist($id))
+					show_404();
+
+				$data['user'] = $this->User_model->get_user($id);
+
+				$view = 'user_edit';
+			break;
+
+			case 'edit_run':
+				if($id == '' || !$this->User_model->user_exist($id))
+					show_404();
+
+				$liuid = $this->input->post("liuid");
+				$fname = $this->input->post("fname");
+				$sname = $this->input->post("sname");
+				$passw = $this->input->post("passw");
+				$privil = $this->input->post("privil");
+
+				if($this->User_model->edit_user($id, $liuid, $fname, $sname, $passw, $privil))
+					redirect('/admin/user/edit/'.$id.'/?msg=s');
+				else
+					redirect('/admin/user/edit/'.$id.'/?msg=f');
+
+				$view = 'user_edit';
 			break;
 
 			case 'all':

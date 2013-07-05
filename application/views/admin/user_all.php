@@ -35,7 +35,9 @@
 					?>
 					<tr>
 						<td>
-							<?php echo $user['liuid']; ?>
+							<a href="/admin/user/edit/<?php echo $user['uid']; ?>" title="Redigera användare">
+								<?php echo $user['liuid']; ?>
+							</a>
 						</td>
 						<td>
 							<?php echo $user['fname']; ?>

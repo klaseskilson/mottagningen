@@ -126,6 +126,23 @@ class User_model extends CI_model
 		return false;
 	}
 
+	function edit_user($id, $liuid, $fname, $sname, $password, $privil)
+	{
+		if(strlen($liuid) !== 8 || empty($fname) || empty($fname))
+			return false;
+
+		$data = array(
+					'liuid' => $liuid,
+					'fname' => $fname,
+					'sname' => $sname
+				);
+
+		if(strlen($password) >= 6)
+			$data['password'] = $this->passwordhash->HashPassword($password);
+
+		return $this->change_privil($id, $privil) && $this->db->update('users', $data);
+	}
+
 	/**
 	 * check if a liuid exist in the database
 	 */
@@ -139,7 +156,7 @@ class User_model extends CI_model
 	}
 
 	/**
-	 * check if a liuid exist in the database
+	 * get id from liuid
 	 */
 	function get_id($liuid)
 	{
@@ -150,6 +167,17 @@ class User_model extends CI_model
 		$result = $query->result();
 
 		return $result[0]->uid;
+	}
+
+	function user_exist($id)
+	{
+		$this->db->select('uid');
+		$this->db->where('uid', $id);
+		$query = $this->db->get('users');
+
+		if($query) return $query->num_rows();
+
+		return false;
 	}
 
 	/**
@@ -191,6 +219,27 @@ class User_model extends CI_model
 		$result = $query->result();
 
 		if($query) return $result[0]->fname.' '.$result[0]->sname;
+
+		return false;
+	}
+
+	/**
+	 * get all info about a user
+	 * @param  [type] $id [description]
+	 * @return [type]     [description]
+	 */
+	function get_user($id)
+	{
+		$this->db->select("users.*, admin.privil");
+		$this->db->from("users");
+		$this->db->join("admin", "users.uid = admin.uid", "left");
+		$this->db->group_by("users.uid");
+		$this->db->where('users.uid', $id);
+
+		$query = $this->db->get();
+		$result = $query->result_array();
+
+		if($query) return $result[0];
 
 		return false;
 	}

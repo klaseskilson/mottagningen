@@ -30,10 +30,10 @@
 							<b class="caret"></b>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="/admin/user/all">Se alla</a></li>
-							<li class="divider"></li>
-							<li class="nav-header">Skapa ny!</li>
 							<li><a href="/admin/user/new">Skapa ny användare</a></li>
+							<li class="divider"></li>
+							<li class="nav-header">Befintliga</li>
+							<li><a href="/admin/user/all">Se alla</a></li>
 						</ul>
 					</li>
 					<?php
