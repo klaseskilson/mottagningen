@@ -6,7 +6,7 @@ $(document).ready(function() {
 	$('input.batch-controll').change(function(){
 		$('.input-batch').prop('checked', this.checked);
 	});
-	$("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.png'],a[href$='.gif']").attr('rel', 'gallery').fancybox({
+	$("a[href$='.jpg'],a[href$='.jpeg'],a[href$='.png'],a[href$='.gif'],a[href$='.JPG']").attr('rel', 'gallery').fancybox({
 		padding: 0,
 		helpers	: {
 			thumbs: {

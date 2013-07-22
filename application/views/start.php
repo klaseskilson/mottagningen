@@ -9,7 +9,7 @@
 			<div class="maincontent">
 				<h3>Välkommen, Nollan!</h3>
 				<p>
-					Här på Legionens sida finns mycket klokt att läsa, både före och under
+					Här på Legionens sida finns mycket klokt att läsa, både <a href="http://bit.ly/12f2Mng" title="Fyll i Nollan-enkäten! Så snart som möjligt, Nollan.">före</a> och under
 					Nolle-p.
 				</p>
 				<p>
