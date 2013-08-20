@@ -65,7 +65,7 @@ class Sida extends CI_Controller {
 
 		$this->load->model('Image_model');
 
-		$data['images'] = $this->Image_model->get_random(6);
+		$data['images'] = $this->Image_model->get_random(4);
 
 		// get all public posts
 		$data['posts'] = $this->Post_model->get_all_posts(1, 1);
