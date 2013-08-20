@@ -114,5 +114,5 @@ function readabletime($time) {
         return (($daysago < 13) ? $nummer[$daysago] : $daysago ).' dag'.($daysago == 1 ? '' : 'ar').' sedan';
     }
     else
-        return $time;
+        return date('Y-m-d H:i', $time);
 }
