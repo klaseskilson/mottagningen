@@ -1,0 +1,217 @@
+{
+	"name": "Schema Nolle-P, Legionen",
+	"events": {
+		"2013-08-19" : {
+			"16:00" : {
+				"name": "Fika med Mette",
+				"locale": "Mellan husen",
+				"description": "Detta evenemang är till för alla tjejer som ska plugga MT.",
+				"endTime": "19:00"
+			}
+		},
+		"2013-08-20" : {
+			"08:00" : {
+				"name": "Frukost med styrelsen",
+				"locale": "Kårhuset Trappan",
+				"description": "Nollan bör äta lite innan"
+			},
+			"09:00" : {
+				"name": "Upprop",
+				"endTime": "12:00"
+			},
+			"12:00" : {
+				"name": "Lunch på Louis De Geer",
+				"locale": "Louis De Geer"
+			},
+			"13:00" : {
+				"name": "Introduktion på Renströmmen",
+				"locale": "Renströmmen",
+				"endTime": "16:00"
+			},
+			"16:00" : {
+				"name": "Introduktionsföreläsning"
+			},
+			"18:00" : {
+				"name": "Lekar i Folkparken",
+				"locale": "Folkparken"
+			}
+		},
+		"2013-08-21" : {
+			"10:00" : {
+				"name": "Morgongympa mellan husen",
+				"locale": "Mellan husen",
+				"endTime": "10:15"
+			},
+			"12:00" : {
+				"name": "Matlådans dag",
+				"locale": "Folkparken",
+				"description": "Äta matlåda i parken är mysigt, Nollan"
+			},
+			"18:00" : {
+				"name": "Förfest med faddrarna",
+				"endTime": "22:00"
+			},
+			"22:00" : {
+				"name": "3Cants 'Bootcampfest' på Trappan",
+				"locale": "Kårhuset Trappan",
+				"endDate": "2013-08-22",
+				"endTime": "01:00"
+			}
+		},
+		"2013-08-22" : {
+			"10:00" : {
+				"name": "Morgongympa mellan husen",
+				"locale": "Mellan husen",
+				"endTime": "10:15"
+			},
+			"18:00" : {
+				"name": "Sektionsmys i Täppan",
+				"locale": "Täppan",
+				"endTime": "20:00"
+			}
+		},
+		"2013-08-23" : {
+			"10:00" : {
+				"name": "Morgongympa mellan husen",
+				"locale": "Mellan husen",
+				"endTime": "10:15"
+			},
+			"19:00" : {
+				"name": "Grillförfest",
+				"locale": "GDK: Vattentornet, MT: Dalkarlen",
+				"endTime": "22:00"
+			},
+			"22:00" : {
+				"name": "StuFF och Escorts fest på Trappan",
+				"locale": "Kårhuset Trappan",
+				"endDate": "2013-08-24",
+				"endTime": "03:00"
+			}
+		},
+		"2013-08-24" : {
+			"10:00" : {
+				"name": "Vilse i Peking",
+				"description": "Förut kallades detta Jakten på den försvunna Ananasen, Nollan",
+				"endTime": "16:00"
+			},
+			"19:00" : {
+				"name": "Gasquesittning",
+				"locale": "Kårhuset Trappan",
+				"endTime": "22:00"
+			},
+			"22:00" : {
+				"name": "Fest-N's 'Mustaschfest-N'",
+				"locale": "Kårhuset Trappan",
+				"endDate": "2013-08-25",
+				"endTime": "03:00"
+			}
+		},
+		"2013-08-25" : {
+			"10:00" : {
+				"name": "Slagphältet",
+				"endTime": "14:00"
+			},
+			"18:00" : {
+				"name": "Spelkväll med sektionen",
+				"locale": "Kårhuset Trappan",
+				"endTime": "21:00"
+			}
+		},
+		"2013-08-26" : {
+			"10:00" : {
+				"name": "Morgongympa mellan husen",
+				"locale": "Mellan husen",
+				"endTime": "10:15"
+			},
+			"18:00" : {
+				"name": "Förfest med faddrarna",
+				"endTime": "22:00"
+			},
+			"22:00" : {
+				"name": "Tryckbars 'Flugfest' på PULS",
+				"locale": "PULS",
+				"endDate": "2013-08-26",
+				"endTime": "01:00"
+			}
+		},
+		"2013-08-27" : {
+			"10:00" : {
+				"name": "Morgongympa mellan husen",
+				"locale": "Mellan husen",
+				"endTime": "10:15"
+			},
+			"12:00" : {
+				"name": "Nollan kan äta lunch på Trappan med Legionen",
+				"locale": "Kårhuset Trappan"
+			},
+			"17:30" : {
+				"name": "Samling mellan husen",
+				"endTime": "18:00"
+			},
+			"18:00" : {
+				"name": "Sektionskampen",
+				"endTime": "22:00"
+			}
+		},
+		"2013-08-28" : {
+			"10:00" : {
+				"name": "Morgongympa mellan husen",
+				"locale": "Mellan husen",
+				"endTime": "10:15"
+			},
+			"17:30" : {
+				"name": "München Hoben",
+				"endDate": "2013-08-29",
+				"endTime": "01:00"
+			}
+		},
+		"2013-08-29" : {
+			"10:00" : {
+				"name": "Morgongympa mellan husen",
+				"locale": "Mellan husen",
+				"endTime": "10:15"
+			},
+			"12:00" : {
+				"name": "Något speciellt händer mellan husen. Kanske",
+				"locale": "Mellan husen"
+			}
+		},
+		"2013-08-30" : {
+			"10:00" : {
+				"name": "Morgongympa mellan husen",
+				"locale": "Mellan husen",
+				"endTime": "10:15"
+			},
+			"12:00" : {
+				"name": "Kanske något speciellt här med",
+				"locale": "Mellan husen"
+			},
+			"19:00" : {
+				"name": "Julaphton",
+				"locale": "Färgeriet",
+				"endTime": "22:00"
+			}
+		},
+		"2013-08-31" : {
+			"17:30" : {
+				"name": "Fördrink med 3Cant/Tryckbar. Nollan går till sitt festeri"
+			},
+			"18:30" : {
+				"name": "Nollesittning",
+				"locale": "Flygeln",
+				"endTime": "23:00"
+			},
+			"23:00" : {
+				"name": "Eftersläpp på Trappan",
+				"locale": "Kårhuset Trappan",
+				"endDate": "2013-09-01",
+				"endTime": "03:00"
+			}
+		},
+		"2013-09-01" : {
+			"12:00" : {
+				"name": "Ettans dag"
+			}
+		}
+	}
+}
