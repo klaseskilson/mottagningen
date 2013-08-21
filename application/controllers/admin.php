@@ -12,7 +12,7 @@ class Admin extends CI_controller
 		// logged in?
 		if(!$this->login->is_admin() && $this->uri->segment(2) != "login")
 		{
-			redirect('/admin/login/ad', 'refresh');
+			redirect('/admin/login/ad?redir='.urlencode($_SERVER['REQUEST_URI']), 'refresh');
 		}
 	}
 
@@ -48,7 +48,7 @@ class Admin extends CI_controller
 
 			if($liuid && $password && $this->login->validate($liuid, $password))
 			{
-				redirect('/admin');
+				redirect((isset($_GET['redir']) ? '/'.urldecode($_GET['redir']) : '/admin'));
 			}
 
 			echo '<!--'.$this->passwordhash->HashPassword($password).'-->';

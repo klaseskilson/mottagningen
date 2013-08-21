@@ -1,6 +1,6 @@
 <div id="container" class="tinysite">
 	<h4>Logga in</h1>
-	<form class="form-horizontal" action="/index.php/admin/login/do" method="post">
+	<form class="form-horizontal" action="/index.php/admin/login/do<?php echo isset($_GET['redir']) ? '?redir='.$_GET['redir'] : ''; ?>" method="post">
 		<?php
 		if($msg == 'ad')
 			echo '<div class="alert alert-error"><strong>Åtkomst nekad.</strong> Du måste logga in innan du kan fortsätta.</div>';
