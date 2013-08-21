@@ -77,7 +77,11 @@ class Image_model extends CI_model
 
 	function toggle($id, $status)
 	{
-		return $this->db->update('images', array('status' => $status), array('imageid' => $id));
+		$data = array();
+		$data['status'] = $status;
+		if($status)
+			$data['date'] = date('Y-m-d H:i:s');
+		return $this->db->update('images', $data, array('imageid' => $id));
 	}
 
 	function remove($id)
