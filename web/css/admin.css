@@ -15,10 +15,20 @@
     width: 500px;
     margin: 40px auto; }
 
+.opacity-70 {
+  opacity: 0.7;
+  -moz-opacity: 0.7;
+  filter: alpha(opacity=70); }
+
+.thumbnail.checked {
+  background: #ECECEC;
+  border-color: #B9B9B9; }
+
+#imagesbatchedit .thumbnails {
+  margin-left: 0; }
+#imagesbatchedit .row-fluid {
+  margin-bottom: 20px; }
+
 @media (max-width: 767px) {
   #content {
     padding: 0 !important; } }
-
-.center {
-	text-align: center;
-}

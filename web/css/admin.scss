@@ -21,6 +21,22 @@
 		margin: 40px auto;
 	}
 }
+.opacity-70 {
+	@include opac(0.7);
+}
+.thumbnail.checked {
+	background: #ECECEC;
+	border-color: #B9B9B9;
+}
+
+#imagesbatchedit {
+	.thumbnails {
+		margin-left: 0;
+	}
+	.row-fluid {
+		margin-bottom: 20px;
+	}
+}
 
 @media (max-width: 767px)
 {

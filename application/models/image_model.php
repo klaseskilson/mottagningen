@@ -79,8 +79,8 @@ class Image_model extends CI_model
 	{
 		$data = array();
 		$data['status'] = $status;
-		if($status)
-			$data['date'] = date('Y-m-d H:i:s');
+		// if($status)
+		// 	$data['date'] = date('Y-m-d H:i:s');
 		return $this->db->update('images', $data, array('imageid' => $id));
 	}
 
@@ -96,6 +96,20 @@ class Image_model extends CI_model
 		return unlink('web/uploads/'.$filename)
 			&& $this->db->delete('images', array('imageid' => $id));
 	}
+
+	function get_status($id)
+	{
+		$this->db->select('status');
+		$this->db->limit(1);
+		$this->db->where('imageid', $id);
+		$query = $this->db->get('images');
+		$result = $query->result_array();
+
+		if($query) return $result[0]['status'];
+
+		return false;
+	}
+
 }
 /*
 END OF image_model.php

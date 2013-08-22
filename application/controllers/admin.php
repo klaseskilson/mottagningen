@@ -472,11 +472,30 @@ class Admin extends CI_controller
 					redirect('/admin/images/all?msg=1');
 				}
 				break;
+			case 'edit':
+				if(!$this->input->post('action')) return false;
+
+				$id = intval($this->input->post('id'));
+				$currstatus = $this->Image_model->get_status($id);
+
+				// return json
+				$data = array(
+							'action' => $action,
+							'id'	 => $id,
+							'status' => $this->Image_model->toggle($id, !$currstatus)
+						);
+
+				echo json_encode($data);
+
+				// exit
+				return false;
+				break;
 			default:
-				$data['limit'] = 15;
+				$data['limit'] = 36;
 				$data['images'] = $this->Image_model->get_all('*', $data['limit'], $page);
 				$data['page'] = $page+1;
 				$data['countall'] = $this->Image_model->count_all();
+				$data['countpublic'] = $this->Image_model->count_all(1);
 				$data['totalpages'] = ceil($data['countall']/$data['limit']);
 
 				// få med namnen. FULT, men det fungerar.
