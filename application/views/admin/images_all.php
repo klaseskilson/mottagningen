@@ -66,12 +66,16 @@
 						<h5>
 							<input type="checkbox" name="batch_list[]" class="input-batch"
 								value="<?php echo $image['imageid']; ?>" title="Välj bild" />
-							<a href="#" onclick="imagecontrol('toggle','<?php echo $image['imageid'];?>'); return false;"
-								class="toggle pull-right label<?php echo $image['status'] ? ' label-success' : '';?>">
+							<button onclick="imagecontrol('toggle','<?php echo $image['imageid'];?>'); return false;"
+								class="toggle pull-right btn-small btn<?php echo $image['status'] ? ' btn-success' : '';?>"
+								title="Ändra status">
 								<i class="icon-eye-<?php echo $image['status'] ? 'open' : 'close';?>"></i>
 								<span><?php echo $image['status'] ? 'Synlig' : 'Dold';?></span>
-							</a>
+							</button>
 						</h5>
+						<span>
+							<?php echo $image['editor']; ?>, <?php echo readabletime($image['date']); ?>.
+						</span>
 					</div>
 				</li>
 				<?php

@@ -58,10 +58,10 @@ function imagecontrol(action, id)
 			console.log(data.status);
 
 			$('#image-'+data.id+' img').toggleClass('opacity-70');
-			$('#image-'+data.id+' a.toggle').toggleClass('label-success');
-			$('#image-'+data.id+' a.toggle i').toggleClass('icon-eye-open').toggleClass('icon-eye-close');
-			var span = $('#image-'+data.id+' a.toggle span').text();
-			$('#image-'+data.id+' a.toggle span').text(span == 'Synlig' ? 'Dold' : 'Synlig');
+			$('#image-'+data.id+' button.toggle').toggleClass('btn-success');
+			$('#image-'+data.id+' button.toggle i').toggleClass('icon-eye-open').toggleClass('icon-eye-close');
+			var span = $('#image-'+data.id+' button.toggle span').text();
+			$('#image-'+data.id+' button.toggle span').text(span == 'Synlig' ? 'Dold' : 'Synlig');
 		},
 		"json"
 	);
