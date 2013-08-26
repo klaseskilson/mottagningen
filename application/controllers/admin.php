@@ -491,7 +491,7 @@ class Admin extends CI_controller
 				return false;
 				break;
 			default:
-				$data['limit'] = 36;
+				$data['limit'] = 60;
 				$data['images'] = $this->Image_model->get_all('*', $data['limit'], $page);
 				$data['page'] = $page+1;
 				$data['countall'] = $this->Image_model->count_all();
