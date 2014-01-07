@@ -98,13 +98,20 @@ class Sida extends CI_Controller {
 
 		$data['page'] = abs(intval($page));
 		$data['total'] = $this->Image_model->count_all(1);
-		$data['limit'] = 120;
+		$data['limit'] = 12;
 		$data['images'] = $this->Image_model->get_all_public('filename, date', $data['limit'], $data['page']-1);
 		$data['totalpages'] = ceil($data['total']/$data['limit']);
 
-		if(!isset($_GET['ajax'])) $this->load->view('templates/header', $data);
-		$this->load->view('images', $data);
-		if(!isset($_GET['ajax'])) $this->load->view('templates/footer', $data);
+		if(!isset($_GET['ajax']))
+		{
+			$this->load->view('templates/header', $data);
+			$this->load->view('images', $data);
+			$this->load->view('templates/footer', $data);
+		}
+		else
+		{
+			$this->load->view('images_ajax', $data);
+		}
 	}
 }
 
