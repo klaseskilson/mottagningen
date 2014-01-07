@@ -1,6 +1,6 @@
 # Mottagningen
 
-This is a very simple and LiU-adapted CMS. It was created by me to provide the committee for the introduction weeks for two programs -- Master of science in Engineering focusing on computer science and media technology and the bachelor's programme in graphic design and communication -- at Linköping University in Norrköping.
+This is a very simple and LiU-adapted CMS. It was created by me to provide the committee for the introduction weeks for two programs -- Master of science in Engineering focusing on computer science and media technology and the bachelor's programme in graphic design and communication -- at Linköping University in Norrköping with a way to share information and publish images.
 
 
 ### Disclaimer
