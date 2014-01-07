@@ -35,8 +35,8 @@
 </div><!-- #container -->
 
 <!-- legionens animationer, hurra! http://bigassmessage.com/83502 -->
-<script src="/web/js/animate.js"></script>
-<script src="/script/ads/leg/script.js" type="text/javascript"></script>
+<script src="<?php echo base_url(); ?>web/js/animate.js"></script>
+<script src="<?php echo base_url(); ?>script/ads/leg/script.js" type="text/javascript"></script>
 <script>
 	init();
 	initads("adswrapper");
@@ -58,7 +58,7 @@
 	}
 	?>
 </script>
-<script type="text/javascript" src="/web/js/tweets.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>web/js/tweets.js"></script>
 </body>
 </html>
 <!-- Legionen kastade ihop sidan på {elapsed_time} sekunder. BARA FÖR DIG! Man skulle kanske kunna säga att legionen är snäll. -->

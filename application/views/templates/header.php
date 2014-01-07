@@ -9,23 +9,23 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="og:description" content="Legionen – Nollans beskyddare. Legionen är GDK- och MT-sektionernas phadderi på Tekniska högskolan vid Linköpings Universitet, Campus Norrköping."/>
-	<meta property="og:image" content="http://legionen.nu/web/img/ogimage.jpg"/>
+	<meta property="og:image" content="<?php echo base_url(); ?>web/img/ogimage.jpg"/>
 	<meta property="og:title" content="Legionen – Nollans beskyddare - legionen.nu"/>
 	<meta name="description" content="Legionen – Nollans beskyddare. Legionen är GDK- och MT-sektionernas phadderi på Tekniska högskolan vid Linköpings Universitet, Campus Norrköping." />
 
 	<title>Legionen <?php echo isset($title) ? $title : '&ndash; Nollans beskyddare'; ?></title>
 
 	<!-- Legionen laddar Bootstrap, för det är swag -->
-	<link rel="stylesheet" href="/web/css/vendor/bootstrap.min.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="/web/css/vendor/bootstrap-responsive.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>web/css/vendor/bootstrap.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>web/css/vendor/bootstrap-responsive.min.css" type="text/css" media="screen" />
 	<!-- Legionen laddar sin egna stil, för den är så jäääävla B R A. -->
-	<link rel="stylesheet" href="/web/css/style.min.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php echo base_url(); ?>web/css/style.min.css" type="text/css" media="screen" />
 	<!-- Åååååh, så fejnt det kan bli på hemskärmen -->
-	<link href="/web/img/apple-touch-icon.png" rel="apple-touch-icon" />
-	<link href="/web/img/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
-	<link href="/web/img/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
-	<link href="/web/img/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
-	<link rel="icon" type="image/png" href="/web/img/favicon.png">
+	<link href="<?php echo base_url(); ?>web/img/apple-touch-icon.png" rel="apple-touch-icon" />
+	<link href="<?php echo base_url(); ?>web/img/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
+	<link href="<?php echo base_url(); ?>web/img/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
+	<link href="<?php echo base_url(); ?>web/img/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
+	<link rel="icon" type="image/png" href="<?php echo base_url(); ?>/web/img/favicon.png">
 
 	<script>
 	var sunrise = <?php echo /*strtotime("2013-06-25 18:01")*/ $sunrise; ?>%86400,
