@@ -7,3 +7,5 @@ web/script/cache/*
 
 # dont care about the ads
 web/ads/*
+
+application/config/database_legionen.php
